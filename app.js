@@ -1113,8 +1113,63 @@ function loadUserFromFirebase(uid) {
                 initFriendsSystem();
                 updateXPDisplay();
                 updateRankDisplay();
+
+                // Listen for game invitations
+                listenForGameInvites(uid);
             }
         });
+}
+
+function listenForGameInvites(uid) {
+    if (!window.firebaseDB) return;
+
+    const invitesRef = window.firebaseDB.ref('users/' + uid + '/gameInvites');
+    invitesRef.on('child_added', (snapshot) => {
+        const invite = snapshot.val();
+        if (invite && Date.now() - invite.timestamp < 60000) {
+            // Invite is less than 1 minute old
+            showGameInviteModal(invite, snapshot.key);
+        }
+        // Clean up old invite
+        snapshot.ref.remove();
+    });
+}
+
+function showGameInviteModal(invite, inviteKey) {
+    // Create invite modal if it doesn't exist
+    let modal = document.getElementById('invite-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'invite-modal';
+        modal.className = 'modal';
+        modal.innerHTML = `
+            <div class="modal-overlay" onclick="hideInviteModal()"></div>
+            <div class="modal-box modal-sm">
+                <h3 style="margin-bottom: 1rem;">🎮 Invitation</h3>
+                <p id="invite-message" style="margin-bottom: 1.5rem;"></p>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn btn-secondary" onclick="hideInviteModal()" style="flex: 1;">Refuser</button>
+                    <button class="btn btn-primary" id="accept-invite-btn" style="flex: 1;">Rejoindre</button>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(modal);
+    }
+
+    document.getElementById('invite-message').textContent = `${invite.hostName} t'invite à rejoindre sa partie !`;
+    document.getElementById('accept-invite-btn').onclick = () => {
+        hideInviteModal();
+        document.getElementById('join-code').value = invite.code;
+        joinMpGame();
+    };
+
+    modal.classList.remove('hidden');
+    playSuccessSound();
+}
+
+function hideInviteModal() {
+    const modal = document.getElementById('invite-modal');
+    if (modal) modal.classList.add('hidden');
 }
 
 function loadUserData(uid) {
@@ -2665,16 +2720,36 @@ function setupGameListeners() {
     });
     mpState.listeners.push(() => playersRef.off('value', playersListener));
 
+    // Listen for game settings changes (for non-host players in lobby)
+    if (!mpState.isHost) {
+        const settingsFields = ['game', 'category', 'timePerQuestion', 'rounds', 'maxPlayers'];
+        settingsFields.forEach(field => {
+            const fieldListener = mpState.gameRef.child(field).on('value', (snapshot) => {
+                const value = snapshot.val();
+                if (value !== null && value !== mpState[field]) {
+                    mpState[field] = value;
+                    updateLobbyUI();
+                }
+            });
+            mpState.listeners.push(() => mpState.gameRef.child(field).off('value', fieldListener));
+        });
+    }
+
     // Listen for game status changes
     const statusListener = mpState.gameRef.child('status').on('value', (snapshot) => {
         const status = snapshot.val();
         if (status === 'playing') {
             mpState.gameStarted = true;
             if (!mpState.isHost) {
-                // Game started by host
+                // Game started by host - fetch ALL game data including game type
                 mpState.gameRef.once('value').then((snap) => {
                     const game = snap.val();
                     if (game.questions) {
+                        // Update all game settings from Firebase
+                        mpState.game = game.game || mpState.game;
+                        mpState.category = game.category || mpState.category;
+                        mpState.timePerQuestion = game.timePerQuestion || mpState.timePerQuestion;
+                        mpState.rounds = game.rounds || mpState.rounds;
                         mpState.questions = game.questions;
                         mpState.currentRound = game.currentRound || 0;
                         stopBgMusic();
@@ -2687,6 +2762,16 @@ function setupGameListeners() {
             // Host reset the game (change theme)
             mpState.gameStarted = false;
             if (!mpState.isHost) {
+                // Also update game settings when returning to lobby
+                mpState.gameRef.once('value').then((snap) => {
+                    const game = snap.val();
+                    if (game) {
+                        mpState.game = game.game || mpState.game;
+                        mpState.category = game.category || mpState.category;
+                        mpState.timePerQuestion = game.timePerQuestion || mpState.timePerQuestion;
+                        mpState.rounds = game.rounds || mpState.rounds;
+                    }
+                });
                 showScreen('multiplayer-lobby');
                 showToast('L\'hôte a changé les paramètres', 'info');
             }
@@ -2710,6 +2795,40 @@ function setupGameListeners() {
         }
     });
     mpState.listeners.push(() => mpState.gameRef.child('currentRound').off('value', roundListener));
+
+    // Listen for game deletion (host left)
+    if (!mpState.isHost) {
+        const gameExistsListener = mpState.gameRef.on('value', (snapshot) => {
+            if (!snapshot.exists()) {
+                // Game was deleted - host left
+                mpState.listeners.forEach(unsub => unsub());
+                mpState.listeners = [];
+                mpState.gameRef = null;
+                mpState.code = null;
+                mpState.gameStarted = false;
+                showScreen('home-screen');
+                showToast('L\'hôte a quitté la partie', 'error');
+                resumeBgMusic();
+            }
+        });
+        mpState.listeners.push(() => mpState.gameRef?.off('value', gameExistsListener));
+
+        // Listen for being kicked
+        const kickedRef = window.firebaseDB.ref('games/' + mpState.code + '/kicked/' + mpState.myId);
+        const kickedListener = kickedRef.on('value', (snapshot) => {
+            if (snapshot.val() === true) {
+                mpState.listeners.forEach(unsub => unsub());
+                mpState.listeners = [];
+                mpState.gameRef = null;
+                mpState.code = null;
+                mpState.gameStarted = false;
+                showScreen('home-screen');
+                showToast('Vous avez été expulsé de la partie', 'error');
+                resumeBgMusic();
+            }
+        });
+        mpState.listeners.push(() => kickedRef.off('value', kickedListener));
+    }
 
     // Setup chat listener
     clearChat();
@@ -2738,6 +2857,7 @@ function updateLobbyUI() {
             </div>
             <span class="lobby-player-name">${p.name}</span>
             ${p.isHost ? '<span class="lobby-player-host">👑 Hôte</span>' : ''}
+            ${mpState.isHost && !p.isHost ? `<button class="kick-btn" onclick="kickPlayer('${p.id}')" title="Expulser">✕</button>` : ''}
         </div>
     `).join('');
 
@@ -2760,7 +2880,9 @@ function copyLobbyCode() {
 }
 
 function shareLobbyLink() {
-    const url = `${window.location.origin}?join=${mpState.code}`;
+    // Get the base URL including the path (for GitHub Pages subdirectory)
+    const basePath = window.location.pathname.replace(/\/[^\/]*$/, '');
+    const url = `${window.location.origin}${basePath}/?join=${mpState.code}`;
     const text = `🎮 Rejoins ma partie VKGames !\nCode: ${mpState.code}\n${url}`;
 
     // Always copy to clipboard
@@ -2826,6 +2948,20 @@ function leaveLobby() {
     mpState.code = null;
     showScreen('home-screen');
     showToast('Partie quittée', 'success');
+}
+
+function kickPlayer(playerId) {
+    if (!mpState.isHost || !mpState.gameRef) return;
+
+    const player = mpState.players.find(p => p.id === playerId);
+    if (!player || player.isHost) return;
+
+    // Remove player from Firebase and mark as kicked
+    mpState.gameRef.child('players/' + playerId).remove();
+    mpState.gameRef.child('kicked/' + playerId).set(true);
+
+    playClickSound();
+    showToast(`${player.name} a été expulsé`, 'success');
 }
 
 function startMpGame() {
@@ -3126,7 +3262,7 @@ function endMpGame() {
         const medals = ['🥇', '🥈', '🥉'];
         return `
             <div class="mp-podium-place">
-                <div class="mp-podium-avatar">${p.avatar ? '👤' : '👤'}</div>
+                <div class="mp-podium-avatar">${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}</div>
                 <div class="mp-podium-name">${p.name}</div>
                 <div class="mp-podium-score">${mpState.scores[p.id] || 0} pts</div>
                 <div class="mp-podium-stand">${medals[realPosition - 1] || realPosition}</div>
