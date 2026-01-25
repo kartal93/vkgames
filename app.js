@@ -2936,7 +2936,7 @@ function updateLobbyUI() {
     playersList.innerHTML = mpState.players.map(p => `
         <div class="lobby-player ${p.isHost ? 'host' : ''}">
             <div class="lobby-player-avatar">
-                ${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}
+                ${p.avatar ? `<img src="${p.avatar}" alt="" onerror="this.style.display='none';this.parentNode.innerHTML='👤';">` : '👤'}
             </div>
             <span class="lobby-player-name">${p.name}</span>
             ${p.isHost ? '<span class="lobby-player-host">👑 Hôte</span>' : ''}
@@ -3154,7 +3154,7 @@ function updateMpScoreboard() {
         const isCurrent = p.id === (state.user?.id || mpState.players[0].id);
         return `
             <div class="mp-score-mini ${isCurrent ? 'current' : ''}">
-                <div class="mp-score-avatar">${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}</div>
+                <div class="mp-score-avatar">${p.avatar ? `<img src="${p.avatar}" alt="" onerror="this.style.display='none';this.parentNode.innerHTML='👤';">` : '👤'}</div>
                 <span>${p.name.substring(0, 8)}</span>
                 <strong>${mpState.scores[p.id] || 0}</strong>
             </div>
@@ -3175,7 +3175,7 @@ function updatePlayersStatus() {
         return `
             <div class="mp-player-status ${statusClass}">
                 <div class="mp-player-status-avatar">
-                    ${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}
+                    ${p.avatar ? `<img src="${p.avatar}" alt="" onerror="this.style.display='none';this.parentNode.innerHTML='👤';">` : '👤'}
                 </div>
                 <span>${p.name.substring(0, 6)}</span>
                 <span class="status-icon">${statusIcon}</span>
@@ -3355,9 +3355,10 @@ function endMpGame() {
     podium.innerHTML = podiumOrder.slice(0, 3).map((p, i) => {
         const realPosition = sorted.indexOf(p) + 1;
         const medals = ['🥇', '🥈', '🥉'];
+        const positionClass = realPosition === 1 ? 'first' : realPosition === 2 ? 'second' : 'third';
         return `
-            <div class="mp-podium-place">
-                <div class="mp-podium-avatar">${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}</div>
+            <div class="mp-podium-place ${positionClass}">
+                <div class="mp-podium-avatar">${p.avatar ? `<img src="${p.avatar}" alt="" onerror="this.style.display='none';this.parentNode.innerHTML='👤';">` : '👤'}</div>
                 <div class="mp-podium-name">${p.name}</div>
                 <div class="mp-podium-score">${mpState.scores[p.id] || 0} pts</div>
                 <div class="mp-podium-stand">${medals[realPosition - 1] || realPosition}</div>
@@ -3370,7 +3371,7 @@ function endMpGame() {
     ranking.innerHTML = sorted.slice(3).map((p, i) => `
         <div class="mp-rank-row">
             <span class="mp-rank-position">${i + 4}</span>
-            <div class="mp-rank-avatar">${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}</div>
+            <div class="mp-rank-avatar">${p.avatar ? `<img src="${p.avatar}" alt="" onerror="this.style.display='none';this.parentNode.innerHTML='👤';">` : '👤'}</div>
             <span class="mp-rank-name">${p.name}</span>
             <span class="mp-rank-score">${mpState.scores[p.id] || 0} pts</span>
         </div>
@@ -3434,6 +3435,7 @@ function mpChangeTheme() {
     mpState.players.forEach(p => {
         updates['players/' + p.id + '/score'] = 0;
         updates['players/' + p.id + '/answered'] = false;
+        updates['players/' + p.id + '/answerStatus'] = null;
     });
 
     mpState.gameRef.update(updates).then(() => {
@@ -5189,6 +5191,31 @@ function initNewFeatures() {
     setInterval(updateChallengesTimer, 60000);
 }
 
+// ===== Cleanup Old Games =====
+function cleanupOldGames() {
+    if (!window.firebaseDB) return;
+
+    const fiveMinutesAgo = Date.now() - (5 * 60 * 1000); // 5 minutes
+
+    window.firebaseDB.ref('games').once('value').then((snapshot) => {
+        const games = snapshot.val();
+        if (!games) return;
+
+        Object.entries(games).forEach(([code, game]) => {
+            // Delete games older than 5 minutes that are still waiting
+            if (game.status === 'waiting' && game.createdAt < fiveMinutesAgo) {
+                window.firebaseDB.ref('games/' + code).remove();
+                console.log('Cleaned up old game:', code);
+            }
+            // Delete finished games older than 10 minutes
+            if (game.status === 'finished' && game.createdAt < (Date.now() - 10 * 60 * 1000)) {
+                window.firebaseDB.ref('games/' + code).remove();
+                console.log('Cleaned up finished game:', code);
+            }
+        });
+    });
+}
+
 // ===== Start =====
 document.addEventListener('DOMContentLoaded', () => {
     init();
@@ -5198,4 +5225,8 @@ document.addEventListener('DOMContentLoaded', () => {
     checkJoinCode();
     scheduleFirebaseSync();
     loadHomePublicGames();
+
+    // Cleanup old games on load and every 2 minutes
+    cleanupOldGames();
+    setInterval(cleanupOldGames, 2 * 60 * 1000);
 });
