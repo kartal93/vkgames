@@ -660,6 +660,13 @@ function init() {
     document.getElementById('save-social')?.addEventListener('click', saveSocialLinks);
     document.getElementById('clear-reports')?.addEventListener('click', clearReports);
 
+    // Report subtabs
+    document.querySelectorAll('.report-subtab').forEach(tab => {
+        tab.addEventListener('click', () => switchReportSubtab(tab.dataset.subtab));
+    });
+    document.getElementById('refresh-player-reports')?.addEventListener('click', loadPlayerReports);
+    document.getElementById('clear-player-reports')?.addEventListener('click', clearPlayerReports);
+
     // Report
     document.getElementById('report-btn')?.addEventListener('click', showReportModal);
     document.getElementById('close-report')?.addEventListener('click', hideReportModal);
@@ -1564,6 +1571,116 @@ function clearReports() {
         loadReports();
         showToast('Signalements effacés', 'success');
     }
+}
+
+// ===== Report Subtabs & Player Reports =====
+function switchReportSubtab(subtab) {
+    document.querySelectorAll('.report-subtab').forEach(t => t.classList.remove('active'));
+    document.querySelector(`.report-subtab[data-subtab="${subtab}"]`)?.classList.add('active');
+
+    document.querySelectorAll('.reports-section').forEach(s => s.classList.add('hidden'));
+    document.getElementById(`section-${subtab}`)?.classList.remove('hidden');
+
+    if (subtab === 'players') {
+        loadPlayerReports();
+    }
+}
+
+function loadPlayerReports() {
+    const container = document.getElementById('player-reports-list');
+    if (!container) return;
+
+    if (!window.firebaseDB) {
+        container.innerHTML = '<div class="reports-empty">Firebase non connecté</div>';
+        return;
+    }
+
+    container.innerHTML = '<div class="reports-empty">Chargement...</div>';
+
+    window.firebaseDB.ref('playerReports').orderByChild('timestamp').once('value').then(snapshot => {
+        const reports = snapshot.val();
+
+        if (!reports || Object.keys(reports).length === 0) {
+            container.innerHTML = '<div class="reports-empty">Aucun joueur signalé</div>';
+            return;
+        }
+
+        const reasonLabels = {
+            'triche': 'Triche',
+            'insultes': 'Insultes',
+            'spam': 'Spam',
+            'autre': 'Autre'
+        };
+
+        const reportsArray = Object.entries(reports).map(([id, r]) => ({ id, ...r }));
+        reportsArray.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
+
+        container.innerHTML = reportsArray.map(report => {
+            const date = report.timestamp ? new Date(report.timestamp).toLocaleDateString('fr-FR') : 'Date inconnue';
+            const reason = reasonLabels[report.reason] || report.reason || 'Non spécifié';
+
+            return `
+                <div class="player-report-card">
+                    <div class="player-report-header">
+                        <span class="player-report-user">
+                            <span>⚠️</span>
+                            ${escapeHtml(report.reportedUsername || report.reportedUser)}
+                        </span>
+                        <span class="player-report-reason">${reason}</span>
+                    </div>
+                    <div class="player-report-info">
+                        Signalé par: ${escapeHtml(report.reporterUsername || 'Anonyme')} - ${date}
+                    </div>
+                    <div class="player-report-actions">
+                        <button class="btn-secondary btn-sm" onclick="viewPlayerProfile('${report.reportedUser}')">Voir profil</button>
+                        <button class="btn-danger btn-sm" onclick="deletePlayerReport('${report.id}')">Supprimer</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }).catch(err => {
+        console.error('Error loading player reports:', err);
+        container.innerHTML = '<div class="reports-empty">Erreur de chargement</div>';
+    });
+}
+
+function deletePlayerReport(reportId) {
+    if (!window.firebaseDB) return;
+
+    if (confirm('Supprimer ce signalement ?')) {
+        window.firebaseDB.ref('playerReports/' + reportId).remove().then(() => {
+            showToast('Signalement supprimé', 'success');
+            loadPlayerReports();
+        }).catch(() => {
+            showToast('Erreur lors de la suppression', 'error');
+        });
+    }
+}
+
+function clearPlayerReports() {
+    if (!window.firebaseDB) return;
+
+    if (confirm('Effacer tous les signalements de joueurs ?')) {
+        window.firebaseDB.ref('playerReports').remove().then(() => {
+            showToast('Tous les signalements effacés', 'success');
+            loadPlayerReports();
+        }).catch(() => {
+            showToast('Erreur lors de la suppression', 'error');
+        });
+    }
+}
+
+function viewPlayerProfile(userId) {
+    if (!window.firebaseDB) return;
+
+    window.firebaseDB.ref('users/' + userId).once('value').then(snapshot => {
+        const user = snapshot.val();
+        if (user) {
+            alert(`Profil de ${user.username || userId}\n\nNiveau: ${user.level || 1}\nXP Total: ${user.totalXp || 0}\nParties jouées: ${user.gamesPlayed || 0}`);
+        } else {
+            showToast('Utilisateur non trouvé', 'error');
+        }
+    });
 }
 
 function escapeHtml(text) {
@@ -4250,30 +4367,30 @@ function reportFriend(friendId) {
     const friend = friendsState.friends.find(f => f.id === friendId);
     if (!friend) return;
 
-    // Create report modal
-    let reportModal = document.getElementById('report-modal');
+    // Create player report modal (different from bug report modal)
+    let reportModal = document.getElementById('player-report-modal');
     if (!reportModal) {
         reportModal = document.createElement('div');
-        reportModal.id = 'report-modal';
+        reportModal.id = 'player-report-modal';
         reportModal.className = 'modal';
         document.body.appendChild(reportModal);
     }
 
     reportModal.innerHTML = `
-        <div class="modal-overlay" onclick="hideReportModal()"></div>
+        <div class="modal-overlay" onclick="hidePlayerReportModal()"></div>
         <div class="modal-box modal-sm">
             <h3 style="margin-bottom: 1rem;">🚩 Signaler ${friend.username}</h3>
             <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
                 Pourquoi signalez-vous cet utilisateur ?
             </p>
             <div class="report-options">
-                <button class="report-option" onclick="submitReport('${friendId}', 'spam')">Spam</button>
-                <button class="report-option" onclick="submitReport('${friendId}', 'harassment')">Harcèlement</button>
-                <button class="report-option" onclick="submitReport('${friendId}', 'inappropriate')">Contenu inapproprié</button>
-                <button class="report-option" onclick="submitReport('${friendId}', 'cheating')">Triche</button>
-                <button class="report-option" onclick="submitReport('${friendId}', 'other')">Autre</button>
+                <button class="report-option" onclick="submitPlayerReport('${friendId}', 'spam')">Spam</button>
+                <button class="report-option" onclick="submitPlayerReport('${friendId}', 'harassment')">Harcèlement</button>
+                <button class="report-option" onclick="submitPlayerReport('${friendId}', 'inappropriate')">Contenu inapproprié</button>
+                <button class="report-option" onclick="submitPlayerReport('${friendId}', 'cheating')">Triche</button>
+                <button class="report-option" onclick="submitPlayerReport('${friendId}', 'other')">Autre</button>
             </div>
-            <button class="btn btn-secondary" onclick="hideReportModal()" style="width: 100%; margin-top: 1rem;">Annuler</button>
+            <button class="btn btn-secondary" onclick="hidePlayerReportModal()" style="width: 100%; margin-top: 1rem;">Annuler</button>
         </div>
     `;
 
@@ -4281,12 +4398,12 @@ function reportFriend(friendId) {
     hideFriendProfile();
 }
 
-function hideReportModal() {
-    const modal = document.getElementById('report-modal');
+function hidePlayerReportModal() {
+    const modal = document.getElementById('player-report-modal');
     if (modal) modal.classList.add('hidden');
 }
 
-function submitReport(friendId, reason) {
+function submitPlayerReport(friendId, reason) {
     if (!window.firebaseDB || !state.user) {
         showToast('Erreur lors du signalement', 'error');
         return;
@@ -4294,7 +4411,7 @@ function submitReport(friendId, reason) {
 
     const friend = friendsState.friends.find(f => f.id === friendId);
 
-    window.firebaseDB.ref('reports').push({
+    window.firebaseDB.ref('playerReports').push({
         reportedUser: friendId,
         reportedUsername: friend?.username || 'Unknown',
         reportedBy: state.user.id,
@@ -4302,7 +4419,7 @@ function submitReport(friendId, reason) {
         reason: reason,
         timestamp: Date.now()
     }).then(() => {
-        hideReportModal();
+        hidePlayerReportModal();
         showToast('Signalement envoyé. Merci !', 'success');
     }).catch(() => {
         showToast('Erreur lors du signalement', 'error');

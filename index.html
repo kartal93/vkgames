@@ -1181,14 +1181,33 @@
                 <!-- Reports Tab -->
                 <div class="admin-panel hidden" id="panel-reports">
                     <h3>Signalements</h3>
-                    <p class="admin-desc">Voir les problèmes signalés par les utilisateurs</p>
 
-                    <div class="reports-list" id="reports-list">
-                        <div class="reports-empty">Aucun signalement pour le moment</div>
+                    <div class="reports-subtabs">
+                        <button class="report-subtab active" data-subtab="bugs">Bugs & Suggestions</button>
+                        <button class="report-subtab" data-subtab="players">Joueurs signalés</button>
                     </div>
 
-                    <div class="reports-actions">
-                        <button class="btn-danger btn-sm" id="clear-reports">Effacer tous les signalements</button>
+                    <!-- Bug Reports Section -->
+                    <div class="reports-section" id="section-bugs">
+                        <p class="admin-desc">Problèmes signalés par les utilisateurs</p>
+                        <div class="reports-list" id="reports-list">
+                            <div class="reports-empty">Aucun signalement pour le moment</div>
+                        </div>
+                        <div class="reports-actions">
+                            <button class="btn-danger btn-sm" id="clear-reports">Effacer tous les signalements</button>
+                        </div>
+                    </div>
+
+                    <!-- Player Reports Section -->
+                    <div class="reports-section hidden" id="section-players">
+                        <p class="admin-desc">Joueurs signalés par la communauté</p>
+                        <div class="reports-list" id="player-reports-list">
+                            <div class="reports-empty">Aucun joueur signalé</div>
+                        </div>
+                        <div class="reports-actions">
+                            <button class="btn-secondary btn-sm" id="refresh-player-reports">Actualiser</button>
+                            <button class="btn-danger btn-sm" id="clear-player-reports">Effacer tout</button>
+                        </div>
                     </div>
                 </div>
 

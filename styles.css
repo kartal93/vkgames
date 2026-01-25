@@ -2529,6 +2529,86 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
     overflow-y: auto;
 }
 
+.reports-subtabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    background: var(--bg-tertiary);
+    border-radius: var(--radius-md);
+}
+
+.report-subtab {
+    flex: 1;
+    padding: 0.6rem 1rem;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.report-subtab:hover {
+    color: var(--text-primary);
+}
+
+.report-subtab.active {
+    background: var(--accent);
+    color: white;
+}
+
+.reports-section {
+    margin-top: 1rem;
+}
+
+.player-report-card {
+    padding: 1rem;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    margin-bottom: 0.75rem;
+}
+
+.player-report-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.player-report-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    color: var(--danger);
+}
+
+.player-report-reason {
+    display: inline-flex;
+    padding: 0.2rem 0.6rem;
+    background: rgba(239, 68, 68, 0.15);
+    border: 1px solid var(--danger);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    color: var(--danger);
+    text-transform: uppercase;
+}
+
+.player-report-info {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.player-report-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
 .reports-empty {
     padding: 2rem;
     text-align: center;
