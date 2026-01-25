@@ -2416,6 +2416,12 @@ function initMultiplayer() {
         loadPublicGames();
     });
 
+    // Refresh home public games button
+    document.getElementById('refresh-home-games')?.addEventListener('click', () => {
+        playClickSound();
+        loadHomePublicGames();
+    });
+
     // Create game
     document.getElementById('create-mp-game')?.addEventListener('click', createMpGame);
 
@@ -2531,6 +2537,68 @@ function loadPublicGames() {
         });
 }
 
+function loadHomePublicGames() {
+    const listEl = document.getElementById('home-public-games-list');
+    if (!listEl || !window.firebaseDB) {
+        if (listEl) listEl.innerHTML = '<p class="no-games">Connecte-toi pour voir les parties</p>';
+        return;
+    }
+
+    listEl.innerHTML = '<p class="no-games">Chargement...</p>';
+
+    // Get all public games that are waiting for players
+    window.firebaseDB.ref('games').orderByChild('visibility').equalTo('public').once('value')
+        .then((snapshot) => {
+            const games = snapshot.val();
+            if (!games) {
+                listEl.innerHTML = '<p class="no-games">Aucune partie en cours</p>';
+                return;
+            }
+
+            // Filter only waiting games that aren't full
+            const availableGames = Object.values(games).filter(g => {
+                if (g.status !== 'waiting') return false;
+                const playerCount = g.players ? Object.keys(g.players).length : 0;
+                return playerCount < g.maxPlayers;
+            });
+
+            if (availableGames.length === 0) {
+                listEl.innerHTML = '<p class="no-games">Aucune partie en cours</p>';
+                return;
+            }
+
+            // Show max 4 games on home
+            listEl.innerHTML = availableGames.slice(0, 4).map(game => {
+                const config = gameConfigs[game.game];
+                const playerCount = game.players ? Object.keys(game.players).length : 0;
+                const hostPlayer = game.players ? Object.values(game.players).find(p => p.isHost) : null;
+
+                return `
+                    <div class="public-game-card home-game-card">
+                        <div class="public-game-info">
+                            <div class="public-game-title">
+                                ${config?.icon || '🎮'} ${config?.title || game.game}
+                            </div>
+                            <div class="public-game-details">
+                                Hôte: ${hostPlayer?.name || 'Inconnu'}
+                            </div>
+                        </div>
+                        <div class="public-game-players">
+                            👥 ${playerCount}/${game.maxPlayers}
+                        </div>
+                        <button class="public-game-join" onclick="joinMpGame('${game.code}')">
+                            Rejoindre
+                        </button>
+                    </div>
+                `;
+            }).join('');
+        })
+        .catch((error) => {
+            console.error('Erreur chargement parties:', error);
+            listEl.innerHTML = '<p class="no-games">Erreur de chargement</p>';
+        });
+}
+
 function generateGameCode() {
     const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
     let code = '';
@@ -2621,6 +2689,16 @@ function joinMpGame(code) {
         return;
     }
 
+    // Get code from input if not provided
+    if (!code) {
+        code = document.getElementById('join-code')?.value;
+    }
+
+    if (!code) {
+        showToast('Code invalide', 'error');
+        return;
+    }
+
     code = code.toUpperCase();
     mpState.gameRef = window.firebaseDB.ref('games/' + code);
 
@@ -2685,6 +2763,9 @@ function joinMpGame(code) {
 
 function setupGameListeners() {
     if (!mpState.gameRef) return;
+
+    // Update presence to show we're in a game
+    updatePresenceGame(mpState.code);
 
     // Clear old listeners
     mpState.listeners.forEach(unsub => unsub());
@@ -2806,6 +2887,7 @@ function setupGameListeners() {
                 mpState.gameRef = null;
                 mpState.code = null;
                 mpState.gameStarted = false;
+                updatePresenceGame(null);
                 showScreen('home-screen');
                 showToast('L\'hôte a quitté la partie', 'error');
                 resumeBgMusic();
@@ -2822,6 +2904,7 @@ function setupGameListeners() {
                 mpState.gameRef = null;
                 mpState.code = null;
                 mpState.gameStarted = false;
+                updatePresenceGame(null);
                 showScreen('home-screen');
                 showToast('Vous avez été expulsé de la partie', 'error');
                 resumeBgMusic();
@@ -2944,6 +3027,9 @@ function leaveLobby() {
         }
     }
 
+    // Clear presence game
+    updatePresenceGame(null);
+
     mpState.gameRef = null;
     mpState.code = null;
     showScreen('home-screen');
@@ -3003,6 +3089,7 @@ function startMpGame() {
     mpState.players.forEach(p => {
         updates['players/' + p.id + '/score'] = 0;
         updates['players/' + p.id + '/answered'] = false;
+        updates['players/' + p.id + '/answerStatus'] = null;
     });
 
     mpState.gameRef.update(updates).then(() => {
@@ -3080,14 +3167,18 @@ function updatePlayersStatus() {
     if (!statusEl) return;
 
     statusEl.innerHTML = mpState.players.map(p => {
-        const hasAnswered = mpState.answered[p.id] || false;
+        const answerStatus = p.answerStatus || null; // 'correct', 'wrong', or null
+        const hasAnswered = answerStatus !== null;
+        const statusClass = hasAnswered ? (answerStatus === 'correct' ? 'correct' : 'wrong') : 'waiting';
+        const statusIcon = hasAnswered ? (answerStatus === 'correct' ? '✓' : '✗') : '...';
+
         return `
-            <div class="mp-player-status ${hasAnswered ? 'answered' : 'waiting'}">
+            <div class="mp-player-status ${statusClass}">
                 <div class="mp-player-status-avatar">
                     ${p.avatar ? `<img src="${p.avatar}" alt="">` : '👤'}
                 </div>
                 <span>${p.name.substring(0, 6)}</span>
-                <span>${hasAnswered ? '✓' : '...'}</span>
+                <span class="status-icon">${statusIcon}</span>
             </div>
         `;
     }).join('');
@@ -3151,11 +3242,12 @@ function checkMpAnswer(btn, correct) {
         playErrorSound();
     }
 
-    // Update score in Firebase
+    // Update score and answer status in Firebase
     if (mpState.gameRef) {
         mpState.gameRef.child('players/' + mpState.myId).update({
             score: mpState.scores[mpState.myId] || 0,
-            answered: true
+            answered: true,
+            answerStatus: isCorrect ? 'correct' : 'wrong'
         });
     }
 
@@ -3183,6 +3275,7 @@ function proceedToNextRound() {
         const updates = { currentRound: nextRound };
         mpState.players.forEach(p => {
             updates['players/' + p.id + '/answered'] = false;
+            updates['players/' + p.id + '/answerStatus'] = null;
         });
         mpState.gameRef.update(updates);
     }
@@ -3205,7 +3298,8 @@ function mpTimeUp() {
     // Update in Firebase
     if (mpState.gameRef) {
         mpState.gameRef.child('players/' + mpState.myId).update({
-            answered: true
+            answered: true,
+            answerStatus: 'wrong'
         });
     }
 
@@ -3244,6 +3338,7 @@ function showMpFeedback(isCorrect, points) {
 function endMpGame() {
     clearInterval(mpState.timerInterval);
     resumeBgMusic();
+    updatePresenceGame(null);
 
     // Save to history
     saveGameHistory();
@@ -3307,6 +3402,7 @@ function mpRematch() {
     mpState.players.forEach(p => {
         updates['players/' + p.id + '/score'] = 0;
         updates['players/' + p.id + '/answered'] = false;
+        updates['players/' + p.id + '/answerStatus'] = null;
     });
 
     mpState.gameRef.update(updates).then(() => {
@@ -3652,7 +3748,8 @@ function setupPresence() {
                 online: true,
                 lastSeen: Date.now(),
                 username: state.user.username,
-                avatar: state.user.avatar || null
+                avatar: state.user.avatar || null,
+                currentGame: null
             });
 
             // When we disconnect, update lastSeen
@@ -3660,7 +3757,8 @@ function setupPresence() {
                 online: false,
                 lastSeen: Date.now(),
                 username: state.user.username,
-                avatar: state.user.avatar || null
+                avatar: state.user.avatar || null,
+                currentGame: null
             });
         }
     });
@@ -3671,6 +3769,11 @@ function setupPresence() {
             myPresenceRef.update({ lastSeen: Date.now() });
         }
     }, 60000); // Every minute
+}
+
+function updatePresenceGame(gameCode) {
+    if (!window.firebaseDB || !state.user) return;
+    window.firebaseDB.ref('presence/' + state.user.id + '/currentGame').set(gameCode);
 }
 
 function loadFriends() {
@@ -3765,8 +3868,13 @@ function renderFriendsList() {
             friends = friends.filter(f => f.online);
         }
 
-        // Sort: online first, then by name
+        // Sort: favorites first, then online, then by name
+        const favorites = getFavorites();
         friends.sort((a, b) => {
+            const aFav = favorites.includes(a.id);
+            const bFav = favorites.includes(b.id);
+            if (aFav && !bFav) return -1;
+            if (!aFav && bFav) return 1;
             if (a.online && !b.online) return -1;
             if (!a.online && b.online) return 1;
             return (a.username || '').localeCompare(b.username || '');
@@ -3780,11 +3888,16 @@ function renderFriendsList() {
             }
         } else {
             html = friends.map(friend => {
-                const statusText = friend.online ? 'En ligne' : formatLastSeen(friend.lastSeen);
+                let statusText = friend.online ? 'En ligne' : formatLastSeen(friend.lastSeen);
+                if (friend.online && friend.currentGame) {
+                    statusText = '🎮 En partie';
+                }
                 const statusClass = friend.online ? 'online' : 'offline';
 
+                const isFavorite = getFavorites().includes(friend.id);
                 return `
-                    <div class="friend-card" onclick="inviteFriend('${friend.id}')">
+                    <div class="friend-card ${isFavorite ? 'favorite' : ''}" onclick="showFriendProfile('${friend.id}')">
+                        ${isFavorite ? '<span class="favorite-star">⭐</span>' : ''}
                         <div class="friend-avatar">
                             ${friend.avatar ? `<img src="${friend.avatar}" alt="">` : '👤'}
                             <span class="friend-status-dot ${statusClass}"></span>
@@ -3957,6 +4070,241 @@ function inviteFriend(friendId) {
             showToast('Cet ami n\'est pas en ligne', 'info');
         }
     }
+}
+
+// ===== Friend Profile =====
+function getFavorites() {
+    return JSON.parse(localStorage.getItem('vkgames_favorites') || '[]');
+}
+
+function toggleFavorite(friendId) {
+    let favorites = getFavorites();
+    if (favorites.includes(friendId)) {
+        favorites = favorites.filter(id => id !== friendId);
+        showToast('Retiré des favoris', 'success');
+    } else {
+        favorites.push(friendId);
+        showToast('Ajouté aux favoris', 'success');
+    }
+    localStorage.setItem('vkgames_favorites', JSON.stringify(favorites));
+    renderFriendsList();
+    // Update profile modal if open
+    const modal = document.getElementById('friend-profile-modal');
+    if (modal && !modal.classList.contains('hidden')) {
+        showFriendProfile(friendId);
+    }
+}
+
+function showFriendProfile(friendId) {
+    const friend = friendsState.friends.find(f => f.id === friendId);
+    if (!friend) return;
+
+    playClickSound();
+
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('friend-profile-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'friend-profile-modal';
+        modal.className = 'modal';
+        document.body.appendChild(modal);
+    }
+
+    const isFavorite = getFavorites().includes(friendId);
+    let statusText = friend.online ? 'En ligne' : formatLastSeen(friend.lastSeen);
+    const statusClass = friend.online ? 'online' : 'offline';
+
+    // Check if friend is in a game
+    const inGame = friend.currentGame || null;
+    if (friend.online && inGame) {
+        statusText = '🎮 En partie - Cliquez pour rejoindre';
+    }
+
+    // Build action buttons
+    let actionButtons = '';
+
+    // If we're in a lobby as host, show invite button
+    if (mpState.isHost && mpState.code && friend.online) {
+        actionButtons += `<button class="profile-action-btn primary" onclick="inviteFriend('${friendId}'); hideFriendProfile();">
+            📨 Inviter à ma partie
+        </button>`;
+    }
+
+    // If friend is in a game, show join button
+    if (inGame && friend.online) {
+        actionButtons += `<button class="profile-action-btn success" onclick="joinFriendGame('${friendId}')">
+            🎮 Rejoindre sa partie
+        </button>`;
+    }
+
+    modal.innerHTML = `
+        <div class="modal-overlay" onclick="hideFriendProfile()"></div>
+        <div class="modal-box" style="max-width: 380px;">
+            <button class="modal-close" onclick="hideFriendProfile()">✕</button>
+
+            <div class="friend-profile-header">
+                <div class="friend-profile-avatar">
+                    ${friend.avatar ? `<img src="${friend.avatar}" alt="">` : '👤'}
+                    <span class="friend-status-dot large ${statusClass}"></span>
+                </div>
+                <h3 class="friend-profile-name">${friend.username || 'Joueur'}</h3>
+                <p class="friend-profile-status ${statusClass}">${statusText}</p>
+            </div>
+
+            <div class="friend-profile-stats" id="friend-profile-stats">
+                <div class="profile-stat-loading">Chargement des stats...</div>
+            </div>
+
+            <div class="friend-profile-actions">
+                ${actionButtons}
+                <button class="profile-action-btn ${isFavorite ? 'warning' : 'secondary'}" onclick="toggleFavorite('${friendId}')">
+                    ${isFavorite ? '⭐ Retirer des favoris' : '☆ Ajouter aux favoris'}
+                </button>
+                <button class="profile-action-btn danger-outline" onclick="reportFriend('${friendId}')">
+                    🚩 Signaler
+                </button>
+            </div>
+        </div>
+    `;
+
+    modal.classList.remove('hidden');
+
+    // Load friend stats from Firebase
+    loadFriendStats(friendId);
+}
+
+function loadFriendStats(friendId) {
+    const statsEl = document.getElementById('friend-profile-stats');
+    if (!statsEl || !window.firebaseDB) {
+        statsEl.innerHTML = '<p class="no-stats">Stats non disponibles</p>';
+        return;
+    }
+
+    // Load user data
+    window.firebaseDB.ref('users/' + friendId).once('value').then(userSnap => {
+        const userData = userSnap.val() || {};
+
+        // Load XP data
+        window.firebaseDB.ref('userData/' + friendId + '/xp').once('value').then(xpSnap => {
+            const xpData = xpSnap.val() || {};
+
+            // Load game stats
+            window.firebaseDB.ref('userData/' + friendId + '/stats').once('value').then(statsSnap => {
+                const stats = statsSnap.val() || {};
+
+                const level = xpData.level || 1;
+                const xp = xpData.xp || 0;
+                const gamesPlayed = stats.gamesPlayed || 0;
+                const wins = stats.wins || 0;
+                const winRate = gamesPlayed > 0 ? Math.round((wins / gamesPlayed) * 100) : 0;
+
+                // Get rank
+                const rank = rankConfig.slice().reverse().find(r => level >= r.minLevel) || rankConfig[0];
+
+                statsEl.innerHTML = `
+                    <div class="profile-stats-grid">
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">${rank.icon}</span>
+                            <span class="profile-stat-label">${rank.name}</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">${level}</span>
+                            <span class="profile-stat-label">Niveau</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">${gamesPlayed}</span>
+                            <span class="profile-stat-label">Parties</span>
+                        </div>
+                        <div class="profile-stat">
+                            <span class="profile-stat-value">${winRate}%</span>
+                            <span class="profile-stat-label">Victoires</span>
+                        </div>
+                    </div>
+                `;
+            });
+        });
+    }).catch(() => {
+        statsEl.innerHTML = '<p class="no-stats">Stats non disponibles</p>';
+    });
+}
+
+function hideFriendProfile() {
+    const modal = document.getElementById('friend-profile-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function joinFriendGame(friendId) {
+    const friend = friendsState.friends.find(f => f.id === friendId);
+    if (!friend || !friend.currentGame) {
+        showToast('Cet ami n\'est pas dans une partie', 'error');
+        return;
+    }
+
+    hideFriendProfile();
+    joinMpGame(friend.currentGame);
+}
+
+function reportFriend(friendId) {
+    const friend = friendsState.friends.find(f => f.id === friendId);
+    if (!friend) return;
+
+    // Create report modal
+    let reportModal = document.getElementById('report-modal');
+    if (!reportModal) {
+        reportModal = document.createElement('div');
+        reportModal.id = 'report-modal';
+        reportModal.className = 'modal';
+        document.body.appendChild(reportModal);
+    }
+
+    reportModal.innerHTML = `
+        <div class="modal-overlay" onclick="hideReportModal()"></div>
+        <div class="modal-box modal-sm">
+            <h3 style="margin-bottom: 1rem;">🚩 Signaler ${friend.username}</h3>
+            <p style="margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.9rem;">
+                Pourquoi signalez-vous cet utilisateur ?
+            </p>
+            <div class="report-options">
+                <button class="report-option" onclick="submitReport('${friendId}', 'spam')">Spam</button>
+                <button class="report-option" onclick="submitReport('${friendId}', 'harassment')">Harcèlement</button>
+                <button class="report-option" onclick="submitReport('${friendId}', 'inappropriate')">Contenu inapproprié</button>
+                <button class="report-option" onclick="submitReport('${friendId}', 'cheating')">Triche</button>
+                <button class="report-option" onclick="submitReport('${friendId}', 'other')">Autre</button>
+            </div>
+            <button class="btn btn-secondary" onclick="hideReportModal()" style="width: 100%; margin-top: 1rem;">Annuler</button>
+        </div>
+    `;
+
+    reportModal.classList.remove('hidden');
+    hideFriendProfile();
+}
+
+function hideReportModal() {
+    const modal = document.getElementById('report-modal');
+    if (modal) modal.classList.add('hidden');
+}
+
+function submitReport(friendId, reason) {
+    if (!window.firebaseDB || !state.user) {
+        showToast('Erreur lors du signalement', 'error');
+        return;
+    }
+
+    const friend = friendsState.friends.find(f => f.id === friendId);
+
+    window.firebaseDB.ref('reports').push({
+        reportedUser: friendId,
+        reportedUsername: friend?.username || 'Unknown',
+        reportedBy: state.user.id,
+        reporterUsername: state.user.username,
+        reason: reason,
+        timestamp: Date.now()
+    }).then(() => {
+        hideReportModal();
+        showToast('Signalement envoyé. Merci !', 'success');
+    }).catch(() => {
+        showToast('Erreur lors du signalement', 'error');
+    });
 }
 
 // ===== XP & Level System =====
@@ -4849,4 +5197,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initNewFeatures();
     checkJoinCode();
     scheduleFirebaseSync();
+    loadHomePublicGames();
 });

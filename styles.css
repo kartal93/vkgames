@@ -448,6 +448,184 @@ a { text-decoration: none; color: inherit; }
     background: var(--success);
 }
 
+/* Friend favorites */
+.friend-card.favorite {
+    background: rgba(249, 115, 22, 0.1);
+    border: 1px solid rgba(249, 115, 22, 0.3);
+}
+
+.favorite-star {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    font-size: 0.7rem;
+}
+
+.friend-card {
+    position: relative;
+}
+
+/* Friend Profile Modal */
+.friend-profile-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.friend-profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: var(--bg-tertiary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    margin: 0 auto 1rem;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid var(--border-color);
+}
+
+.friend-profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.friend-status-dot.large {
+    width: 16px;
+    height: 16px;
+    bottom: 4px;
+    right: 4px;
+    border-width: 3px;
+}
+
+.friend-profile-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+}
+
+.friend-profile-status {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+.friend-profile-status.online {
+    color: var(--success);
+}
+
+.friend-profile-stats {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.profile-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    text-align: center;
+}
+
+.profile-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.profile-stat-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.profile-stat-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+}
+
+.profile-stat-loading {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.friend-profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.profile-action-btn {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: var(--radius-md);
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.profile-action-btn.primary {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.profile-action-btn.secondary {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+}
+
+.profile-action-btn.success {
+    background: var(--success);
+    color: white;
+}
+
+.profile-action-btn.warning {
+    background: var(--warning);
+    color: #000;
+}
+
+.profile-action-btn.danger-outline {
+    background: transparent;
+    border: 1px solid var(--danger);
+    color: var(--danger);
+}
+
+.profile-action-btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+/* Report Modal */
+.report-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.report-option {
+    width: 100%;
+    padding: 0.75rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition-fast);
+    text-align: left;
+}
+
+.report-option:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--danger);
+}
+
 .friend-request-card {
     display: flex;
     flex-direction: column;
@@ -2615,6 +2793,23 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
     text-align: center;
     color: var(--text-muted);
     padding: 1rem;
+}
+
+/* Home Public Games */
+.home-public-games {
+    margin-top: 1.5rem;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.25rem;
+}
+
+.home-public-games .public-games-list {
+    max-height: 200px;
+}
+
+.home-public-games .public-game-card {
+    background: var(--bg-secondary);
 }
 
 .mp-create-header {
