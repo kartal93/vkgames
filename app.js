@@ -174,13 +174,14 @@ const gameConfigs = {
         icon: '🤔',
         title: 'Vrai ou Faux',
         modes: [
-            { id: 'facts', emoji: '📰', name: 'Faits', desc: 'Ce fait est-il vrai ou faux ?' }
+            { id: 'facts', emoji: '📰', name: 'Faits', desc: 'Ce fait est-il vrai ou faux ?' },
+            { id: 'images', emoji: '🖼️', name: 'Images', desc: 'Image réelle ou générée par IA ?' }
         ],
         genres: [
-            { id: 'facts', emoji: '📰', name: 'Faits' }
+            { id: 'facts', emoji: '📰', name: 'Faits' },
+            { id: 'images', emoji: '🖼️', name: 'Images' }
         ],
-        genreTitle: 'Mode',
-        skipModeSelect: true
+        genreTitle: 'Mode'
     },
     facemerge: {
         icon: '👥',
@@ -220,16 +221,14 @@ const gameConfigs = {
         icon: '🧠',
         title: 'Memory',
         modes: [
-            { id: 'colors', emoji: '🎨', name: 'Couleurs', desc: 'Séquence de couleurs' },
-            { id: 'sounds', emoji: '🔊', name: 'Sons', desc: 'Séquence de sons' }
+            { id: 'colors', emoji: '🎨', name: 'Simon Says', desc: 'Mémorise la séquence de couleurs et sons' }
         ],
         genres: [
-            { id: 'colors', emoji: '🎨', name: 'Couleurs' },
-            { id: 'sounds', emoji: '🔊', name: 'Sons' },
-            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+            { id: 'colors', emoji: '🎨', name: 'Classique' }
         ],
         genreTitle: 'Mode',
-        isMemoryGame: true
+        isMemoryGame: true,
+        skipModeSelect: true
     },
     categorysprint: {
         icon: '⚡',
@@ -264,7 +263,17 @@ const allGameData = {
                 { q: "Hello", a: "Adele", opts: ["Adele", "Beyonce", "Rihanna", "Lady Gaga"] },
                 { q: "Uptown Funk", a: "Bruno Mars", opts: ["Bruno Mars", "The Weeknd", "Pharrell", "Justin Timberlake"] },
                 { q: "Roar", a: "Katy Perry", opts: ["Katy Perry", "Taylor Swift", "Pink", "Miley Cyrus"] },
-                { q: "Djadja", a: "Aya Nakamura", opts: ["Aya Nakamura", "Wejdene", "Eva", "Marwa Loud"] }
+                { q: "Djadja", a: "Aya Nakamura", opts: ["Aya Nakamura", "Wejdene", "Eva", "Marwa Loud"] },
+                { q: "Anti-Hero", a: "Taylor Swift", opts: ["Taylor Swift", "Olivia Rodrigo", "Dua Lipa", "Miley Cyrus"] },
+                { q: "As It Was", a: "Harry Styles", opts: ["Harry Styles", "The Weeknd", "Bruno Mars", "Shawn Mendes"] },
+                { q: "Flowers", a: "Miley Cyrus", opts: ["Miley Cyrus", "Dua Lipa", "Taylor Swift", "Selena Gomez"] },
+                { q: "Stay", a: "The Kid LAROI", opts: ["The Kid LAROI", "Justin Bieber", "Post Malone", "Lil Nas X"] },
+                { q: "Starboy", a: "The Weeknd", opts: ["The Weeknd", "Drake", "Post Malone", "Bruno Mars"] },
+                { q: "Alors on Danse", a: "Stromae", opts: ["Stromae", "Maitre Gims", "David Guetta", "Black M"] },
+                { q: "Rolling in the Deep", a: "Adele", opts: ["Adele", "Amy Winehouse", "Florence Welch", "Lorde"] },
+                { q: "Dynamite", a: "BTS", opts: ["BTS", "BLACKPINK", "EXO", "TWICE"] },
+                { q: "Break My Soul", a: "Beyoncé", opts: ["Beyoncé", "Rihanna", "Lady Gaga", "Dua Lipa"] },
+                { q: "Pookie", a: "Aya Nakamura", opts: ["Aya Nakamura", "Wejdene", "Angèle", "Eva"] }
             ],
             rap: [
                 { q: "God's Plan", a: "Drake", opts: ["Drake", "Kendrick Lamar", "J. Cole", "Travis Scott"] },
@@ -274,7 +283,17 @@ const allGameData = {
                 { q: "Au DD", a: "PNL", opts: ["PNL", "Ninho", "Booba", "Kaaris"] },
                 { q: "Bande organisee", a: "Jul", opts: ["Jul", "SCH", "Naps", "Soso Maness"] },
                 { q: "Old Town Road", a: "Lil Nas X", opts: ["Lil Nas X", "Post Malone", "DaBaby", "Roddy Ricch"] },
-                { q: "Lose Yourself", a: "Eminem", opts: ["Eminem", "50 Cent", "Dr. Dre", "Jay-Z"] }
+                { q: "Lose Yourself", a: "Eminem", opts: ["Eminem", "50 Cent", "Dr. Dre", "Jay-Z"] },
+                { q: "Rockstar", a: "Post Malone", opts: ["Post Malone", "21 Savage", "Drake", "Travis Scott"] },
+                { q: "Jefe", a: "Ninho", opts: ["Ninho", "PNL", "Booba", "Maes"] },
+                { q: "Stronger", a: "Kanye West", opts: ["Kanye West", "Jay-Z", "Pharrell", "Pusha T"] },
+                { q: "Money Trees", a: "Kendrick Lamar", opts: ["Kendrick Lamar", "J. Cole", "Drake", "Future"] },
+                { q: "Despues de la Playa", a: "Bad Bunny", opts: ["Bad Bunny", "J Balvin", "Daddy Yankee", "Ozuna"] },
+                { q: "99 Problems", a: "Jay-Z", opts: ["Jay-Z", "Eminem", "Nas", "DMX"] },
+                { q: "Mask Off", a: "Future", opts: ["Future", "Migos", "Travis Scott", "21 Savage"] },
+                { q: "Tout oublier", a: "Angèle", opts: ["Angèle", "Stromae", "Clara Luciani", "Pomme"] },
+                { q: "Lettre à une femme", a: "Ninho", opts: ["Ninho", "PLK", "Maes", "Zola"] },
+                { q: "Industry Baby", a: "Lil Nas X", opts: ["Lil Nas X", "Jack Harlow", "Doja Cat", "Post Malone"] }
             ],
             rock: [
                 { q: "Bohemian Rhapsody", a: "Queen", opts: ["Queen", "The Beatles", "Led Zeppelin", "Pink Floyd"] },
@@ -282,7 +301,17 @@ const allGameData = {
                 { q: "Sweet Child O' Mine", a: "Guns N' Roses", opts: ["Guns N' Roses", "Bon Jovi", "Aerosmith", "Motley Crue"] },
                 { q: "Back in Black", a: "AC/DC", opts: ["AC/DC", "Metallica", "Led Zeppelin", "Black Sabbath"] },
                 { q: "Wonderwall", a: "Oasis", opts: ["Oasis", "Blur", "Radiohead", "The Verve"] },
-                { q: "Enter Sandman", a: "Metallica", opts: ["Metallica", "Megadeth", "Slayer", "Anthrax"] }
+                { q: "Enter Sandman", a: "Metallica", opts: ["Metallica", "Megadeth", "Slayer", "Anthrax"] },
+                { q: "Stairway to Heaven", a: "Led Zeppelin", opts: ["Led Zeppelin", "Pink Floyd", "The Who", "Deep Purple"] },
+                { q: "Hotel California", a: "Eagles", opts: ["Eagles", "Fleetwood Mac", "Lynyrd Skynyrd", "The Doors"] },
+                { q: "Creep", a: "Radiohead", opts: ["Radiohead", "Oasis", "Blur", "Muse"] },
+                { q: "In the End", a: "Linkin Park", opts: ["Linkin Park", "Green Day", "Evanescence", "Three Days Grace"] },
+                { q: "Seven Nation Army", a: "The White Stripes", opts: ["The White Stripes", "The Black Keys", "Royal Blood", "Queens of the Stone Age"] },
+                { q: "Mr. Brightside", a: "The Killers", opts: ["The Killers", "Arctic Monkeys", "Franz Ferdinand", "Bloc Party"] },
+                { q: "Hysteria", a: "Muse", opts: ["Muse", "Radiohead", "Coldplay", "Arctic Monkeys"] },
+                { q: "Paranoid", a: "Black Sabbath", opts: ["Black Sabbath", "Iron Maiden", "Judas Priest", "Motorhead"] },
+                { q: "Highway to Hell", a: "AC/DC", opts: ["AC/DC", "Guns N' Roses", "Motley Crue", "Bon Jovi"] },
+                { q: "Come As You Are", a: "Nirvana", opts: ["Nirvana", "Pearl Jam", "Stone Temple Pilots", "Soundgarden"] }
             ],
             electro: [
                 { q: "Get Lucky", a: "Daft Punk", opts: ["Daft Punk", "Justice", "Deadmau5", "Calvin Harris"] },
@@ -290,7 +319,17 @@ const allGameData = {
                 { q: "Wake Me Up", a: "Avicii", opts: ["Avicii", "David Guetta", "Calvin Harris", "Tiesto"] },
                 { q: "Animals", a: "Martin Garrix", opts: ["Martin Garrix", "Hardwell", "Tiesto", "Avicii"] },
                 { q: "Faded", a: "Alan Walker", opts: ["Alan Walker", "Marshmello", "Kygo", "Martin Garrix"] },
-                { q: "Lean On", a: "Major Lazer", opts: ["Major Lazer", "DJ Snake", "Diplo", "Skrillex"] }
+                { q: "Lean On", a: "Major Lazer", opts: ["Major Lazer", "DJ Snake", "Diplo", "Skrillex"] },
+                { q: "Scary Monsters and Nice Sprites", a: "Skrillex", opts: ["Skrillex", "Deadmau5", "Diplo", "Marshmello"] },
+                { q: "Levels", a: "Avicii", opts: ["Avicii", "Swedish House Mafia", "Steve Aoki", "Alesso"] },
+                { q: "Turn Down for What", a: "DJ Snake", opts: ["DJ Snake", "Diplo", "Skrillex", "Major Lazer"] },
+                { q: "One More Time", a: "Daft Punk", opts: ["Daft Punk", "Justice", "The Chemical Brothers", "Fatboy Slim"] },
+                { q: "Strobe", a: "Deadmau5", opts: ["Deadmau5", "Eric Prydz", "Avicii", "Armin van Buuren"] },
+                { q: "Feel So Close", a: "Calvin Harris", opts: ["Calvin Harris", "David Guetta", "Zedd", "Kygo"] },
+                { q: "Alone", a: "Marshmello", opts: ["Marshmello", "Alan Walker", "Kygo", "Illenium"] },
+                { q: "Taki Taki", a: "DJ Snake", opts: ["DJ Snake", "Major Lazer", "Diplo", "Steve Aoki"] },
+                { q: "Don't You Worry Child", a: "Swedish House Mafia", opts: ["Swedish House Mafia", "Avicii", "Alesso", "Calvin Harris"] },
+                { q: "Clarity", a: "Zedd", opts: ["Zedd", "Calvin Harris", "Kygo", "Marshmello"] }
             ]
         },
         higherLower: [
@@ -303,7 +342,22 @@ const allGameData = {
             { title: "Believer", artist: "Imagine Dragons", value: 2700, emoji: "🔥" },
             { title: "Starboy", artist: "The Weeknd", value: 2800, emoji: "⭐" },
             { title: "Bad Guy", artist: "Billie Eilish", value: 2700, emoji: "😈" },
-            { title: "Bohemian Rhapsody", artist: "Queen", value: 2400, emoji: "👑" }
+            { title: "Bohemian Rhapsody", artist: "Queen", value: 2400, emoji: "👑" },
+            { title: "Lovely", artist: "Billie Eilish", value: 2600, emoji: "💕" },
+            { title: "Thinking Out Loud", artist: "Ed Sheeran", value: 2400, emoji: "💭" },
+            { title: "Rockstar", artist: "Post Malone", value: 2500, emoji: "🎸" },
+            { title: "Heat Waves", artist: "Glass Animals", value: 2300, emoji: "🔥" },
+            { title: "Closer", artist: "The Chainsmokers", value: 2400, emoji: "💑" },
+            { title: "God's Plan", artist: "Drake", value: 2300, emoji: "🙏" },
+            { title: "Stay", artist: "The Kid LAROI", value: 2900, emoji: "❤️" },
+            { title: "Perfect", artist: "Ed Sheeran", value: 2600, emoji: "💒" },
+            { title: "Senorita", artist: "Shawn Mendes & Camila Cabello", value: 2400, emoji: "💃" },
+            { title: "Shallow", artist: "Lady Gaga & Bradley Cooper", value: 2100, emoji: "⭐" },
+            { title: "Without Me", artist: "Halsey", value: 2000, emoji: "💔" },
+            { title: "Happier", artist: "Marshmello", value: 2100, emoji: "😊" },
+            { title: "Despacito", artist: "Luis Fonsi", value: 2200, emoji: "🎵" },
+            { title: "Uptown Funk", artist: "Bruno Mars", value: 2200, emoji: "🕺" },
+            { title: "Save Your Tears", artist: "The Weeknd", value: 2300, emoji: "😢" }
         ],
         blind: {
             pop: [
@@ -311,28 +365,56 @@ const allGameData = {
                 { deezerId: 908604612, a: "The Weeknd", title: "Blinding Lights", opts: ["The Weeknd", "Bruno Mars", "Drake", "Post Malone"] },
                 { deezerId: 1109737767, a: "Dua Lipa", title: "Levitating", opts: ["Dua Lipa", "Charli XCX", "Doja Cat", "Lizzo"] },
                 { deezerId: 655095912, a: "Billie Eilish", title: "Bad Guy", opts: ["Billie Eilish", "Ariana Grande", "Halsey", "Lorde"] },
-                { deezerId: 1518703492, a: "Harry Styles", title: "As It Was", opts: ["Harry Styles", "One Direction", "Zayn", "Niall Horan"] }
+                { deezerId: 1518703492, a: "Harry Styles", title: "As It Was", opts: ["Harry Styles", "One Direction", "Zayn", "Niall Horan"] },
+                { deezerId: 2097667157, a: "Miley Cyrus", title: "Flowers", opts: ["Miley Cyrus", "Dua Lipa", "Taylor Swift", "Selena Gomez"] },
+                { deezerId: 916424, a: "Adele", title: "Rolling in the Deep", opts: ["Adele", "Amy Winehouse", "Florence", "Lorde"] },
+                { deezerId: 1386494752, a: "Taylor Swift", title: "Anti-Hero", opts: ["Taylor Swift", "Olivia Rodrigo", "Billie Eilish", "Doja Cat"] },
+                { deezerId: 77685596, a: "Bruno Mars", title: "Uptown Funk", opts: ["Bruno Mars", "Pharrell", "The Weeknd", "Justin Timberlake"] },
+                { deezerId: 424167312, a: "Ariana Grande", title: "7 rings", opts: ["Ariana Grande", "Nicki Minaj", "Doja Cat", "Cardi B"] },
+                { deezerId: 1471186862, a: "The Kid LAROI", title: "Stay", opts: ["The Kid LAROI", "Justin Bieber", "Post Malone", "Lil Nas X"] },
+                { deezerId: 114755788, a: "Sia", title: "Chandelier", opts: ["Sia", "Adele", "Lorde", "Florence"] }
             ],
             rap: [
                 { deezerId: 533609232, a: "Drake", title: "God's Plan", opts: ["Drake", "Kendrick Lamar", "J. Cole", "Travis Scott"] },
                 { deezerId: 350171311, a: "Kendrick Lamar", title: "HUMBLE.", opts: ["Kendrick Lamar", "Drake", "J. Cole", "Kanye West"] },
                 { deezerId: 536421002, a: "Travis Scott", title: "SICKO MODE", opts: ["Travis Scott", "Drake", "Future", "21 Savage"] },
                 { deezerId: 491446942, a: "Post Malone", title: "Rockstar", opts: ["Post Malone", "21 Savage", "Future", "Lil Uzi Vert"] },
-                { deezerId: 1109731, a: "Eminem", title: "Lose Yourself", opts: ["Eminem", "50 Cent", "Dr. Dre", "Snoop Dogg"] }
+                { deezerId: 1109731, a: "Eminem", title: "Lose Yourself", opts: ["Eminem", "50 Cent", "Dr. Dre", "Snoop Dogg"] },
+                { deezerId: 1305519432, a: "Lil Nas X", title: "MONTERO", opts: ["Lil Nas X", "DaBaby", "Jack Harlow", "Doja Cat"] },
+                { deezerId: 466235012, a: "Cardi B", title: "Bodak Yellow", opts: ["Cardi B", "Nicki Minaj", "Megan Thee Stallion", "Doja Cat"] },
+                { deezerId: 16108582, a: "Kanye West", title: "Stronger", opts: ["Kanye West", "Jay-Z", "Pharrell", "Kid Cudi"] },
+                { deezerId: 126307152, a: "Migos", title: "Bad and Boujee", opts: ["Migos", "Future", "21 Savage", "Lil Uzi Vert"] },
+                { deezerId: 3135556, a: "Jay-Z", title: "Empire State of Mind", opts: ["Jay-Z", "Alicia Keys", "Kanye West", "Nas"] },
+                { deezerId: 464996572, a: "21 Savage", title: "a lot", opts: ["21 Savage", "J. Cole", "Future", "Metro Boomin"] },
+                { deezerId: 713917422, a: "DaBaby", title: "ROCKSTAR", opts: ["DaBaby", "Roddy Ricch", "Post Malone", "Lil Baby"] }
             ],
             rock: [
                 { deezerId: 9997018, a: "Queen", title: "Bohemian Rhapsody", opts: ["Queen", "Led Zeppelin", "The Beatles", "Pink Floyd"] },
                 { deezerId: 13791930, a: "Nirvana", title: "Smells Like Teen Spirit", opts: ["Nirvana", "Pearl Jam", "Soundgarden", "Alice in Chains"] },
                 { deezerId: 92720046, a: "AC/DC", title: "Back in Black", opts: ["AC/DC", "Guns N' Roses", "Metallica", "Led Zeppelin"] },
                 { deezerId: 528330441, a: "Imagine Dragons", title: "Believer", opts: ["Imagine Dragons", "OneRepublic", "Coldplay", "Maroon 5"] },
-                { deezerId: 676183, a: "Linkin Park", title: "In The End", opts: ["Linkin Park", "Green Day", "Blink-182", "Sum 41"] }
+                { deezerId: 676183, a: "Linkin Park", title: "In The End", opts: ["Linkin Park", "Green Day", "Blink-182", "Sum 41"] },
+                { deezerId: 68717674, a: "Coldplay", title: "The Scientist", opts: ["Coldplay", "Radiohead", "Keane", "Snow Patrol"] },
+                { deezerId: 1171656, a: "Oasis", title: "Wonderwall", opts: ["Oasis", "Blur", "Radiohead", "The Verve"] },
+                { deezerId: 3157766, a: "Green Day", title: "Boulevard of Broken Dreams", opts: ["Green Day", "Blink-182", "Sum 41", "Good Charlotte"] },
+                { deezerId: 915798, a: "Guns N' Roses", title: "Sweet Child O' Mine", opts: ["Guns N' Roses", "Bon Jovi", "Aerosmith", "Def Leppard"] },
+                { deezerId: 3105556, a: "The Killers", title: "Mr. Brightside", opts: ["The Killers", "Arctic Monkeys", "Franz Ferdinand", "Bloc Party"] },
+                { deezerId: 2318856, a: "Foo Fighters", title: "Everlong", opts: ["Foo Fighters", "Nirvana", "Pearl Jam", "Queens of the Stone Age"] },
+                { deezerId: 1129100552, a: "Maneskin", title: "Beggin'", opts: ["Maneskin", "The Strokes", "Arctic Monkeys", "Royal Blood"] }
             ],
             electro: [
                 { deezerId: 66609426, a: "Daft Punk", title: "Get Lucky", opts: ["Daft Punk", "Justice", "Deadmau5", "Calvin Harris"] },
                 { deezerId: 70266756, a: "Avicii", title: "Wake Me Up", opts: ["Avicii", "David Guetta", "Calvin Harris", "Tiesto"] },
                 { deezerId: 140295501, a: "Alan Walker", title: "Faded", opts: ["Alan Walker", "Marshmello", "Kygo", "Martin Garrix"] },
                 { deezerId: 14383880, a: "Martin Garrix", title: "Animals", opts: ["Martin Garrix", "Hardwell", "Tiesto", "Avicii"] },
-                { deezerId: 62847142, a: "David Guetta", title: "Titanium", opts: ["David Guetta", "Calvin Harris", "Avicii", "Tiesto"] }
+                { deezerId: 62847142, a: "David Guetta", title: "Titanium", opts: ["David Guetta", "Calvin Harris", "Avicii", "Tiesto"] },
+                { deezerId: 110265034, a: "The Chainsmokers", title: "Closer", opts: ["The Chainsmokers", "Marshmello", "Kygo", "Zedd"] },
+                { deezerId: 455437102, a: "Marshmello", title: "Happier", opts: ["Marshmello", "Alan Walker", "Kygo", "Illenium"] },
+                { deezerId: 367115711, a: "Calvin Harris", title: "This Is What You Came For", opts: ["Calvin Harris", "David Guetta", "Avicii", "Tiesto"] },
+                { deezerId: 1152103092, a: "Kygo", title: "Higher Love", opts: ["Kygo", "Calvin Harris", "Zedd", "Marshmello"] },
+                { deezerId: 3129618, a: "Daft Punk", title: "One More Time", opts: ["Daft Punk", "Justice", "Chemical Brothers", "Fatboy Slim"] },
+                { deezerId: 1016399, a: "Deadmau5", title: "Strobe", opts: ["Deadmau5", "Eric Prydz", "Avicii", "Swedish House Mafia"] },
+                { deezerId: 64847648, a: "Swedish House Mafia", title: "Don't You Worry Child", opts: ["Swedish House Mafia", "Avicii", "Alesso", "David Guetta"] }
             ]
         }
     },
@@ -344,28 +426,54 @@ const allGameData = {
                 { q: "Dans quel film Tom Cruise escalade le Burj Khalifa ?", a: "Mission Impossible 4", opts: ["Mission Impossible 4", "Mission Impossible 5", "Mission Impossible 6", "Mission Impossible 3"] },
                 { q: "Qui joue Neo dans Matrix ?", a: "Keanu Reeves", opts: ["Keanu Reeves", "Brad Pitt", "Tom Cruise", "Johnny Depp"] },
                 { q: "Quel est le vrai nom de Batman ?", a: "Bruce Wayne", opts: ["Bruce Wayne", "Clark Kent", "Peter Parker", "Tony Stark"] },
-                { q: "Qui joue John Wick ?", a: "Keanu Reeves", opts: ["Keanu Reeves", "Tom Hardy", "Jason Statham", "Vin Diesel"] }
+                { q: "Qui joue John Wick ?", a: "Keanu Reeves", opts: ["Keanu Reeves", "Tom Hardy", "Jason Statham", "Vin Diesel"] },
+                { q: "Qui joue le Joker dans The Dark Knight ?", a: "Heath Ledger", opts: ["Heath Ledger", "Joaquin Phoenix", "Jack Nicholson", "Jared Leto"] },
+                { q: "Quel acteur joue Thor ?", a: "Chris Hemsworth", opts: ["Chris Hemsworth", "Chris Evans", "Chris Pratt", "Tom Hiddleston"] },
+                { q: "Combien de films Fast & Furious y a-t-il (2024) ?", a: "11", opts: ["11", "9", "10", "12"] },
+                { q: "Qui realise Mad Max Fury Road ?", a: "George Miller", opts: ["George Miller", "Christopher Nolan", "Denis Villeneuve", "Ridley Scott"] },
+                { q: "Quel acteur joue James Bond dans Skyfall ?", a: "Daniel Craig", opts: ["Daniel Craig", "Pierce Brosnan", "Sean Connery", "Roger Moore"] },
+                { q: "Qui joue Dominic Toretto dans Fast & Furious ?", a: "Vin Diesel", opts: ["Vin Diesel", "Dwayne Johnson", "Jason Statham", "Paul Walker"] },
+                { q: "Quel film contient la replique 'Hasta la vista, baby' ?", a: "Terminator 2", opts: ["Terminator 2", "Predator", "Total Recall", "Robocop"] }
             ],
             comedy: [
                 { q: "Qui joue dans Intouchables avec Omar Sy ?", a: "Francois Cluzet", opts: ["Francois Cluzet", "Jean Dujardin", "Gad Elmaleh", "Dany Boon"] },
                 { q: "Quel acteur joue Ace Ventura ?", a: "Jim Carrey", opts: ["Jim Carrey", "Adam Sandler", "Will Ferrell", "Ben Stiller"] },
                 { q: "Dans quel film entend-on 'C'est bon ?'", a: "Asterix Mission Cleopatre", opts: ["Asterix Mission Cleopatre", "Les Visiteurs", "Le Diner de Cons", "Bienvenue chez les Ch'tis"] },
                 { q: "Qui realise Very Bad Trip ?", a: "Todd Phillips", opts: ["Todd Phillips", "Judd Apatow", "Adam McKay", "Seth Rogen"] },
-                { q: "Quel comedien joue dans La Cite de la Peur ?", a: "Alain Chabat", opts: ["Alain Chabat", "Jamel Debbouze", "Franck Dubosc", "Jean-Paul Rouve"] }
+                { q: "Quel comedien joue dans La Cite de la Peur ?", a: "Alain Chabat", opts: ["Alain Chabat", "Jamel Debbouze", "Franck Dubosc", "Jean-Paul Rouve"] },
+                { q: "Qui joue le role principal dans Bienvenue chez les Ch'tis ?", a: "Kad Merad", opts: ["Kad Merad", "Dany Boon", "Franck Dubosc", "Jean Dujardin"] },
+                { q: "Quel acteur joue dans Les Bronzes ?", a: "Thierry Lhermitte", opts: ["Thierry Lhermitte", "Gerard Jugnot", "Christian Clavier", "Tous les trois"] },
+                { q: "Qui joue Mr Bean ?", a: "Rowan Atkinson", opts: ["Rowan Atkinson", "Jim Carrey", "Steve Carell", "Will Ferrell"] },
+                { q: "Quel film francais a fait le plus d'entrees ?", a: "Bienvenue chez les Ch'tis", opts: ["Bienvenue chez les Ch'tis", "Intouchables", "Les Visiteurs", "La Grande Vadrouille"] },
+                { q: "Qui realise Le Diner de Cons ?", a: "Francis Veber", opts: ["Francis Veber", "Claude Zidi", "Gerard Oury", "Patrice Leconte"] },
+                { q: "Dans quel film voit-on 'Vous etes fous, ils vous tueront!' ?", a: "Les Visiteurs", opts: ["Les Visiteurs", "Asterix", "Le Pere Noel est une Ordure", "Les Bronzes"] }
             ],
             drama: [
                 { q: "Qui realise Titanic ?", a: "James Cameron", opts: ["James Cameron", "Steven Spielberg", "Martin Scorsese", "Ridley Scott"] },
                 { q: "Quel acteur joue dans Le Parrain ?", a: "Marlon Brando", opts: ["Marlon Brando", "Robert De Niro", "Al Pacino", "Joe Pesci"] },
                 { q: "Qui joue dans Forrest Gump ?", a: "Tom Hanks", opts: ["Tom Hanks", "Robin Williams", "Jim Carrey", "Bill Murray"] },
                 { q: "Quel film a remporte l'Oscar 2020 ?", a: "Parasite", opts: ["Parasite", "1917", "Joker", "Once Upon a Time"] },
-                { q: "Qui realise La Liste de Schindler ?", a: "Steven Spielberg", opts: ["Steven Spielberg", "Roman Polanski", "Quentin Tarantino", "Martin Scorsese"] }
+                { q: "Qui realise La Liste de Schindler ?", a: "Steven Spielberg", opts: ["Steven Spielberg", "Roman Polanski", "Quentin Tarantino", "Martin Scorsese"] },
+                { q: "Qui joue dans The Revenant ?", a: "Leonardo DiCaprio", opts: ["Leonardo DiCaprio", "Tom Hardy", "Brad Pitt", "Matt Damon"] },
+                { q: "Quel film a remporte l'Oscar 2023 ?", a: "Everything Everywhere All at Once", opts: ["Everything Everywhere All at Once", "Top Gun Maverick", "The Fabelmans", "Elvis"] },
+                { q: "Qui realise Fight Club ?", a: "David Fincher", opts: ["David Fincher", "Christopher Nolan", "Quentin Tarantino", "Guy Ritchie"] },
+                { q: "Quel acteur joue dans Shutter Island ?", a: "Leonardo DiCaprio", opts: ["Leonardo DiCaprio", "Matt Damon", "Mark Ruffalo", "Ben Kingsley"] },
+                { q: "Qui joue le Joker dans le film Joker (2019) ?", a: "Joaquin Phoenix", opts: ["Joaquin Phoenix", "Heath Ledger", "Jared Leto", "Jack Nicholson"] },
+                { q: "Quel film francais a gagne l'Oscar du meilleur film etranger en 2012 ?", a: "The Artist", opts: ["The Artist", "Intouchables", "Amour", "La Vie d'Adele"] }
             ],
             scifi: [
                 { q: "De quelle planete vient Superman ?", a: "Krypton", opts: ["Krypton", "Mars", "Titan", "Vulcain"] },
                 { q: "Qui realise Star Wars Episode 4 ?", a: "George Lucas", opts: ["George Lucas", "Steven Spielberg", "J.J. Abrams", "Ridley Scott"] },
                 { q: "Quel acteur joue dans Interstellar ?", a: "Matthew McConaughey", opts: ["Matthew McConaughey", "Leonardo DiCaprio", "Brad Pitt", "Tom Hardy"] },
                 { q: "En quelle annee se deroule Blade Runner ?", a: "2019", opts: ["2019", "2029", "2039", "2049"] },
-                { q: "Qui joue dans E.T. l'extra-terrestre ?", a: "Drew Barrymore", opts: ["Drew Barrymore", "Winona Ryder", "Molly Ringwald", "Jennifer Connelly"] }
+                { q: "Qui joue dans E.T. l'extra-terrestre ?", a: "Drew Barrymore", opts: ["Drew Barrymore", "Winona Ryder", "Molly Ringwald", "Jennifer Connelly"] },
+                { q: "Qui realise Dune (2021) ?", a: "Denis Villeneuve", opts: ["Denis Villeneuve", "Christopher Nolan", "Ridley Scott", "James Cameron"] },
+                { q: "Quel acteur joue Paul Atreides dans Dune ?", a: "Timothée Chalamet", opts: ["Timothée Chalamet", "Tom Holland", "Finn Wolfhard", "Ansel Elgort"] },
+                { q: "Dans quel film voit-on le Delorean ?", a: "Retour vers le Futur", opts: ["Retour vers le Futur", "Christine", "Ghostbusters", "Starman"] },
+                { q: "Qui realise Alien ?", a: "Ridley Scott", opts: ["Ridley Scott", "James Cameron", "David Fincher", "Jean-Pierre Jeunet"] },
+                { q: "Quel acteur joue dans Gravity ?", a: "Sandra Bullock", opts: ["Sandra Bullock", "George Clooney", "Les deux", "Anne Hathaway"] },
+                { q: "En quelle annee se deroule le film 2001 L'Odyssee de l'espace ?", a: "2001", opts: ["2001", "1999", "2010", "1984"] },
+                { q: "Qui joue le T-800 dans Terminator ?", a: "Arnold Schwarzenegger", opts: ["Arnold Schwarzenegger", "Sylvester Stallone", "Jean-Claude Van Damme", "Dolph Lundgren"] }
             ]
         },
         quotes: [
@@ -376,17 +484,41 @@ const allGameData = {
             { q: "J'aurais pu avoir une classe", a: "La Haine", opts: ["La Haine", "Les Miserables", "Banlieue 13", "Intouchables"] },
             { q: "I'll be back", a: "Terminator", opts: ["Terminator", "Predator", "Total Recall", "Robocop"] },
             { q: "Here's Johnny!", a: "Shining", opts: ["Shining", "Psychose", "L'Exorciste", "Halloween"] },
-            { q: "Tu vois, le monde se divise en deux categories", a: "Le Bon la Brute et le Truand", opts: ["Le Bon la Brute et le Truand", "Il etait une fois dans l'Ouest", "Pour une poignee de dollars", "Impitoyable"] }
+            { q: "Tu vois, le monde se divise en deux categories", a: "Le Bon la Brute et le Truand", opts: ["Le Bon la Brute et le Truand", "Il etait une fois dans l'Ouest", "Pour une poignee de dollars", "Impitoyable"] },
+            { q: "Pourquoi tu veux qu'j'lui diise ?", a: "Les Bronzes", opts: ["Les Bronzes", "Le Pere Noel est une Ordure", "La Cite de la Peur", "Les Visiteurs"] },
+            { q: "La vie, c'est comme une boite de chocolats", a: "Forrest Gump", opts: ["Forrest Gump", "Charlie et la Chocolaterie", "Edward aux mains d'argent", "Big Fish"] },
+            { q: "You can't handle the truth!", a: "Des hommes d'honneur", opts: ["Des hommes d'honneur", "Top Gun", "Jerry Maguire", "Mission Impossible"] },
+            { q: "My precious...", a: "Le Seigneur des Anneaux", opts: ["Le Seigneur des Anneaux", "Harry Potter", "Le Hobbit", "Pirates des Caraibes"] },
+            { q: "Tu ne passeras pas !", a: "Le Seigneur des Anneaux", opts: ["Le Seigneur des Anneaux", "Harry Potter", "300", "Le Hobbit"] },
+            { q: "Houston, we have a problem", a: "Apollo 13", opts: ["Apollo 13", "Gravity", "Interstellar", "Seul sur Mars"] },
+            { q: "Je vais lui faire une offre qu'il ne pourra pas refuser", a: "Le Parrain", opts: ["Le Parrain", "Scarface", "Les Affranchis", "Casino"] },
+            { q: "Hasta la vista, baby", a: "Terminator 2", opts: ["Terminator 2", "Predator", "Total Recall", "Commando"] },
+            { q: "Why so serious?", a: "The Dark Knight", opts: ["The Dark Knight", "Joker", "Batman Begins", "Suicide Squad"] },
+            { q: "J'adore l'odeur du napalm au petit matin", a: "Apocalypse Now", opts: ["Apocalypse Now", "Platoon", "Full Metal Jacket", "Voyage au bout de l'enfer"] },
+            { q: "Allons-y Alonzo !", a: "Taxi", opts: ["Taxi", "Yamakasi", "District B13", "Banlieue 13"] },
+            { q: "Tu sais ce qu'on dit ? On dit qu't'as pas de couilles !", a: "La Haine", opts: ["La Haine", "Les Miserables", "Divines", "Banlieue 13"] }
         ],
         higherLower: [
             { title: "Avatar", artist: "James Cameron", value: 2923, emoji: "🌿" },
             { title: "Avengers: Endgame", artist: "Marvel", value: 2798, emoji: "🦸" },
+            { title: "Avatar 2", artist: "James Cameron", value: 2320, emoji: "🌊" },
             { title: "Titanic", artist: "James Cameron", value: 2195, emoji: "🚢" },
             { title: "Star Wars 7", artist: "Disney", value: 2068, emoji: "⭐" },
             { title: "Avengers: Infinity War", artist: "Marvel", value: 2048, emoji: "💎" },
+            { title: "Spider-Man: No Way Home", artist: "Marvel/Sony", value: 1921, emoji: "🕷️" },
             { title: "Jurassic World", artist: "Universal", value: 1670, emoji: "🦖" },
             { title: "Le Roi Lion (2019)", artist: "Disney", value: 1656, emoji: "🦁" },
             { title: "The Avengers", artist: "Marvel", value: 1518, emoji: "🛡️" },
+            { title: "Furious 7", artist: "Universal", value: 1516, emoji: "🚗" },
+            { title: "Top Gun: Maverick", artist: "Paramount", value: 1496, emoji: "✈️" },
+            { title: "Frozen 2", artist: "Disney", value: 1450, emoji: "❄️" },
+            { title: "Barbie", artist: "Warner Bros", value: 1441, emoji: "💖" },
+            { title: "Black Panther", artist: "Marvel", value: 1347, emoji: "🐆" },
+            { title: "Harry Potter 8", artist: "Warner Bros", value: 1341, emoji: "⚡" },
+            { title: "Joker", artist: "Warner Bros", value: 1074, emoji: "🃏" },
+            { title: "The Dark Knight", artist: "Warner Bros", value: 1006, emoji: "🦇" },
+            { title: "Oppenheimer", artist: "Universal", value: 952, emoji: "💣" },
+            { title: "Minions", artist: "Universal", value: 1159, emoji: "💛" },
             { title: "Fast & Furious 7", artist: "Universal", value: 1516, emoji: "🚗" },
             { title: "Frozen 2", artist: "Disney", value: 1450, emoji: "❄️" }
         ]
@@ -438,8 +570,23 @@ const allGameData = {
                 { title: "Neymar", artist: "Brésil", value: 450, emoji: "⚽" },
                 { title: "Zlatan Ibrahimović", artist: "Suède", value: 570, emoji: "⚽" },
                 { title: "Karim Benzema", artist: "France", value: 450, emoji: "⚽" },
-                { title: "Kylian Mbappé", artist: "France", value: 280, emoji: "⚽" },
-                { title: "Erling Haaland", artist: "Norvège", value: 250, emoji: "⚽" }
+                { title: "Kylian Mbappé", artist: "France", value: 300, emoji: "⚽" },
+                { title: "Erling Haaland", artist: "Norvège", value: 270, emoji: "⚽" },
+                { title: "Gerd Müller", artist: "Allemagne", value: 735, emoji: "⚽" },
+                { title: "Luis Suárez", artist: "Uruguay", value: 540, emoji: "⚽" },
+                { title: "Thierry Henry", artist: "France", value: 411, emoji: "⚽" },
+                { title: "Raúl", artist: "Espagne", value: 404, emoji: "⚽" },
+                { title: "Sergio Agüero", artist: "Argentine", value: 427, emoji: "⚽" },
+                { title: "Wayne Rooney", artist: "Angleterre", value: 366, emoji: "⚽" },
+                { title: "David Beckham", artist: "Angleterre", value: 127, emoji: "⚽" },
+                { title: "Didier Drogba", artist: "Côte d'Ivoire", value: 297, emoji: "⚽" },
+                { title: "Francesco Totti", artist: "Italie", value: 307, emoji: "⚽" },
+                { title: "Samuel Eto'o", artist: "Cameroun", value: 359, emoji: "⚽" },
+                { title: "Ronaldinho", artist: "Brésil", value: 224, emoji: "⚽" },
+                { title: "Alessandro Del Piero", artist: "Italie", value: 346, emoji: "⚽" },
+                { title: "Harry Kane", artist: "Angleterre", value: 350, emoji: "⚽" },
+                { title: "Antoine Griezmann", artist: "France", value: 260, emoji: "⚽" },
+                { title: "Mohamed Salah", artist: "Égypte", value: 240, emoji: "⚽" }
             ],
             basketball: [
                 { title: "LeBron James", artist: "Lakers", value: 40474, emoji: "🏀" },
@@ -447,9 +594,26 @@ const allGameData = {
                 { title: "Karl Malone", artist: "Jazz", value: 36928, emoji: "🏀" },
                 { title: "Kobe Bryant", artist: "Lakers", value: 33643, emoji: "🏀" },
                 { title: "Michael Jordan", artist: "Bulls", value: 32292, emoji: "🏀" },
-                { title: "Kevin Durant", artist: "Nets", value: 28000, emoji: "🏀" },
+                { title: "Kevin Durant", artist: "Suns", value: 28000, emoji: "🏀" },
                 { title: "Stephen Curry", artist: "Warriors", value: 22000, emoji: "🏀" },
-                { title: "Shaquille O'Neal", artist: "Lakers", value: 28596, emoji: "🏀" }
+                { title: "Shaquille O'Neal", artist: "Lakers", value: 28596, emoji: "🏀" },
+                { title: "Dirk Nowitzki", artist: "Mavericks", value: 31560, emoji: "🏀" },
+                { title: "Wilt Chamberlain", artist: "Lakers", value: 31419, emoji: "🏀" },
+                { title: "Julius Erving", artist: "76ers", value: 30026, emoji: "🏀" },
+                { title: "Moses Malone", artist: "76ers", value: 27409, emoji: "🏀" },
+                { title: "Hakeem Olajuwon", artist: "Rockets", value: 26946, emoji: "🏀" },
+                { title: "Oscar Robertson", artist: "Bucks", value: 26710, emoji: "🏀" },
+                { title: "Dominique Wilkins", artist: "Hawks", value: 26668, emoji: "🏀" },
+                { title: "Tim Duncan", artist: "Spurs", value: 26496, emoji: "🏀" },
+                { title: "Paul Pierce", artist: "Celtics", value: 26397, emoji: "🏀" },
+                { title: "John Havlicek", artist: "Celtics", value: 26395, emoji: "🏀" },
+                { title: "James Harden", artist: "Clippers", value: 25000, emoji: "🏀" },
+                { title: "Giannis Antetokounmpo", artist: "Bucks", value: 16000, emoji: "🏀" },
+                { title: "Luka Dončić", artist: "Mavericks", value: 8000, emoji: "🏀" },
+                { title: "Anthony Davis", artist: "Lakers", value: 15000, emoji: "🏀" },
+                { title: "Russell Westbrook", artist: "Clippers", value: 24000, emoji: "🏀" },
+                { title: "Chris Paul", artist: "Warriors", value: 21000, emoji: "🏀" },
+                { title: "Carmelo Anthony", artist: "Lakers", value: 28289, emoji: "🏀" }
             ],
             tennis: [
                 { title: "Novak Djokovic", artist: "Serbie", value: 24, emoji: "🎾" },
@@ -459,7 +623,24 @@ const allGameData = {
                 { title: "Serena Williams", artist: "États-Unis", value: 23, emoji: "🎾" },
                 { title: "Steffi Graf", artist: "Allemagne", value: 22, emoji: "🎾" },
                 { title: "Margaret Court", artist: "Australie", value: 24, emoji: "🎾" },
-                { title: "Carlos Alcaraz", artist: "Espagne", value: 2, emoji: "🎾" }
+                { title: "Carlos Alcaraz", artist: "Espagne", value: 2, emoji: "🎾" },
+                { title: "Martina Navratilova", artist: "États-Unis", value: 18, emoji: "🎾" },
+                { title: "Chris Evert", artist: "États-Unis", value: 18, emoji: "🎾" },
+                { title: "Björn Borg", artist: "Suède", value: 11, emoji: "🎾" },
+                { title: "Rod Laver", artist: "Australie", value: 11, emoji: "🎾" },
+                { title: "Andre Agassi", artist: "États-Unis", value: 8, emoji: "🎾" },
+                { title: "Jimmy Connors", artist: "États-Unis", value: 8, emoji: "🎾" },
+                { title: "Ivan Lendl", artist: "Tchéquie", value: 8, emoji: "🎾" },
+                { title: "John McEnroe", artist: "États-Unis", value: 7, emoji: "🎾" },
+                { title: "Mats Wilander", artist: "Suède", value: 7, emoji: "🎾" },
+                { title: "Venus Williams", artist: "États-Unis", value: 7, emoji: "🎾" },
+                { title: "Maria Sharapova", artist: "Russie", value: 5, emoji: "🎾" },
+                { title: "Andy Murray", artist: "Grande-Bretagne", value: 3, emoji: "🎾" },
+                { title: "Daniil Medvedev", artist: "Russie", value: 1, emoji: "🎾" },
+                { title: "Jannik Sinner", artist: "Italie", value: 1, emoji: "🎾" },
+                { title: "Iga Świątek", artist: "Pologne", value: 5, emoji: "🎾" },
+                { title: "Naomi Osaka", artist: "Japon", value: 4, emoji: "🎾" },
+                { title: "Monica Seles", artist: "Yougoslavie", value: 9, emoji: "🎾" }
             ]
         }
     },
@@ -470,14 +651,30 @@ const allGameData = {
                 { q: "En quelle annee est sorti Counter-Strike ?", a: "1999", opts: ["1999", "2000", "2001", "1998"] },
                 { q: "Quel est le nom du personnage principal de Halo ?", a: "Master Chief", opts: ["Master Chief", "Doom Guy", "Marcus Fenix", "Commander Shepard"] },
                 { q: "Quel jeu a popularise le Battle Royale ?", a: "PlayerUnknown's Battlegrounds", opts: ["PlayerUnknown's Battlegrounds", "Fortnite", "Apex Legends", "H1Z1"] },
-                { q: "Quel studio a cree Overwatch ?", a: "Blizzard", opts: ["Blizzard", "Valve", "Epic Games", "Respawn"] }
+                { q: "Quel studio a cree Overwatch ?", a: "Blizzard", opts: ["Blizzard", "Valve", "Epic Games", "Respawn"] },
+                { q: "Quelle arme emblematique est dans CS2 ?", a: "AWP", opts: ["AWP", "AK-47", "M4A4", "Desert Eagle"] },
+                { q: "Quel studio a cree Apex Legends ?", a: "Respawn", opts: ["Respawn", "EA DICE", "Infinity Ward", "Treyarch"] },
+                { q: "Dans quel jeu trouve-t-on le BFG 9000 ?", a: "DOOM", opts: ["DOOM", "Quake", "Duke Nukem", "Wolfenstein"] },
+                { q: "Quel est le nom du mode zombie de Call of Duty ?", a: "Zombies", opts: ["Zombies", "Outbreak", "Extinction", "Dead Ops"] },
+                { q: "Quel jeu a lance la serie Battlefield ?", a: "Battlefield 1942", opts: ["Battlefield 1942", "Battlefield 2", "Battlefield 3", "Battlefield Vietnam"] },
+                { q: "Combien d'agents y a-t-il au lancement de Valorant ?", a: "10", opts: ["10", "8", "12", "15"] },
+                { q: "Quel studio a cree Rainbow Six Siege ?", a: "Ubisoft Montreal", opts: ["Ubisoft Montreal", "Ubisoft Paris", "Respawn", "DICE"] },
+                { q: "Quelle est la carte la plus iconique de Counter-Strike ?", a: "Dust 2", opts: ["Dust 2", "Mirage", "Inferno", "Nuke"] }
             ],
             rpg: [
                 { q: "Quel studio a cree The Witcher 3 ?", a: "CD Projekt RED", opts: ["CD Projekt RED", "BioWare", "Bethesda", "From Software"] },
                 { q: "Quel est le nom du heros de Zelda ?", a: "Link", opts: ["Link", "Zelda", "Ganondorf", "Epona"] },
                 { q: "Quel jeu a le slogan 'Prepare to Die' ?", a: "Dark Souls", opts: ["Dark Souls", "Elden Ring", "Bloodborne", "Sekiro"] },
                 { q: "Quel studio a cree Skyrim ?", a: "Bethesda", opts: ["Bethesda", "BioWare", "Obsidian", "CD Projekt RED"] },
-                { q: "Quel est le nom du protagoniste de Final Fantasy 7 ?", a: "Cloud Strife", opts: ["Cloud Strife", "Squall Leonhart", "Noctis", "Tidus"] }
+                { q: "Quel est le nom du protagoniste de Final Fantasy 7 ?", a: "Cloud Strife", opts: ["Cloud Strife", "Squall Leonhart", "Noctis", "Tidus"] },
+                { q: "Quel studio a cree Elden Ring ?", a: "FromSoftware", opts: ["FromSoftware", "CD Projekt RED", "Bethesda", "BioWare"] },
+                { q: "Comment s'appelle le cheval de Geralt ?", a: "Ablette", opts: ["Ablette", "Epona", "Torrent", "Shadowfax"] },
+                { q: "Quel est le nom de l'epee legendaire de Zelda ?", a: "Master Sword", opts: ["Master Sword", "Excalibur", "Masamune", "Buster Sword"] },
+                { q: "Quel jeu se deroule dans le monde de Thedas ?", a: "Dragon Age", opts: ["Dragon Age", "Mass Effect", "The Witcher", "Elder Scrolls"] },
+                { q: "Quel Pokemon est le starter de type feu de la 1ere gen ?", a: "Salamèche", opts: ["Salamèche", "Bulbizarre", "Carapuce", "Pikachu"] },
+                { q: "Quel studio a cree Baldur's Gate 3 ?", a: "Larian Studios", opts: ["Larian Studios", "BioWare", "Obsidian", "CD Projekt RED"] },
+                { q: "Comment s'appelle la region principale de Skyrim ?", a: "Bordeciel", opts: ["Bordeciel", "Cyrodiil", "Morrowind", "Hammerfell"] },
+                { q: "Quel est le boss final de Sekiro ?", a: "Isshin", opts: ["Isshin", "Genichiro", "Owl", "Divine Dragon"] }
             ],
             sports: [
                 { q: "Quel studio developpe FIFA/EA FC ?", a: "EA Sports", opts: ["EA Sports", "2K Games", "Konami", "Sony"] },
@@ -519,28 +716,57 @@ const allGameData = {
                 { q: "Quel pays a le drapeau bleu-blanc-rouge vertical ?", a: "France", opts: ["France", "Pays-Bas", "Russie", "Luxembourg"] },
                 { q: "Quelle est la plus grande ville d'Europe ?", a: "Istanbul", opts: ["Istanbul", "Londres", "Paris", "Moscou"] },
                 { q: "Quel fleuve traverse Paris ?", a: "La Seine", opts: ["La Seine", "La Loire", "Le Rhone", "La Garonne"] },
-                { q: "Quelle est la capitale de la Pologne ?", a: "Varsovie", opts: ["Varsovie", "Cracovie", "Gdansk", "Wroclaw"] }
+                { q: "Quelle est la capitale de la Pologne ?", a: "Varsovie", opts: ["Varsovie", "Cracovie", "Gdansk", "Wroclaw"] },
+                { q: "Quelle est la capitale de l'Autriche ?", a: "Vienne", opts: ["Vienne", "Salzbourg", "Innsbruck", "Graz"] },
+                { q: "Quel pays a la forme d'une botte ?", a: "Italie", opts: ["Italie", "Grece", "Espagne", "Portugal"] },
+                { q: "Quelle est la capitale de la Norvege ?", a: "Oslo", opts: ["Oslo", "Bergen", "Trondheim", "Stavanger"] },
+                { q: "Combien de pays composent le Royaume-Uni ?", a: "4", opts: ["4", "3", "5", "2"] },
+                { q: "Quelle est la capitale des Pays-Bas ?", a: "Amsterdam", opts: ["Amsterdam", "Rotterdam", "La Haye", "Utrecht"] },
+                { q: "Quel pays est enclave dans l'Italie ?", a: "Saint-Marin", opts: ["Saint-Marin", "Vatican", "Monaco", "Liechtenstein"] },
+                { q: "Quelle mer borde la Grece ?", a: "Mer Egee", opts: ["Mer Egee", "Mer Noire", "Mer Adriatique", "Mer Baltique"] },
+                { q: "Quelle est la capitale de la Belgique ?", a: "Bruxelles", opts: ["Bruxelles", "Anvers", "Bruges", "Gand"] }
             ],
             asia: [
                 { q: "Quelle est la capitale du Japon ?", a: "Tokyo", opts: ["Tokyo", "Kyoto", "Osaka", "Hiroshima"] },
                 { q: "Quel est le plus grand pays d'Asie ?", a: "Russie", opts: ["Russie", "Chine", "Inde", "Kazakhstan"] },
                 { q: "Quelle est la capitale de la Thailande ?", a: "Bangkok", opts: ["Bangkok", "Phuket", "Chiang Mai", "Pattaya"] },
                 { q: "Quel pays a le drapeau avec un cercle rouge ?", a: "Japon", opts: ["Japon", "Bangladesh", "Palau", "Laos"] },
-                { q: "Quelle est la capitale du Vietnam ?", a: "Hanoi", opts: ["Hanoi", "Ho Chi Minh", "Da Nang", "Hue"] }
+                { q: "Quelle est la capitale du Vietnam ?", a: "Hanoi", opts: ["Hanoi", "Ho Chi Minh", "Da Nang", "Hue"] },
+                { q: "Quelle est la capitale de la Coree du Sud ?", a: "Seoul", opts: ["Seoul", "Busan", "Incheon", "Daegu"] },
+                { q: "Quel pays est surnomme le pays du sourire ?", a: "Thailande", opts: ["Thailande", "Vietnam", "Philippines", "Indonesie"] },
+                { q: "Quelle est la plus haute montagne du monde ?", a: "Everest", opts: ["Everest", "K2", "Kangchenjunga", "Mont Blanc"] },
+                { q: "Quelle est la capitale de l'Inde ?", a: "New Delhi", opts: ["New Delhi", "Mumbai", "Calcutta", "Chennai"] },
+                { q: "Quel pays a le plus grand nombre d'iles ?", a: "Indonesie", opts: ["Indonesie", "Philippines", "Japon", "Maldives"] },
+                { q: "Quelle est la capitale de la Chine ?", a: "Pekin", opts: ["Pekin", "Shanghai", "Hong Kong", "Canton"] },
+                { q: "Quel fleuve traverse Shanghai ?", a: "Yangtsé", opts: ["Yangtsé", "Fleuve Jaune", "Mekong", "Gange"] }
             ],
             america: [
                 { q: "Quelle est la capitale du Bresil ?", a: "Brasilia", opts: ["Brasilia", "Rio de Janeiro", "Sao Paulo", "Salvador"] },
                 { q: "Quel est le plus grand pays d'Amerique du Sud ?", a: "Bresil", opts: ["Bresil", "Argentine", "Colombie", "Perou"] },
                 { q: "Quelle est la capitale du Canada ?", a: "Ottawa", opts: ["Ottawa", "Toronto", "Montreal", "Vancouver"] },
                 { q: "Quel pays a le drapeau avec une feuille d'erable ?", a: "Canada", opts: ["Canada", "Etats-Unis", "Mexique", "Jamaique"] },
-                { q: "Quelle est la capitale de l'Argentine ?", a: "Buenos Aires", opts: ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"] }
+                { q: "Quelle est la capitale de l'Argentine ?", a: "Buenos Aires", opts: ["Buenos Aires", "Cordoba", "Rosario", "Mendoza"] },
+                { q: "Quel est le plus long fleuve d'Amerique du Sud ?", a: "Amazone", opts: ["Amazone", "Parana", "Orénoque", "Sao Francisco"] },
+                { q: "Quelle est la capitale du Mexique ?", a: "Mexico", opts: ["Mexico", "Cancun", "Guadalajara", "Monterrey"] },
+                { q: "Quel pays partage la plus longue frontiere avec les USA ?", a: "Canada", opts: ["Canada", "Mexique", "Cuba", "Bahamas"] },
+                { q: "Quelle est la capitale du Perou ?", a: "Lima", opts: ["Lima", "Cusco", "Arequipa", "Trujillo"] },
+                { q: "Quelle est la capitale de la Colombie ?", a: "Bogota", opts: ["Bogota", "Medellin", "Cali", "Barranquilla"] },
+                { q: "Quelle est la capitale du Chili ?", a: "Santiago", opts: ["Santiago", "Valparaiso", "Concepcion", "Antofagasta"] },
+                { q: "Quelle chaine de montagnes traverse l'Amerique du Sud ?", a: "Les Andes", opts: ["Les Andes", "Les Rocheuses", "L'Himalaya", "Les Alpes"] }
             ],
             africa: [
                 { q: "Quelle est la capitale de l'Egypte ?", a: "Le Caire", opts: ["Le Caire", "Alexandrie", "Louxor", "Assouan"] },
                 { q: "Quel est le plus grand pays d'Afrique ?", a: "Algerie", opts: ["Algerie", "RD Congo", "Soudan", "Libye"] },
                 { q: "Quelle est la capitale du Maroc ?", a: "Rabat", opts: ["Rabat", "Casablanca", "Marrakech", "Fes"] },
                 { q: "Quel fleuve traverse l'Egypte ?", a: "Le Nil", opts: ["Le Nil", "Le Congo", "Le Niger", "Le Zambeze"] },
-                { q: "Quelle est la capitale de l'Afrique du Sud ?", a: "Pretoria", opts: ["Pretoria", "Johannesburg", "Le Cap", "Durban"] }
+                { q: "Quelle est la capitale de l'Afrique du Sud ?", a: "Pretoria", opts: ["Pretoria", "Johannesburg", "Le Cap", "Durban"] },
+                { q: "Quel pays africain n'a jamais ete colonise ?", a: "Ethiopie", opts: ["Ethiopie", "Liberia", "Les deux", "Aucun"] },
+                { q: "Quelle est la capitale du Senegal ?", a: "Dakar", opts: ["Dakar", "Saint-Louis", "Thies", "Kaolack"] },
+                { q: "Quel est le plus grand desert du monde ?", a: "Sahara", opts: ["Sahara", "Gobi", "Kalahari", "Antarctique"] },
+                { q: "Quelle est la capitale du Kenya ?", a: "Nairobi", opts: ["Nairobi", "Mombasa", "Kisumu", "Nakuru"] },
+                { q: "Quel pays a pour capitale Alger ?", a: "Algerie", opts: ["Algerie", "Tunisie", "Maroc", "Libye"] },
+                { q: "Quelle est la capitale de la Tunisie ?", a: "Tunis", opts: ["Tunis", "Sfax", "Sousse", "Bizerte"] },
+                { q: "Quel pays africain a le plus d'habitants ?", a: "Nigeria", opts: ["Nigeria", "Egypte", "Ethiopie", "RD Congo"] }
             ]
         },
         flags: [
@@ -659,18 +885,28 @@ const allGameData = {
     screenshot: {
         quiz: {
             fps: [
-                { image: "https://cdn2.steamgriddb.com/hero/c0c7c76d30bd3dcaefc96f40275bdc0a.jpg", a: "Counter-Strike 2", opts: ["Counter-Strike 2", "Valorant", "Rainbow Six Siege", "Overwatch 2"] },
-                { image: "https://cdn2.steamgriddb.com/hero/c20ad4d76fe97759aa27a0c99bff6710.jpg", a: "Halo Infinite", opts: ["Halo Infinite", "Destiny 2", "Titanfall 2", "Doom Eternal"] },
-                { image: "https://cdn2.steamgriddb.com/hero/37693cfc748049e45d87b8c7d8b9aacd.jpg", a: "Valorant", opts: ["Valorant", "CS2", "Apex Legends", "Overwatch 2"] },
-                { image: "https://cdn2.steamgriddb.com/hero/a684eceee76fc522773286a895bc8436.jpg", a: "Apex Legends", opts: ["Apex Legends", "Fortnite", "PUBG", "Warzone"] },
-                { image: "https://cdn2.steamgriddb.com/hero/182be0c5cdcd5072bb1864cdee4d3d6e.jpg", a: "Call of Duty MW2", opts: ["Call of Duty MW2", "Battlefield 2042", "Call of Duty MW3", "Warzone 2"] }
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6ywa.jpg", a: "Counter-Strike 2", opts: ["Counter-Strike 2", "Valorant", "Rainbow Six Siege", "Overwatch 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg", a: "Halo Infinite", opts: ["Halo Infinite", "Destiny 2", "Titanfall 2", "Doom Eternal"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2mvt.jpg", a: "Valorant", opts: ["Valorant", "CS2", "Apex Legends", "Overwatch 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wkt.jpg", a: "Apex Legends", opts: ["Apex Legends", "Fortnite", "PUBG", "Warzone"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5tvs.jpg", a: "Call of Duty MW2", opts: ["Call of Duty MW2", "Battlefield 2042", "Call of Duty MW3", "Warzone 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2agt.jpg", a: "Rainbow Six Siege", opts: ["Rainbow Six Siege", "CS2", "Valorant", "Overwatch 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5flt.jpg", a: "Overwatch 2", opts: ["Overwatch 2", "Paladins", "Team Fortress 2", "Valorant"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2w1r.jpg", a: "Doom Eternal", opts: ["Doom Eternal", "Halo Infinite", "Wolfenstein", "Quake"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lca.jpg", a: "Battlefield 2042", opts: ["Battlefield 2042", "Call of Duty", "Halo Infinite", "Titanfall 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1nc7.jpg", a: "Destiny 2", opts: ["Destiny 2", "Halo Infinite", "Warframe", "Division 2"] }
             ],
             openworld: [
-                { image: "https://cdn2.steamgriddb.com/hero/c74d97b01eae257e44aa9d5bade97baf.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] },
-                { image: "https://cdn2.steamgriddb.com/hero/d645920e395fedad7bbbed0eca3fe2e0.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Assassin's Creed"] },
-                { image: "https://cdn2.steamgriddb.com/hero/3c59dc048e8850243be8079a5c74d079.jpg", a: "GTA V", opts: ["GTA V", "Watch Dogs 2", "Saints Row", "Sleeping Dogs"] },
-                { image: "https://cdn2.steamgriddb.com/hero/70efdf2ec9b086079795c442636b55fb.jpg", a: "Zelda: Breath of the Wild", opts: ["Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx", "Zelda: Tears of the Kingdom"] },
-                { image: "https://cdn2.steamgriddb.com/hero/6f4922f45568161a8cdf4ad2299f6d23.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dragon Age", "Elden Ring"] }
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Assassin's Creed"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.jpg", a: "GTA V", opts: ["GTA V", "Watch Dogs 2", "Saints Row", "Sleeping Dogs"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3p2d.jpg", a: "Zelda: Breath of the Wild", opts: ["Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx", "Zelda: Tears of the Kingdom"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dragon Age", "Elden Ring"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tnw.jpg", a: "Skyrim", opts: ["Skyrim", "The Witcher 3", "Dragon Age", "Fallout 4"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg", a: "Zelda: Tears of the Kingdom", opts: ["Zelda: Tears of the Kingdom", "Breath of the Wild", "Genshin Impact", "Immortals Fenyx Rising"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1rgi.jpg", a: "Horizon Zero Dawn", opts: ["Horizon Zero Dawn", "Horizon Forbidden West", "Zelda BOTW", "Genshin Impact"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2v26.jpg", a: "Assassin's Creed Valhalla", opts: ["Assassin's Creed Valhalla", "Assassin's Creed Odyssey", "God of War", "Red Dead 2"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co3wks.jpg", a: "Cyberpunk 2077", opts: ["Cyberpunk 2077", "Watch Dogs Legion", "Deus Ex", "GTA V"] }
             ],
             retro: [
                 { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1xm6.jpg", a: "Super Mario Bros", opts: ["Super Mario Bros", "Donkey Kong", "Pac-Man", "Sonic"] },
@@ -741,7 +977,45 @@ const allGameData = {
             { fact: "On peut voir la Muraille de Chine depuis l'espace", isReal: false, explanation: "Faux ! Elle n'est pas visible à l'œil nu depuis l'orbite" },
             { fact: "Les bananes sont radioactives", isReal: true, explanation: "Vrai ! Elles contiennent du potassium-40, mais en quantité inoffensive" },
             { fact: "Les vikings portaient des casques à cornes", isReal: false, explanation: "Faux ! C'est une invention du 19ème siècle pour l'opéra" },
-            { fact: "Un octopus a 3 cœurs", isReal: true, explanation: "Vrai ! 2 pour les branchies et 1 pour le corps" }
+            { fact: "Un octopus a 3 cœurs", isReal: true, explanation: "Vrai ! 2 pour les branchies et 1 pour le corps" },
+            { fact: "Les éléphants sont les seuls animaux qui ne peuvent pas sauter", isReal: true, explanation: "Vrai ! Leur poids et leur structure osseuse les en empêchent" },
+            { fact: "La Tour Eiffel peut grandir de 15 cm en été", isReal: true, explanation: "Vrai ! La chaleur fait dilater le métal" },
+            { fact: "Les dauphins dorment avec un œil ouvert", isReal: true, explanation: "Vrai ! Ils dorment avec une moitié du cerveau à la fois" },
+            { fact: "Les carottes améliorent la vision nocturne", isReal: false, explanation: "Faux ! C'était une propagande britannique pendant la WW2" },
+            { fact: "Le son ne se propage pas dans l'espace", isReal: true, explanation: "Vrai ! Il n'y a pas de molécules pour transmettre les vibrations" },
+            { fact: "Mozart a écrit sa première symphonie à 8 ans", isReal: true, explanation: "Vrai ! Il était un prodige musical" },
+            { fact: "Les chameaux stockent de l'eau dans leurs bosses", isReal: false, explanation: "Faux ! Leurs bosses contiennent de la graisse, pas de l'eau" },
+            { fact: "La langue est le muscle le plus fort du corps", isReal: false, explanation: "Faux ! La langue est composée de plusieurs muscles et ce n'est pas le plus fort" },
+            { fact: "Les écureuils plantent des milliers d'arbres chaque année", isReal: true, explanation: "Vrai ! Ils oublient où ils ont caché leurs noisettes" }
+        ],
+        images: [
+            // Photos réelles (Unsplash - sources fiables)
+            { image: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600", isReal: true, desc: "Paysage de montagne au lever du soleil", explanation: "Réel ! Photo prise dans les Alpes suisses" },
+            { image: "https://images.unsplash.com/photo-1518837695005-2083093ee35b?w=600", isReal: true, desc: "Vague géante dans l'océan", explanation: "Réel ! Photo de surf capturée à Nazaré, Portugal" },
+            { image: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600", isReal: true, desc: "Prairie verdoyante avec arc-en-ciel", explanation: "Réel ! Photo de paysage en Nouvelle-Zélande" },
+            { image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600", isReal: true, desc: "Plage tropicale aux eaux turquoise", explanation: "Réel ! Plage aux Maldives" },
+            { image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600", isReal: true, desc: "Voie lactée au-dessus des montagnes", explanation: "Réel ! Photo astronomique longue exposition" },
+            { image: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=600", isReal: true, desc: "Forêt brumeuse au matin", explanation: "Réel ! Forêt en Oregon, USA" },
+            { image: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=600", isReal: true, desc: "Lac reflétant les montagnes", explanation: "Réel ! Lac Louise au Canada" },
+            { image: "https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600", isReal: true, desc: "Chien golden retriever souriant", explanation: "Réel ! Photo d'un vrai chien heureux" },
+            { image: "https://images.unsplash.com/photo-1474511320723-9a56873571b7?w=600", isReal: true, desc: "Aurores boréales vertes", explanation: "Réel ! Aurores photographiées en Islande" },
+            { image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=600", isReal: true, desc: "Route sinueuse dans les montagnes", explanation: "Réel ! Route en Norvège" },
+            { image: "https://images.unsplash.com/photo-1484591974057-265bb767ef71?w=600", isReal: true, desc: "Éclairs dans un orage", explanation: "Réel ! Tempête photographiée en Arizona" },
+            { image: "https://images.unsplash.com/photo-1530908295418-a12e326966ba?w=600", isReal: true, desc: "Cascade gigantesque", explanation: "Réel ! Chutes du Niagara" },
+            // Images générées par IA / Art digital (via picsum pour la démo)
+            // En production, ces URLs seraient remplacées par de vraies images IA
+            { image: "https://picsum.photos/seed/fake1/600/400", isReal: false, desc: "Château flottant dans les nuages", explanation: "Faux ! Image générée - les châteaux ne flottent pas dans le ciel" },
+            { image: "https://picsum.photos/seed/fake2/600/400", isReal: false, desc: "Dragon survolant New York", explanation: "Faux ! Image générée - les dragons n'existent pas" },
+            { image: "https://picsum.photos/seed/fake3/600/400", isReal: false, desc: "Sirène sur un rocher", explanation: "Faux ! Image générée - les sirènes sont des créatures mythiques" },
+            { image: "https://picsum.photos/seed/fake4/600/400", isReal: false, desc: "Ville sous-marine habitée", explanation: "Faux ! Image générée - pas de villes humaines sous l'eau" },
+            { image: "https://picsum.photos/seed/fake5/600/400", isReal: false, desc: "Licorne dans une prairie", explanation: "Faux ! Image générée - les licornes n'existent pas" },
+            { image: "https://picsum.photos/seed/fake6/600/400", isReal: false, desc: "Robot géant en ville", explanation: "Faux ! Image générée - ces robots n'existent pas encore" },
+            { image: "https://picsum.photos/seed/fake7/600/400", isReal: false, desc: "Personne avec 6 doigts", explanation: "Faux ! Erreur typique des IA - les humains ont 5 doigts" },
+            { image: "https://picsum.photos/seed/fake8/600/400", isReal: false, desc: "Île flottante avec cascade", explanation: "Faux ! Image générée - les îles ne flottent pas" },
+            { image: "https://picsum.photos/seed/fake9/600/400", isReal: false, desc: "Chat avec des ailes", explanation: "Faux ! Image générée - les chats n'ont pas d'ailes" },
+            { image: "https://picsum.photos/seed/fake10/600/400", isReal: false, desc: "Ville futuriste volante", explanation: "Faux ! Image générée - technologie qui n'existe pas" },
+            { image: "https://picsum.photos/seed/fake11/600/400", isReal: false, desc: "Arbre qui pousse dans le ciel", explanation: "Faux ! Image générée - les arbres ont besoin de sol" },
+            { image: "https://picsum.photos/seed/fake12/600/400", isReal: false, desc: "Escalier vers les nuages", explanation: "Faux ! Image générée - impossible physiquement" }
         ]
     },
     facemerge: {
@@ -785,19 +1059,38 @@ const allGameData = {
     },
     categorysprint: {
         movies: [
-            { category: "Films avec Leonardo DiCaprio", answers: ["Titanic", "Inception", "The Revenant", "Django Unchained", "The Wolf of Wall Street", "Shutter Island", "Catch Me If You Can", "The Departed", "Once Upon a Time in Hollywood", "Don't Look Up"] },
-            { category: "Films Marvel", answers: ["Iron Man", "Avengers", "Spider-Man", "Thor", "Captain America", "Black Panther", "Guardians of the Galaxy", "Doctor Strange", "Ant-Man", "Black Widow", "Hulk", "Deadpool"] },
-            { category: "Films de Quentin Tarantino", answers: ["Pulp Fiction", "Kill Bill", "Django Unchained", "Inglourious Basterds", "Reservoir Dogs", "Once Upon a Time in Hollywood", "The Hateful Eight", "Jackie Brown"] }
+            { category: "Films avec Leonardo DiCaprio", answers: ["Titanic", "Inception", "The Revenant", "Django Unchained", "The Wolf of Wall Street", "Shutter Island", "Catch Me If You Can", "The Departed", "Once Upon a Time in Hollywood", "Don't Look Up", "Romeo + Juliet", "Gangs of New York", "Blood Diamond", "The Aviator"] },
+            { category: "Films Marvel", answers: ["Iron Man", "Avengers", "Spider-Man", "Thor", "Captain America", "Black Panther", "Guardians of the Galaxy", "Doctor Strange", "Ant-Man", "Black Widow", "Hulk", "Deadpool", "Shang-Chi", "Eternals", "Wakanda Forever"] },
+            { category: "Films de Quentin Tarantino", answers: ["Pulp Fiction", "Kill Bill", "Django Unchained", "Inglourious Basterds", "Reservoir Dogs", "Once Upon a Time in Hollywood", "The Hateful Eight", "Jackie Brown", "Death Proof"] },
+            { category: "Films de Tom Hanks", answers: ["Forrest Gump", "Cast Away", "Saving Private Ryan", "The Green Mile", "Philadelphia", "Big", "Apollo 13", "Toy Story", "Captain Phillips", "Sully"] },
+            { category: "Films de Christopher Nolan", answers: ["Inception", "Interstellar", "The Dark Knight", "Dunkirk", "Tenet", "Memento", "Oppenheimer", "The Prestige", "Batman Begins", "Insomnia"] },
+            { category: "Films d'animation Pixar", answers: ["Toy Story", "Finding Nemo", "The Incredibles", "Up", "WALL-E", "Inside Out", "Coco", "Ratatouille", "Monsters Inc", "Cars", "Soul", "Luca", "Elemental"] },
+            { category: "Films de Steven Spielberg", answers: ["Jurassic Park", "E.T.", "Schindler's List", "Jaws", "Indiana Jones", "Saving Private Ryan", "Minority Report", "Ready Player One", "West Side Story", "The Fabelmans"] },
+            { category: "Films James Bond", answers: ["Casino Royale", "Skyfall", "Spectre", "No Time to Die", "Goldfinger", "Dr No", "Thunderball", "GoldenEye", "Tomorrow Never Dies", "Die Another Day", "Quantum of Solace"] },
+            { category: "Films DC Comics", answers: ["Batman", "Superman", "Wonder Woman", "Aquaman", "The Flash", "Shazam", "Justice League", "Suicide Squad", "Joker", "The Batman", "Black Adam"] },
+            { category: "Films Harry Potter", answers: ["Philosopher's Stone", "Chamber of Secrets", "Prisoner of Azkaban", "Goblet of Fire", "Order of the Phoenix", "Half-Blood Prince", "Deathly Hallows", "Fantastic Beasts"] }
         ],
         music: [
-            { category: "Chansons de Michael Jackson", answers: ["Thriller", "Billie Jean", "Beat It", "Bad", "Smooth Criminal", "Black or White", "Man in the Mirror", "The Way You Make Me Feel", "Dirty Diana", "Earth Song"] },
-            { category: "Chansons de Queen", answers: ["Bohemian Rhapsody", "We Will Rock You", "We Are the Champions", "Don't Stop Me Now", "Somebody to Love", "Radio Ga Ga", "Killer Queen", "Another One Bites the Dust", "Under Pressure", "I Want to Break Free"] },
-            { category: "Artistes français", answers: ["Stromae", "Indila", "Aya Nakamura", "Jul", "PNL", "Maitre Gims", "Soprano", "Nekfeu", "Orelsan", "Angèle", "Zaz", "Edith Piaf", "Charles Aznavour"] }
+            { category: "Chansons de Michael Jackson", answers: ["Thriller", "Billie Jean", "Beat It", "Bad", "Smooth Criminal", "Black or White", "Man in the Mirror", "The Way You Make Me Feel", "Dirty Diana", "Earth Song", "Remember the Time", "They Don't Care About Us"] },
+            { category: "Chansons de Queen", answers: ["Bohemian Rhapsody", "We Will Rock You", "We Are the Champions", "Don't Stop Me Now", "Somebody to Love", "Radio Ga Ga", "Killer Queen", "Another One Bites the Dust", "Under Pressure", "I Want to Break Free", "Bicycle Race", "The Show Must Go On"] },
+            { category: "Artistes français", answers: ["Stromae", "Indila", "Aya Nakamura", "Jul", "PNL", "Maitre Gims", "Soprano", "Nekfeu", "Orelsan", "Angele", "Zaz", "Edith Piaf", "Charles Aznavour", "Daft Punk", "David Guetta", "Louane"] },
+            { category: "Chansons des Beatles", answers: ["Hey Jude", "Let It Be", "Yesterday", "Come Together", "Here Comes the Sun", "Help", "Yellow Submarine", "All You Need Is Love", "Twist and Shout", "Eleanor Rigby", "Imagine", "Blackbird"] },
+            { category: "Chansons d'Eminem", answers: ["Lose Yourself", "Stan", "The Real Slim Shady", "Without Me", "Not Afraid", "Mockingbird", "Love the Way You Lie", "Rap God", "Godzilla", "Cleaning Out My Closet", "Till I Collapse"] },
+            { category: "Chansons de Taylor Swift", answers: ["Shake It Off", "Love Story", "Blank Space", "Bad Blood", "Wildest Dreams", "Anti-Hero", "Cruel Summer", "Style", "All Too Well", "Look What You Made Me Do", "Cardigan", "Folklore"] },
+            { category: "Chansons de Drake", answers: ["God's Plan", "One Dance", "Hotline Bling", "In My Feelings", "Nice for What", "Started from the Bottom", "Hold On We're Going Home", "Passionfruit", "Toosie Slide", "Way 2 Sexy"] },
+            { category: "Chansons d'Adele", answers: ["Rolling in the Deep", "Someone Like You", "Hello", "Set Fire to the Rain", "Skyfall", "Easy On Me", "When We Were Young", "Chasing Pavements", "Make You Feel My Love", "Water Under the Bridge"] },
+            { category: "Chansons de Beyoncé", answers: ["Single Ladies", "Crazy in Love", "Halo", "Formation", "Drunk in Love", "Run the World", "Love on Top", "Irreplaceable", "Break My Soul", "Cuff It"] }
         ],
         geo: [
-            { category: "Capitales européennes", answers: ["Paris", "Londres", "Berlin", "Madrid", "Rome", "Lisbonne", "Amsterdam", "Bruxelles", "Vienne", "Prague", "Varsovie", "Budapest", "Athènes", "Stockholm", "Oslo", "Copenhague", "Dublin", "Berne"] },
-            { category: "Pays d'Afrique", answers: ["Maroc", "Algérie", "Tunisie", "Egypte", "Afrique du Sud", "Nigeria", "Kenya", "Sénégal", "Côte d'Ivoire", "Ghana", "Cameroun", "Ethiopie", "Tanzanie", "Mali", "Congo"] },
-            { category: "Pays d'Asie", answers: ["Japon", "Chine", "Corée du Sud", "Inde", "Vietnam", "Thaïlande", "Indonésie", "Philippines", "Malaisie", "Singapour", "Pakistan", "Bangladesh", "Népal", "Sri Lanka", "Cambodge"] }
+            { category: "Capitales européennes", answers: ["Paris", "Londres", "Berlin", "Madrid", "Rome", "Lisbonne", "Amsterdam", "Bruxelles", "Vienne", "Prague", "Varsovie", "Budapest", "Athenes", "Stockholm", "Oslo", "Copenhague", "Dublin", "Berne", "Helsinki", "Reykjavik"] },
+            { category: "Pays d'Afrique", answers: ["Maroc", "Algerie", "Tunisie", "Egypte", "Afrique du Sud", "Nigeria", "Kenya", "Senegal", "Cote d'Ivoire", "Ghana", "Cameroun", "Ethiopie", "Tanzanie", "Mali", "Congo", "Rwanda", "Madagascar", "Angola", "Mozambique"] },
+            { category: "Pays d'Asie", answers: ["Japon", "Chine", "Coree du Sud", "Inde", "Vietnam", "Thailande", "Indonesie", "Philippines", "Malaisie", "Singapour", "Pakistan", "Bangladesh", "Nepal", "Sri Lanka", "Cambodge", "Myanmar", "Laos", "Mongolie"] },
+            { category: "Pays d'Amérique du Sud", answers: ["Brésil", "Argentine", "Chili", "Colombie", "Pérou", "Venezuela", "Équateur", "Bolivie", "Paraguay", "Uruguay", "Guyana", "Suriname"] },
+            { category: "Pays d'Amérique centrale", answers: ["Mexique", "Guatemala", "Honduras", "Nicaragua", "Costa Rica", "Panama", "Belize", "El Salvador", "Cuba", "Jamaique", "Haiti", "République dominicaine"] },
+            { category: "Villes de France", answers: ["Paris", "Lyon", "Marseille", "Toulouse", "Nice", "Nantes", "Bordeaux", "Lille", "Strasbourg", "Montpellier", "Rennes", "Le Havre", "Toulon", "Grenoble", "Dijon"] },
+            { category: "Villes des États-Unis", answers: ["New York", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Antonio", "San Diego", "Dallas", "San Jose", "Miami", "Seattle", "Boston", "Denver", "Atlanta"] },
+            { category: "Mers et Océans", answers: ["Atlantique", "Pacifique", "Indien", "Arctique", "Méditerranée", "Caraïbes", "Rouge", "Noir", "Baltique", "Nord", "Adriatique", "Égée", "Caspienne"] },
+            { category: "Fleuves du monde", answers: ["Nil", "Amazone", "Mississipi", "Yangtse", "Gange", "Danube", "Rhin", "Seine", "Tamise", "Congo", "Volga", "Mékong", "Loire", "Rhône"] }
         ]
     }
 };
@@ -2385,28 +2678,49 @@ function showQuestion() {
 }
 
 // Function to play blind test audio
-function playBlindTestAudio(audioUrl, isYoutube) {
+async function playBlindTestAudio(audioUrl, isYoutube) {
     if (state.currentAudio) {
         state.currentAudio.pause();
     }
+
+    const playBtn = document.querySelector('.play-audio-btn');
 
     if (isYoutube) {
         // For YouTube, open in a small window or use iframe
         window.open(audioUrl, '_blank', 'width=400,height=300');
     } else {
-        state.currentAudio = new Audio(audioUrl);
-        state.currentAudio.volume = 0.7;
-        state.currentAudio.play().catch(e => {
-            console.log('Erreur lecture audio:', e);
-            showToast('Impossible de lire l\'audio', 'error');
-        });
-    }
+        // Try direct playback first
+        try {
+            state.currentAudio = new Audio(audioUrl);
+            state.currentAudio.volume = 0.7;
+            await state.currentAudio.play();
 
-    // Update button state
-    const playBtn = document.querySelector('.play-audio-btn');
-    if (playBtn) {
-        playBtn.innerHTML = '<span class="play-icon">🔊</span> En cours...';
-        playBtn.classList.add('playing');
+            if (playBtn) {
+                playBtn.innerHTML = '<span class="play-icon">🔊</span> En cours...';
+                playBtn.classList.add('playing');
+            }
+        } catch (e) {
+            console.log('Direct playback failed, trying proxy:', e);
+
+            // Try with CORS proxy
+            const proxiedUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(audioUrl)}`;
+            try {
+                state.currentAudio = new Audio(proxiedUrl);
+                state.currentAudio.volume = 0.7;
+                await state.currentAudio.play();
+
+                if (playBtn) {
+                    playBtn.innerHTML = '<span class="play-icon">🔊</span> En cours...';
+                    playBtn.classList.add('playing');
+                }
+            } catch (e2) {
+                console.log('Proxy playback also failed:', e2);
+                showToast('Impossible de lire l\'audio', 'error');
+                if (playBtn) {
+                    playBtn.innerHTML = '<span class="play-icon">❌</span> Erreur';
+                }
+            }
+        }
     }
 }
 
@@ -2642,8 +2956,15 @@ function hlGuess(guess) {
 
         setTimeout(() => {
             state.hlCurrent = state.hlNext;
-            const pool = state.hlPool.filter(s => !state.hlUsed.includes(s.title));
-            state.hlNext = shuffle(pool.length ? pool : state.hlPool)[0];
+            // Filtrer les éléments déjà utilisés ET l'élément actuel pour éviter les doublons
+            let pool = state.hlPool.filter(s =>
+                !state.hlUsed.includes(s.title) && s.title !== state.hlCurrent.title
+            );
+            // Si le pool est vide, réutiliser tout sauf l'élément actuel
+            if (pool.length === 0) {
+                pool = state.hlPool.filter(s => s.title !== state.hlCurrent.title);
+            }
+            state.hlNext = shuffle(pool)[0];
             state.hlUsed.push(state.hlNext.title);
             updateHL();
         }, 1500);
@@ -2919,13 +3240,24 @@ function endCityGuesser() {
 // ===== Fake or Real =====
 function startFakeReal() {
     const gameData = allGameData.fakereal;
-    if (!gameData || !gameData.facts) {
+    if (!gameData) {
         showToast('Pas de données disponibles', 'error');
         return;
     }
 
-    // Utiliser uniquement les faits
-    const data = gameData.facts.map(item => ({ ...item, type: 'fact' }));
+    let data = [];
+
+    // Choisir le mode (facts ou images)
+    if (state.mode === 'images' && gameData.images) {
+        data = gameData.images.map(item => ({ ...item, type: 'image' }));
+    } else if (gameData.facts) {
+        data = gameData.facts.map(item => ({ ...item, type: 'fact' }));
+    }
+
+    if (data.length === 0) {
+        showToast('Pas de données disponibles pour ce mode', 'error');
+        return;
+    }
 
     state.frQuestions = shuffle(data).slice(0, 10);
     state.frCurrent = 0;
@@ -2956,9 +3288,16 @@ function showFakeRealQuestion() {
 
     resultEl.classList.add('hidden');
 
-    // Toujours afficher comme un fait (mode images désactivé)
-    imageEl.classList.add('hidden');
-    if (q.fact) {
+    // Afficher selon le type (fait ou image)
+    if (q.type === 'image' && q.image) {
+        // Mode images
+        imageEl.src = q.image;
+        imageEl.alt = q.desc || 'Image mystère';
+        imageEl.classList.remove('hidden');
+        factEl.textContent = q.desc || 'Cette image est-elle réelle ou générée par IA ?';
+        factEl.classList.remove('hidden');
+    } else if (q.fact) {
+        // Mode faits
         factEl.textContent = q.fact;
         factEl.classList.remove('hidden');
         imageEl.classList.add('hidden');
@@ -3345,16 +3684,8 @@ function startMemory() {
 
     document.getElementById('mem-level').textContent = memLevel;
     document.getElementById('mem-score').textContent = state.score;
-
-    // Message différent selon le mode
-    const isSoundMode = state.mode === 'sounds';
-    if (isSoundMode) {
-        document.getElementById('mem-instruction').textContent = '🔊 Mode Son - Écoute attentivement !';
-        document.getElementById('memory-grid').classList.add('sound-mode');
-    } else {
-        document.getElementById('mem-instruction').textContent = '🎨 Mode Couleurs - Regarde bien !';
-        document.getElementById('memory-grid').classList.remove('sound-mode');
-    }
+    document.getElementById('mem-instruction').textContent = 'Appuie sur Commencer pour jouer';
+    document.getElementById('memory-grid').classList.remove('sound-mode');
 
     const startBtn = document.getElementById('mem-start-btn');
     startBtn.textContent = 'Commencer';
@@ -3404,21 +3735,16 @@ function playMemorySequence() {
     setTimeout(playNext, 500);
 }
 
-function highlightMemoryBtn(color, isPlayerAction = false) {
+function highlightMemoryBtn(color) {
     const btn = document.querySelector(`.memory-btn[data-color="${color}"]`);
     if (!btn) return;
 
-    const isSoundMode = state.mode === 'sounds';
-
-    // En mode son, ne montrer le highlight que si c'est l'action du joueur
-    if (!isSoundMode || isPlayerAction) {
-        btn.classList.add('active');
-        setTimeout(() => {
-            btn.classList.remove('active');
-        }, 400);
-    }
-
+    btn.classList.add('active');
     playMemorySound(color);
+
+    setTimeout(() => {
+        btn.classList.remove('active');
+    }, 400);
 }
 
 function playMemorySound(color) {
@@ -3442,7 +3768,7 @@ function playMemorySound(color) {
 function memoryBtnClick(color) {
     if (!memIsPlayerTurn || memIsPlaying) return;
 
-    highlightMemoryBtn(color, true); // true = action du joueur, toujours montrer
+    highlightMemoryBtn(color);
     memPlayerSequence.push(color);
 
     // Vérifier si correct

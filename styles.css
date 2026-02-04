@@ -5167,20 +5167,6 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
     box-shadow: 0 0 30px currentColor;
 }
 
-/* Mode son - cacher les couleurs pendant la séquence */
-.memory-grid.sound-mode .memory-btn {
-    background: var(--bg-tertiary) !important;
-    border-color: var(--border-color);
-}
-.memory-grid.sound-mode .memory-btn::after {
-    content: '🔊';
-    font-size: 2rem;
-}
-.memory-grid.sound-mode .memory-btn.active {
-    background: var(--accent) !important;
-    box-shadow: 0 0 30px var(--accent);
-}
-
 .memory-buttons {
     display: flex;
     gap: 1rem;
