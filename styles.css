@@ -3491,6 +3491,43 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
     margin: 1rem 0;
 }
 
+.mp-media {
+    margin: 1rem auto;
+    max-width: 300px;
+}
+
+.mp-question-img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: var(--radius-lg);
+    object-fit: cover;
+}
+
+.mp-audio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem;
+    background: var(--bg-card);
+    border-radius: var(--radius-lg);
+    margin: 1rem auto;
+}
+
+.mp-audio .audio-icon {
+    font-size: 2rem;
+}
+
+.mp-audio .play-audio-btn {
+    padding: 0.75rem 1.5rem;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    font-weight: 600;
+}
+
 .mp-answers-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);

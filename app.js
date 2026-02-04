@@ -5053,13 +5053,90 @@ function startMpGame() {
     const gameData = allGameData[mpState.game];
     let data = [];
 
-    if (gameData.quiz) {
-        const genres = mpState.category === 'mixed' ? Object.keys(gameData.quiz) : [mpState.category];
+    if (mpState.game === 'blindtest') {
+        // Blind Test - sons ou ost
+        const sourceData = mpState.category === 'ost' ? gameData.ost : gameData.sounds;
+        if (sourceData) {
+            const genres = mpState.category === 'mixed' ? Object.keys(sourceData) : [mpState.category];
+            genres.forEach(g => {
+                if (sourceData[g]) {
+                    data = data.concat(sourceData[g]);
+                }
+            });
+        }
+    } else if (mpState.game === 'screenshot' || mpState.game === 'logo') {
+        // Screenshot Quiz ou Logo Quiz
+        if (gameData.quiz) {
+            const genres = mpState.category === 'mixed' ? Object.keys(gameData.quiz) : [mpState.category];
+            genres.forEach(g => {
+                if (gameData.quiz[g]) {
+                    data = data.concat(gameData.quiz[g]);
+                }
+            });
+        }
+    } else if (mpState.game === 'fakereal') {
+        // Vrai ou Faux - facts ou images
+        if (mpState.category === 'images' && gameData.images) {
+            data = gameData.images.map(item => ({
+                q: item.desc,
+                a: item.isReal ? 'Vrai' : 'Faux',
+                opts: ['Vrai', 'Faux'],
+                image: item.image,
+                explanation: item.explanation,
+                type: 'fakereal'
+            }));
+        } else if (gameData.facts) {
+            data = gameData.facts.map(item => ({
+                q: item.fact,
+                a: item.isReal ? 'Vrai' : 'Faux',
+                opts: ['Vrai', 'Faux'],
+                explanation: item.explanation,
+                type: 'fakereal'
+            }));
+        }
+    } else if (mpState.game === 'zoomrace') {
+        // Zoom Race - utilise les données games/movies/logos
+        const genres = mpState.category === 'mixed' ? Object.keys(gameData).filter(k => Array.isArray(gameData[k])) : [mpState.category];
         genres.forEach(g => {
-            if (gameData.quiz[g]) {
-                data = data.concat(gameData.quiz[g]);
+            if (gameData[g] && Array.isArray(gameData[g])) {
+                data = data.concat(gameData[g].map(item => ({
+                    q: 'Quel est ce jeu/film/logo ?',
+                    a: item.a,
+                    opts: item.opts,
+                    image: item.image,
+                    type: 'zoomrace'
+                })));
             }
         });
+    } else if (mpState.game === 'categorysprint') {
+        // Category Sprint - format spécial
+        const categories = mpState.category === 'mixed' ? Object.keys(gameData) : [mpState.category];
+        categories.forEach(cat => {
+            if (gameData[cat]) {
+                gameData[cat].forEach(item => {
+                    // Convertir en format quiz standard
+                    const correctAnswers = item.answers.slice(0, 4);
+                    const wrongAnswers = ['Incorrect 1', 'Incorrect 2', 'Incorrect 3', 'Incorrect 4'];
+                    data.push({
+                        q: `Catégorie: ${item.category} - Trouve une bonne réponse`,
+                        a: correctAnswers[0],
+                        opts: shuffle([...correctAnswers.slice(0, 2), ...wrongAnswers.slice(0, 2)]),
+                        type: 'categorysprint',
+                        validAnswers: item.answers
+                    });
+                });
+            }
+        });
+    } else {
+        // Quiz standard (music, cinema, sport, gaming, geo)
+        if (gameData.quiz) {
+            const genres = mpState.category === 'mixed' ? Object.keys(gameData.quiz) : [mpState.category];
+            genres.forEach(g => {
+                if (gameData.quiz[g]) {
+                    data = data.concat(gameData.quiz[g]);
+                }
+            });
+        }
     }
 
     if (gameData.flags && mpState.game === 'geo') {
@@ -5107,18 +5184,56 @@ function showMpQuestion() {
 
     // Question text
     let questionText = '';
-    let flagDisplay = '';
+    let mediaDisplay = '';
 
     if (mpState.game === 'music' && q.q) {
         questionText = `Qui chante "${q.q}" ?`;
     } else if (mpState.game === 'geo' && q.q && q.q.length <= 3) {
         questionText = 'Quel pays a ce drapeau ?';
-        flagDisplay = `<div class="flag-display"><img src="https://flagcdn.com/w320/${q.q}.png" alt="Drapeau" class="flag-img"></div>`;
+        mediaDisplay = `<div class="flag-display"><img src="https://flagcdn.com/w320/${q.q}.png" alt="Drapeau" class="flag-img"></div>`;
+    } else if ((mpState.game === 'screenshot' || mpState.game === 'logo' || mpState.game === 'zoomrace') && q.image) {
+        // Jeux avec images
+        questionText = mpState.game === 'logo' ? 'Quel est ce logo ?' : 'Quel est ce jeu ?';
+        const zoomStyle = mpState.game === 'zoomrace' ? 'filter: blur(5px); transform: scale(1.5);' : '';
+        mediaDisplay = `<div class="media-display mp-media"><img src="${q.image}" alt="Image" class="mp-question-img" style="${zoomStyle}"></div>`;
+    } else if (mpState.game === 'fakereal') {
+        // Vrai ou Faux
+        questionText = q.q;
+        if (q.image) {
+            mediaDisplay = `<div class="media-display mp-media"><img src="${q.image}" alt="Image" class="mp-question-img"></div>`;
+        }
+    } else if (mpState.game === 'blindtest' && (q.audio || q.deezerId)) {
+        // Blind Test
+        questionText = 'Quel est ce son ?';
+        if (q.deezerId) {
+            mediaDisplay = `
+                <div class="audio-display mp-audio">
+                    <div class="audio-icon">🎵</div>
+                    <button class="play-audio-btn" onclick="playDeezerPreview(${q.deezerId})">
+                        <span class="play-icon">▶</span> Écouter
+                    </button>
+                </div>`;
+            // Auto-play
+            setTimeout(() => playDeezerPreview(q.deezerId), 500);
+        } else if (q.audio) {
+            mediaDisplay = `
+                <div class="audio-display mp-audio">
+                    <div class="audio-icon">🔊</div>
+                    <button class="play-audio-btn" onclick="playBlindTestAudio('${q.audio}', ${!!q.youtube})">
+                        <span class="play-icon">▶</span> Écouter
+                    </button>
+                </div>`;
+            if (!q.youtube) {
+                setTimeout(() => playBlindTestAudio(q.audio, false), 500);
+            }
+        }
+    } else if (mpState.game === 'categorysprint') {
+        questionText = q.q;
     } else {
         questionText = q.q;
     }
 
-    document.getElementById('mp-question-text').innerHTML = flagDisplay + questionText;
+    document.getElementById('mp-question-text').innerHTML = mediaDisplay + questionText;
 
     // Answers
     const grid = document.getElementById('mp-answers-grid');
