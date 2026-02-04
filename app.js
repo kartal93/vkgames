@@ -549,18 +549,21 @@ const allGameData = {
             { title: "Allemagne", artist: "Europe", value: 84, emoji: "🇩🇪" }
         ],
         cityguesser: [
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/800px-Tour_Eiffel_Wikimedia_Commons.jpg", city: "Paris", country: "France", lat: 48.8566, lng: 2.3522 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Big_Ben_Londres.jpg/800px-Big_Ben_Londres.jpg", city: "Londres", country: "Royaume-Uni", lat: 51.5074, lng: -0.1278 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabyte.jpg/800px-New_york_times_square-terabyte.jpg", city: "New York", country: "États-Unis", lat: 40.7128, lng: -74.0060 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/800px-Skyscrapers_of_Shinjuku_2009_January.jpg", city: "Tokyo", country: "Japon", lat: 35.6762, lng: 139.6503 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/800px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg", city: "Rome", country: "Italie", lat: 41.9028, lng: 12.4964 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sydney_Opera_House%2C_botanic_gardens_1.jpg/800px-Sydney_Opera_House%2C_botanic_gardens_1.jpg", city: "Sydney", country: "Australie", lat: -33.8688, lng: 151.2093 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/800px-Stadtbild_M%C3%BCnchen.jpg", city: "Munich", country: "Allemagne", lat: 48.1351, lng: 11.5820 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Burj_Khalifa.jpg/800px-Burj_Khalifa.jpg", city: "Dubaï", country: "Émirats arabes unis", lat: 25.2048, lng: 55.2708 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Christ_on_Corcovado_mountain.JPG/800px-Christ_on_Corcovado_mountain.JPG", city: "Rio de Janeiro", country: "Brésil", lat: -22.9068, lng: -43.1729 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Barcelona_collage.JPG/800px-Barcelona_collage.JPG", city: "Barcelone", country: "Espagne", lat: 41.3851, lng: 2.1734 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/KessalGoldenGate.jpg/800px-KeisahGoldenGate.jpg", city: "San Francisco", country: "États-Unis", lat: 37.7749, lng: -122.4194 },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Moscow_July_2011-1.jpg/800px-Moscow_July_2011-1.jpg", city: "Moscou", country: "Russie", lat: 55.7558, lng: 37.6173 }
+            { image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600", city: "Paris", country: "France", lat: 48.8566, lng: 2.3522 },
+            { image: "https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?w=600", city: "Londres", country: "Royaume-Uni", lat: 51.5074, lng: -0.1278 },
+            { image: "https://images.unsplash.com/photo-1496442226666-8d4d0e62e6e9?w=600", city: "New York", country: "États-Unis", lat: 40.7128, lng: -74.0060 },
+            { image: "https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?w=600", city: "Tokyo", country: "Japon", lat: 35.6762, lng: 139.6503 },
+            { image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=600", city: "Rome", country: "Italie", lat: 41.9028, lng: 12.4964 },
+            { image: "https://images.unsplash.com/photo-1506973035872-a4ec16b8e8d9?w=600", city: "Sydney", country: "Australie", lat: -33.8688, lng: 151.2093 },
+            { image: "https://images.unsplash.com/photo-1595867818082-083862f3d630?w=600", city: "Munich", country: "Allemagne", lat: 48.1351, lng: 11.5820 },
+            { image: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=600", city: "Dubaï", country: "Émirats arabes unis", lat: 25.2048, lng: 55.2708 },
+            { image: "https://images.unsplash.com/photo-1483729558449-99ef09a8c325?w=600", city: "Rio de Janeiro", country: "Brésil", lat: -22.9068, lng: -43.1729 },
+            { image: "https://images.unsplash.com/photo-1583422409516-2895a77efded?w=600", city: "Barcelone", country: "Espagne", lat: 41.3851, lng: 2.1734 },
+            { image: "https://images.unsplash.com/photo-1501594907352-04cda38ebc29?w=600", city: "San Francisco", country: "États-Unis", lat: 37.7749, lng: -122.4194 },
+            { image: "https://images.unsplash.com/photo-1513326738677-b964603b136d?w=600", city: "Moscou", country: "Russie", lat: 55.7558, lng: 37.6173 },
+            { image: "https://images.unsplash.com/photo-1555992336-fb0d29498b13?w=600", city: "Amsterdam", country: "Pays-Bas", lat: 52.3676, lng: 4.9041 },
+            { image: "https://images.unsplash.com/photo-1516738901171-8eb4fc13bd20?w=600", city: "Berlin", country: "Allemagne", lat: 52.5200, lng: 13.4050 },
+            { image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600", city: "Los Angeles", country: "États-Unis", lat: 34.0522, lng: -118.2437 }
         ]
     },
     blindtest: {
@@ -622,32 +625,32 @@ const allGameData = {
     screenshot: {
         quiz: {
             fps: [
-                { image: "https://upload.wikimedia.org/wikipedia/en/1/1f/Counter-Strike_2_screenshot.png", a: "Counter-Strike 2", opts: ["Counter-Strike 2", "Valorant", "Rainbow Six Siege", "Overwatch 2"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/c/c1/Halo_Infinite_cover_art.jpg", a: "Halo Infinite", opts: ["Halo Infinite", "Destiny 2", "Titanfall 2", "Doom Eternal"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/6/62/Valorant_Cover.jpg", a: "Valorant", opts: ["Valorant", "CS2", "Apex Legends", "Overwatch 2"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/d/d6/Apex_legends_cover.jpg", a: "Apex Legends", opts: ["Apex Legends", "Fortnite", "PUBG", "Warzone"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/1/1f/Call_of_Duty_Modern_Warfare_II_%282022%29_Cover_Art.png", a: "Call of Duty MW2 (2022)", opts: ["Call of Duty MW2 (2022)", "Battlefield 2042", "Call of Duty MW3", "Warzone 2"] }
+                { image: "https://cdn2.steamgriddb.com/hero/c0c7c76d30bd3dcaefc96f40275bdc0a.jpg", a: "Counter-Strike 2", opts: ["Counter-Strike 2", "Valorant", "Rainbow Six Siege", "Overwatch 2"] },
+                { image: "https://cdn2.steamgriddb.com/hero/c20ad4d76fe97759aa27a0c99bff6710.jpg", a: "Halo Infinite", opts: ["Halo Infinite", "Destiny 2", "Titanfall 2", "Doom Eternal"] },
+                { image: "https://cdn2.steamgriddb.com/hero/37693cfc748049e45d87b8c7d8b9aacd.jpg", a: "Valorant", opts: ["Valorant", "CS2", "Apex Legends", "Overwatch 2"] },
+                { image: "https://cdn2.steamgriddb.com/hero/a684eceee76fc522773286a895bc8436.jpg", a: "Apex Legends", opts: ["Apex Legends", "Fortnite", "PUBG", "Warzone"] },
+                { image: "https://cdn2.steamgriddb.com/hero/182be0c5cdcd5072bb1864cdee4d3d6e.jpg", a: "Call of Duty MW2", opts: ["Call of Duty MW2", "Battlefield 2042", "Call of Duty MW3", "Warzone 2"] }
             ],
             openworld: [
-                { image: "https://upload.wikimedia.org/wikipedia/en/4/4e/Elden_Ring_Box_art.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption_2.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Assassin's Creed"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/0/0c/GTA_V.png", a: "GTA V", opts: ["GTA V", "Watch Dogs 2", "Saints Row", "Sleeping Dogs"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/The_Legend_of_Zelda_Breath_of_the_Wild.jpg", a: "Zelda: Breath of the Wild", opts: ["Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx", "Zelda: Tears of the Kingdom"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/1/15/The_Witcher_3_cover_art.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dragon Age", "Elden Ring"] }
+                { image: "https://cdn2.steamgriddb.com/hero/c74d97b01eae257e44aa9d5bade97baf.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] },
+                { image: "https://cdn2.steamgriddb.com/hero/d645920e395fedad7bbbed0eca3fe2e0.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Assassin's Creed"] },
+                { image: "https://cdn2.steamgriddb.com/hero/3c59dc048e8850243be8079a5c74d079.jpg", a: "GTA V", opts: ["GTA V", "Watch Dogs 2", "Saints Row", "Sleeping Dogs"] },
+                { image: "https://cdn2.steamgriddb.com/hero/70efdf2ec9b086079795c442636b55fb.jpg", a: "Zelda: Breath of the Wild", opts: ["Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx", "Zelda: Tears of the Kingdom"] },
+                { image: "https://cdn2.steamgriddb.com/hero/6f4922f45568161a8cdf4ad2299f6d23.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dragon Age", "Elden Ring"] }
             ],
             retro: [
-                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png", a: "Super Mario Bros", opts: ["Super Mario Bros", "Donkey Kong", "Pac-Man", "Sonic"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/4/47/Original_Doom_cover.png", a: "DOOM (1993)", opts: ["DOOM (1993)", "Wolfenstein 3D", "Duke Nukem", "Quake"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/5/56/Tetris_NES_cover_art.jpg", a: "Tetris", opts: ["Tetris", "Dr. Mario", "Puyo Puyo", "Columns"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/8/80/Pac-man-original-arcade-game.jpg", a: "Pac-Man", opts: ["Pac-Man", "Space Invaders", "Galaga", "Frogger"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/b/b1/The_Legend_of_Zelda_Ocarina_of_Time.jpg", a: "Zelda: Ocarina of Time", opts: ["Zelda: Ocarina of Time", "Zelda: A Link to the Past", "Zelda: Majora's Mask", "Zelda: Wind Waker"] }
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1xm6.jpg", a: "Super Mario Bros", opts: ["Super Mario Bros", "Donkey Kong", "Pac-Man", "Sonic"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x78.jpg", a: "DOOM (1993)", opts: ["DOOM (1993)", "Wolfenstein 3D", "Duke Nukem", "Quake"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x8t.jpg", a: "Tetris", opts: ["Tetris", "Dr. Mario", "Puyo Puyo", "Columns"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co20wf.jpg", a: "Pac-Man", opts: ["Pac-Man", "Space Invaders", "Galaga", "Frogger"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1x7k.jpg", a: "Zelda: Ocarina of Time", opts: ["Zelda: Ocarina of Time", "Zelda: A Link to the Past", "Zelda: Majora's Mask", "Zelda: Wind Waker"] }
             ],
             recent: [
-                { image: "https://upload.wikimedia.org/wikipedia/en/1/14/Hogwarts_Legacy_cover_art.png", a: "Hogwarts Legacy", opts: ["Hogwarts Legacy", "Harry Potter Quidditch", "Fantastic Beasts", "LEGO Harry Potter"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/9/9c/God_of_War_Ragnar%C3%B6k_cover.jpg", a: "God of War Ragnarok", opts: ["God of War Ragnarok", "God of War (2018)", "Assassin's Creed Valhalla", "Horizon Forbidden West"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/c/c4/Baldur%27s_Gate_3_cover_art.jpg", a: "Baldur's Gate 3", opts: ["Baldur's Gate 3", "Divinity Original Sin 2", "Pillars of Eternity", "Pathfinder"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/2/28/Starfield_cover.jpg", a: "Starfield", opts: ["Starfield", "No Man's Sky", "Mass Effect", "Star Citizen"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Spider-Man_2_2023_cover_art.png", a: "Spider-Man 2", opts: ["Spider-Man 2", "Spider-Man Miles Morales", "Batman Arkham Knight", "Gotham Knights"] }
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5pii.jpg", a: "Hogwarts Legacy", opts: ["Hogwarts Legacy", "Harry Potter Quidditch", "Fantastic Beasts", "LEGO Harry Potter"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.jpg", a: "God of War Ragnarok", opts: ["God of War Ragnarok", "God of War (2018)", "Assassin's Creed Valhalla", "Horizon Forbidden West"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co670h.jpg", a: "Baldur's Gate 3", opts: ["Baldur's Gate 3", "Divinity Original Sin 2", "Pillars of Eternity", "Pathfinder"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vst.jpg", a: "Starfield", opts: ["Starfield", "No Man's Sky", "Mass Effect", "Star Citizen"] },
+                { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co6g2d.jpg", a: "Spider-Man 2", opts: ["Spider-Man 2", "Spider-Man Miles Morales", "Batman Arkham Knight", "Gotham Knights"] }
             ]
         }
     },
@@ -655,13 +658,13 @@ const allGameData = {
         quiz: {
             games: [
                 { image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Minecraft_logo.svg", a: "Minecraft", opts: ["Minecraft", "Roblox", "Terraria", "LEGO Worlds"] },
-                { image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Fortnite_logo.svg", a: "Fortnite", opts: ["Fortnite", "PUBG", "Apex Legends", "Call of Duty Warzone"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/d/d6/League_of_Legends_Logo.png", a: "League of Legends", opts: ["League of Legends", "Dota 2", "Heroes of the Storm", "Smite"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/5/51/Overwatch_cover_art.jpg", a: "Overwatch", opts: ["Overwatch", "Paladins", "Team Fortress 2", "Valorant"] },
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-fortnite-1722953-1462076.png", a: "Fortnite", opts: ["Fortnite", "PUBG", "Apex Legends", "Call of Duty Warzone"] },
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-league-of-legends-3521653-2944971.png", a: "League of Legends", opts: ["League of Legends", "Dota 2", "Heroes of the Storm", "Smite"] },
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-overwatch-3521628-2945054.png", a: "Overwatch", opts: ["Overwatch", "Paladins", "Team Fortress 2", "Valorant"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Grand_Theft_Auto_V_Logo.svg", a: "GTA V", opts: ["GTA V", "Watch Dogs", "Saints Row", "Sleeping Dogs"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/1/15/Rocket_League_logo.svg", a: "Rocket League", opts: ["Rocket League", "FIFA", "PES", "Turbo League"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Among_Us_logo.svg", a: "Among Us", opts: ["Among Us", "Fall Guys", "Gang Beasts", "Human Fall Flat"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/Genshin_Impact_logo.svg", a: "Genshin Impact", opts: ["Genshin Impact", "Honkai Star Rail", "Tower of Fantasy", "Blue Protocol"] }
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-genshin-impact-3521674-2944990.png", a: "Genshin Impact", opts: ["Genshin Impact", "Honkai Star Rail", "Tower of Fantasy", "Blue Protocol"] }
             ],
             studios: [
                 { image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Rockstar_Games_Logo.svg", a: "Rockstar Games", opts: ["Rockstar Games", "Take-Two", "2K Games", "Bethesda"] },
@@ -669,26 +672,30 @@ const allGameData = {
                 { image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/EA_Sports_monochrome_logo.svg", a: "EA Sports", opts: ["EA Sports", "2K Sports", "Konami", "Take-Two"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Activision.svg", a: "Activision", opts: ["Activision", "EA", "Ubisoft", "Take-Two"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Nintendo_logo.svg", a: "Nintendo", opts: ["Nintendo", "Sony", "Sega", "Microsoft"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/7/7d/Naughty_Dog_logo.png", a: "Naughty Dog", opts: ["Naughty Dog", "Insomniac Games", "Santa Monica Studio", "Sucker Punch"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Epic_Games_logo.png", a: "Epic Games", opts: ["Epic Games", "Valve", "Unity", "Unreal"] },
-                { image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Valve_logo.svg", a: "Valve", opts: ["Valve", "Epic Games", "Blizzard", "Riot Games"] }
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-epic-games-3628926-3030070.png", a: "Epic Games", opts: ["Epic Games", "Valve", "Unity", "Unreal"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Valve_logo.svg", a: "Valve", opts: ["Valve", "Epic Games", "Blizzard", "Riot Games"] },
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-playstation-3521629-2945055.png", a: "PlayStation Studios", opts: ["PlayStation Studios", "Xbox Game Studios", "Nintendo EPD", "Sega"] }
             ],
             tech: [
                 { image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", a: "Google", opts: ["Google", "Microsoft", "Apple", "Amazon"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Discord_logo.svg", a: "Discord", opts: ["Discord", "Slack", "TeamSpeak", "Skype"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg", a: "Steam", opts: ["Steam", "Epic Games", "Origin", "GOG"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Twitch_logo.svg", a: "Twitch", opts: ["Twitch", "YouTube Gaming", "Kick", "Facebook Gaming"] },
-                { image: "https://upload.wikimedia.org/wikipedia/en/a/a9/PlayStation_logo.svg", a: "PlayStation", opts: ["PlayStation", "Xbox", "Nintendo", "Sega"] },
+                { image: "https://cdn.iconscout.com/icon/free/png-256/free-playstation-3521629-2945055.png", a: "PlayStation", opts: ["PlayStation", "Xbox", "Nintendo", "Sega"] },
                 { image: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg", a: "Xbox", opts: ["Xbox", "PlayStation", "Nintendo", "Steam"] }
             ]
         }
     },
     fakereal: {
         images: [
-            { image: "https://this-person-does-not-exist.com/img/avatar-gen1.jpg", isReal: false, explanation: "Visage généré par IA" },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/800px-Gatto_europeo4.jpg", isReal: true, explanation: "Photo réelle d'un chat" },
-            { image: "https://this-person-does-not-exist.com/img/avatar-gen2.jpg", isReal: false, explanation: "Visage généré par IA" },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Eiffel_Tower_Paris.jpg/800px-Eiffel_Tower_Paris.jpg", isReal: true, explanation: "Photo réelle de la Tour Eiffel" }
+            { image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=400", isReal: true, explanation: "Photo réelle d'une personne" },
+            { image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400", isReal: true, explanation: "Photo réelle d'un chat" },
+            { image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400", isReal: true, explanation: "Photo réelle d'une femme" },
+            { image: "https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=400", isReal: true, explanation: "Photo réelle de la Tour Eiffel" },
+            { image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400", isReal: true, explanation: "Photo réelle d'un homme" },
+            { image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400", isReal: true, explanation: "Photo réelle d'une femme" },
+            { image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400", isReal: true, explanation: "Photo réelle d'un homme" },
+            { image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400", isReal: true, explanation: "Photo réelle d'une femme souriante" }
         ],
         facts: [
             { fact: "Les flamants roses naissent blancs et deviennent roses à cause de leur alimentation", isReal: true, explanation: "Vrai ! Les crevettes et algues qu'ils mangent contiennent des pigments" },
@@ -712,21 +719,28 @@ const allGameData = {
     },
     zoomrace: {
         games: [
-            { image: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png", a: "Minecraft", opts: ["Minecraft", "Roblox", "Terraria", "LEGO Worlds"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png", a: "GTA V", opts: ["GTA V", "Watch Dogs", "Saints Row", "Red Dead Redemption"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/8/8d/Zelda_-_Tears_of_the_Kingdom_cover_art.jpg", a: "Zelda: Tears of the Kingdom", opts: ["Zelda: Tears of the Kingdom", "Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx Rising"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dark Souls", "Elden Ring"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/c/ce/Amongus.png", a: "Among Us", opts: ["Among Us", "Fall Guys", "Gang Beasts", "Human Fall Flat"] }
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co49wj.jpg", a: "Minecraft", opts: ["Minecraft", "Roblox", "Terraria", "LEGO Worlds"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co2lbd.jpg", a: "GTA V", opts: ["GTA V", "Watch Dogs", "Saints Row", "Red Dead Redemption"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co5vmg.jpg", a: "Zelda: Tears of the Kingdom", opts: ["Zelda: Tears of the Kingdom", "Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx Rising"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1wyy.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dark Souls", "Elden Ring"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4hmg.jpg", a: "Among Us", opts: ["Among Us", "Fall Guys", "Gang Beasts", "Human Fall Flat"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1r76.jpg", a: "Fortnite", opts: ["Fortnite", "PUBG", "Apex Legends", "Warzone"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co1tmu.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Skyrim"] },
+            { image: "https://images.igdb.com/igdb/image/upload/t_cover_big/co4jni.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] }
         ],
         movies: [
-            { image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Inception_ver3.jpg", a: "Inception", opts: ["Inception", "Interstellar", "The Matrix", "Tenet"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg", a: "Avengers: Endgame", opts: ["Avengers: Endgame", "Infinity War", "Age of Ultron", "The Avengers"] },
-            { image: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Joker_%28poster%29.png", a: "Joker", opts: ["Joker", "The Dark Knight", "Batman Begins", "Suicide Squad"] }
+            { image: "https://image.tmdb.org/t/p/w500/oYuLEt3zVCKq57qu2F8dT7NIa6f.jpg", a: "Inception", opts: ["Inception", "Interstellar", "The Matrix", "Tenet"] },
+            { image: "https://image.tmdb.org/t/p/w500/or06FN3Dka5tuj1BGeK25h8BfUg.jpg", a: "Avengers: Endgame", opts: ["Avengers: Endgame", "Infinity War", "Age of Ultron", "The Avengers"] },
+            { image: "https://image.tmdb.org/t/p/w500/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg", a: "Joker", opts: ["Joker", "The Dark Knight", "Batman Begins", "Suicide Squad"] },
+            { image: "https://image.tmdb.org/t/p/w500/gEU2QniE6E77NI6lCU6MxlNBvIx.jpg", a: "Interstellar", opts: ["Interstellar", "Inception", "Gravity", "The Martian"] },
+            { image: "https://image.tmdb.org/t/p/w500/f89U3ADr1oiB1s9GkdPOEpXUk5H.jpg", a: "The Matrix", opts: ["The Matrix", "Inception", "Blade Runner", "Tron"] }
         ],
         logos: [
             { image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Rockstar_Games_Logo.svg", a: "Rockstar Games", opts: ["Rockstar Games", "Take-Two", "2K Games", "Bethesda"] },
             { image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Nintendo_logo.svg", a: "Nintendo", opts: ["Nintendo", "Sony", "Sega", "Microsoft"] },
-            { image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg", a: "Steam", opts: ["Steam", "Epic Games", "Origin", "GOG"] }
+            { image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg", a: "Steam", opts: ["Steam", "Epic Games", "Origin", "GOG"] },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", a: "Google", opts: ["Google", "Microsoft", "Apple", "Amazon"] },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Ubisoft_2017.svg", a: "Ubisoft", opts: ["Ubisoft", "EA", "Activision", "Bethesda"] }
         ]
     },
     memory: {
@@ -2369,11 +2383,27 @@ async function playDeezerPreview(trackId) {
     }
 
     try {
-        // Use a CORS proxy to fetch the Deezer API
-        const response = await fetch(`https://corsproxy.io/?https://api.deezer.com/track/${trackId}`);
-        const data = await response.json();
+        // Liste de proxies CORS à essayer
+        const proxies = [
+            `https://api.allorigins.win/raw?url=${encodeURIComponent('https://api.deezer.com/track/' + trackId)}`,
+            `https://corsproxy.io/?https://api.deezer.com/track/${trackId}`,
+            `https://api.codetabs.com/v1/proxy?quest=https://api.deezer.com/track/${trackId}`
+        ];
 
-        if (data.preview) {
+        let data = null;
+        for (const proxyUrl of proxies) {
+            try {
+                const response = await fetch(proxyUrl);
+                if (response.ok) {
+                    data = await response.json();
+                    if (data.preview) break;
+                }
+            } catch (err) {
+                console.log('Proxy failed:', proxyUrl);
+            }
+        }
+
+        if (data && data.preview) {
             if (state.currentAudio) {
                 state.currentAudio.pause();
             }
