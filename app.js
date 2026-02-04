@@ -24,8 +24,7 @@ const gameConfigs = {
         modes: [
             { id: 'quiz', emoji: '🎯', name: 'Quiz', desc: 'Trouve l\'artiste' },
             { id: 'blind', emoji: '🎧', name: 'Blind Test', desc: 'Écoute et devine' },
-            { id: 'higherlower', emoji: '📊', name: 'Higher/Lower', desc: 'Compare les streams' },
-            { id: 'clash', emoji: '⚔️', name: 'Clash', desc: 'Tournoi d\'artistes' }
+            { id: 'higherlower', emoji: '📊', name: 'Higher/Lower', desc: 'Compare les streams' }
         ],
         genres: [
             { id: 'pop', emoji: '🎤', name: 'Pop' },
@@ -36,8 +35,7 @@ const gameConfigs = {
         ],
         genreTitle: 'Genre musical',
         hlQuestion: 'Qui a le plus de streams ?',
-        hlLabel: 'millions de streams',
-        clashQuestion: 'Qui préfères-tu ?'
+        hlLabel: 'millions de streams'
     },
     cinema: {
         icon: '🎬',
@@ -45,8 +43,7 @@ const gameConfigs = {
         modes: [
             { id: 'quiz', emoji: '🎯', name: 'Quiz', desc: 'Trouve le film/acteur' },
             { id: 'quotes', emoji: '🎭', name: 'Répliques', desc: 'Devine le film' },
-            { id: 'higherlower', emoji: '📊', name: 'Box Office', desc: 'Compare les recettes' },
-            { id: 'clash', emoji: '⚔️', name: 'Clash', desc: 'Tournoi d\'acteurs' }
+            { id: 'higherlower', emoji: '📊', name: 'Box Office', desc: 'Compare les recettes' }
         ],
         genres: [
             { id: 'action', emoji: '💥', name: 'Action' },
@@ -57,8 +54,7 @@ const gameConfigs = {
         ],
         genreTitle: 'Genre de film',
         hlQuestion: 'Quel film a fait le plus au box-office ?',
-        hlLabel: 'millions $ box-office',
-        clashQuestion: 'Quel acteur préfères-tu ?'
+        hlLabel: 'millions $ box-office'
     },
     sport: {
         icon: '⚽',
@@ -66,8 +62,7 @@ const gameConfigs = {
         modes: [
             { id: 'quiz', emoji: '🎯', name: 'Quiz', desc: 'Trouve le joueur/équipe' },
             { id: 'palmares', emoji: '🏆', name: 'Palmarès', desc: 'Devine les victoires' },
-            { id: 'higherlower', emoji: '📊', name: 'Stats', desc: 'Compare les stats' },
-            { id: 'clash', emoji: '⚔️', name: 'Clash', desc: 'Tournoi de joueurs' }
+            { id: 'higherlower', emoji: '📊', name: 'Stats', desc: 'Compare les stats' }
         ],
         genres: [
             { id: 'football', emoji: '⚽', name: 'Football' },
@@ -78,8 +73,7 @@ const gameConfigs = {
         ],
         genreTitle: 'Sport',
         hlQuestion: 'Qui a marqué le plus ?',
-        hlLabel: 'buts/points en carrière',
-        clashQuestion: 'Quel joueur préfères-tu ?'
+        hlLabel: 'buts/points en carrière'
     },
     gaming: {
         icon: '🎮',
@@ -87,8 +81,7 @@ const gameConfigs = {
         modes: [
             { id: 'quiz', emoji: '🎯', name: 'Quiz', desc: 'Trouve le jeu/studio' },
             { id: 'retro', emoji: '🕹️', name: 'Retro', desc: 'Jeux classiques' },
-            { id: 'higherlower', emoji: '📊', name: 'Ventes', desc: 'Compare les ventes' },
-            { id: 'clash', emoji: '⚔️', name: 'Clash', desc: 'Tournoi de jeux' }
+            { id: 'higherlower', emoji: '📊', name: 'Ventes', desc: 'Compare les ventes' }
         ],
         genres: [
             { id: 'fps', emoji: '🔫', name: 'FPS' },
@@ -99,8 +92,7 @@ const gameConfigs = {
         ],
         genreTitle: 'Genre de jeu',
         hlQuestion: 'Quel jeu s\'est le plus vendu ?',
-        hlLabel: 'millions de copies',
-        clashQuestion: 'Quel jeu préfères-tu ?'
+        hlLabel: 'millions de copies'
     },
     geo: {
         icon: '🌍',
@@ -108,8 +100,8 @@ const gameConfigs = {
         modes: [
             { id: 'quiz', emoji: '🎯', name: 'Quiz', desc: 'Trouve le pays/capitale' },
             { id: 'flags', emoji: '🚩', name: 'Drapeaux', desc: 'Devine le pays' },
-            { id: 'higherlower', emoji: '📊', name: 'Population', desc: 'Compare les populations' },
-            { id: 'clash', emoji: '⚔️', name: 'Clash', desc: 'Tournoi de pays' }
+            { id: 'cityguesser', emoji: '🏙️', name: 'City Guesser', desc: 'Trouve la ville sur la carte' },
+            { id: 'higherlower', emoji: '📊', name: 'Population', desc: 'Compare les populations' }
         ],
         genres: [
             { id: 'europe', emoji: '🇪🇺', name: 'Europe' },
@@ -120,8 +112,136 @@ const gameConfigs = {
         ],
         genreTitle: 'Région',
         hlQuestion: 'Quel pays a le plus d\'habitants ?',
-        hlLabel: 'millions d\'habitants',
-        clashQuestion: 'Quel pays préfères-tu ?'
+        hlLabel: 'millions d\'habitants'
+    },
+    blindtest: {
+        icon: '🔊',
+        title: 'Blind Test',
+        modes: [
+            { id: 'sounds', emoji: '🔫', name: 'Sons', desc: 'Sons d\'armes et bruitages' },
+            { id: 'ost', emoji: '🎵', name: 'OST', desc: 'Musiques de jeux vidéo' }
+        ],
+        genres: [
+            { id: 'cod', emoji: '🔫', name: 'Call of Duty' },
+            { id: 'minecraft', emoji: '⛏️', name: 'Minecraft' },
+            { id: 'gta', emoji: '🚗', name: 'GTA' },
+            { id: 'nintendo', emoji: '🍄', name: 'Nintendo' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Jeu',
+        isAudioGame: true
+    },
+    screenshot: {
+        icon: '📸',
+        title: 'Screenshot Quiz',
+        modes: [
+            { id: 'classic', emoji: '🎯', name: 'Classic', desc: 'Devine le jeu' },
+            { id: 'zoom', emoji: '🔍', name: 'Zoom', desc: 'Image zoomée qui se révèle' }
+        ],
+        genres: [
+            { id: 'fps', emoji: '🔫', name: 'FPS' },
+            { id: 'openworld', emoji: '🗺️', name: 'Open World' },
+            { id: 'retro', emoji: '🕹️', name: 'Retro' },
+            { id: 'recent', emoji: '✨', name: 'Récents' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Genre',
+        isImageGame: true
+    },
+    logo: {
+        icon: '🏷️',
+        title: 'Logo Quiz',
+        modes: [
+            { id: 'games', emoji: '🎮', name: 'Jeux', desc: 'Logos de jeux vidéo' },
+            { id: 'studios', emoji: '🏢', name: 'Studios', desc: 'Logos de studios' }
+        ],
+        genres: [
+            { id: 'games', emoji: '🎮', name: 'Jeux' },
+            { id: 'studios', emoji: '🏢', name: 'Studios' },
+            { id: 'tech', emoji: '💻', name: 'Tech' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Catégorie',
+        isImageGame: true
+    },
+    fakereal: {
+        icon: '🤖',
+        title: 'Fake or Real',
+        modes: [
+            { id: 'images', emoji: '🖼️', name: 'Images', desc: 'Photo réelle ou IA ?' },
+            { id: 'facts', emoji: '📰', name: 'Faits', desc: 'Vrai ou inventé ?' }
+        ],
+        genres: [
+            { id: 'images', emoji: '🖼️', name: 'Images' },
+            { id: 'facts', emoji: '📰', name: 'Faits' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Type'
+    },
+    facemerge: {
+        icon: '👥',
+        title: 'Face Merge',
+        modes: [
+            { id: 'actors', emoji: '🎬', name: 'Acteurs', desc: 'Acteurs mélangés' },
+            { id: 'singers', emoji: '🎤', name: 'Chanteurs', desc: 'Chanteurs mélangés' }
+        ],
+        genres: [
+            { id: 'actors', emoji: '🎬', name: 'Acteurs' },
+            { id: 'singers', emoji: '🎤', name: 'Chanteurs' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Catégorie',
+        isImageGame: true
+    },
+    zoomrace: {
+        icon: '🔍',
+        title: 'Zoom Race',
+        modes: [
+            { id: 'games', emoji: '🎮', name: 'Jeux', desc: 'Personnages de jeux' },
+            { id: 'movies', emoji: '🎬', name: 'Films', desc: 'Scènes de films' },
+            { id: 'logos', emoji: '🏷️', name: 'Logos', desc: 'Logos zoomés' }
+        ],
+        genres: [
+            { id: 'games', emoji: '🎮', name: 'Jeux' },
+            { id: 'movies', emoji: '🎬', name: 'Films' },
+            { id: 'logos', emoji: '🏷️', name: 'Logos' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Catégorie',
+        isImageGame: true,
+        isZoomGame: true
+    },
+    memory: {
+        icon: '🧠',
+        title: 'Memory',
+        modes: [
+            { id: 'colors', emoji: '🎨', name: 'Couleurs', desc: 'Séquence de couleurs' },
+            { id: 'sounds', emoji: '🔊', name: 'Sons', desc: 'Séquence de sons' }
+        ],
+        genres: [
+            { id: 'colors', emoji: '🎨', name: 'Couleurs' },
+            { id: 'sounds', emoji: '🔊', name: 'Sons' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Mode',
+        isMemoryGame: true
+    },
+    categorysprint: {
+        icon: '⚡',
+        title: 'Category Sprint',
+        modes: [
+            { id: 'movies', emoji: '🎬', name: 'Films', desc: 'Films d\'un acteur, genre...' },
+            { id: 'music', emoji: '🎵', name: 'Musique', desc: 'Chansons d\'un artiste...' },
+            { id: 'geo', emoji: '🌍', name: 'Géo', desc: 'Pays d\'un continent...' }
+        ],
+        genres: [
+            { id: 'movies', emoji: '🎬', name: 'Films' },
+            { id: 'music', emoji: '🎵', name: 'Musique' },
+            { id: 'geo', emoji: '🌍', name: 'Géo' },
+            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+        ],
+        genreTitle: 'Thème',
+        isSprintGame: true
     }
 };
 
@@ -180,16 +300,36 @@ const allGameData = {
             { title: "Bad Guy", artist: "Billie Eilish", value: 2700, emoji: "😈" },
             { title: "Bohemian Rhapsody", artist: "Queen", value: 2400, emoji: "👑" }
         ],
-        clash: [
-            { name: "Taylor Swift", info: "Pop", emoji: "🎤", votes: 65 },
-            { name: "Drake", info: "Rap", emoji: "🦉", votes: 68 },
-            { name: "The Weeknd", info: "R&B", emoji: "⭐", votes: 62 },
-            { name: "Billie Eilish", info: "Pop", emoji: "🖤", votes: 58 },
-            { name: "Kendrick Lamar", info: "Rap", emoji: "🎯", votes: 66 },
-            { name: "Dua Lipa", info: "Pop", emoji: "💃", votes: 60 },
-            { name: "Ed Sheeran", info: "Pop", emoji: "🎸", votes: 55 },
-            { name: "Beyonce", info: "R&B", emoji: "👑", votes: 70 }
-        ]
+        blind: {
+            pop: [
+                { deezerId: 139470659, a: "Ed Sheeran", title: "Shape of You", opts: ["Ed Sheeran", "Justin Bieber", "Shawn Mendes", "Charlie Puth"] },
+                { deezerId: 908604612, a: "The Weeknd", title: "Blinding Lights", opts: ["The Weeknd", "Bruno Mars", "Drake", "Post Malone"] },
+                { deezerId: 1109737767, a: "Dua Lipa", title: "Levitating", opts: ["Dua Lipa", "Charli XCX", "Doja Cat", "Lizzo"] },
+                { deezerId: 655095912, a: "Billie Eilish", title: "Bad Guy", opts: ["Billie Eilish", "Ariana Grande", "Halsey", "Lorde"] },
+                { deezerId: 1518703492, a: "Harry Styles", title: "As It Was", opts: ["Harry Styles", "One Direction", "Zayn", "Niall Horan"] }
+            ],
+            rap: [
+                { deezerId: 533609232, a: "Drake", title: "God's Plan", opts: ["Drake", "Kendrick Lamar", "J. Cole", "Travis Scott"] },
+                { deezerId: 350171311, a: "Kendrick Lamar", title: "HUMBLE.", opts: ["Kendrick Lamar", "Drake", "J. Cole", "Kanye West"] },
+                { deezerId: 536421002, a: "Travis Scott", title: "SICKO MODE", opts: ["Travis Scott", "Drake", "Future", "21 Savage"] },
+                { deezerId: 491446942, a: "Post Malone", title: "Rockstar", opts: ["Post Malone", "21 Savage", "Future", "Lil Uzi Vert"] },
+                { deezerId: 1109731, a: "Eminem", title: "Lose Yourself", opts: ["Eminem", "50 Cent", "Dr. Dre", "Snoop Dogg"] }
+            ],
+            rock: [
+                { deezerId: 9997018, a: "Queen", title: "Bohemian Rhapsody", opts: ["Queen", "Led Zeppelin", "The Beatles", "Pink Floyd"] },
+                { deezerId: 13791930, a: "Nirvana", title: "Smells Like Teen Spirit", opts: ["Nirvana", "Pearl Jam", "Soundgarden", "Alice in Chains"] },
+                { deezerId: 92720046, a: "AC/DC", title: "Back in Black", opts: ["AC/DC", "Guns N' Roses", "Metallica", "Led Zeppelin"] },
+                { deezerId: 528330441, a: "Imagine Dragons", title: "Believer", opts: ["Imagine Dragons", "OneRepublic", "Coldplay", "Maroon 5"] },
+                { deezerId: 676183, a: "Linkin Park", title: "In The End", opts: ["Linkin Park", "Green Day", "Blink-182", "Sum 41"] }
+            ],
+            electro: [
+                { deezerId: 66609426, a: "Daft Punk", title: "Get Lucky", opts: ["Daft Punk", "Justice", "Deadmau5", "Calvin Harris"] },
+                { deezerId: 70266756, a: "Avicii", title: "Wake Me Up", opts: ["Avicii", "David Guetta", "Calvin Harris", "Tiesto"] },
+                { deezerId: 140295501, a: "Alan Walker", title: "Faded", opts: ["Alan Walker", "Marshmello", "Kygo", "Martin Garrix"] },
+                { deezerId: 14383880, a: "Martin Garrix", title: "Animals", opts: ["Martin Garrix", "Hardwell", "Tiesto", "Avicii"] },
+                { deezerId: 62847142, a: "David Guetta", title: "Titanium", opts: ["David Guetta", "Calvin Harris", "Avicii", "Tiesto"] }
+            ]
+        }
     },
     cinema: {
         quiz: {
@@ -244,16 +384,6 @@ const allGameData = {
             { title: "The Avengers", artist: "Marvel", value: 1518, emoji: "🛡️" },
             { title: "Fast & Furious 7", artist: "Universal", value: 1516, emoji: "🚗" },
             { title: "Frozen 2", artist: "Disney", value: 1450, emoji: "❄️" }
-        ],
-        clash: [
-            { name: "Leonardo DiCaprio", info: "Acteur", emoji: "🎬", votes: 72 },
-            { name: "Tom Hanks", info: "Acteur", emoji: "🏆", votes: 68 },
-            { name: "Meryl Streep", info: "Actrice", emoji: "👑", votes: 65 },
-            { name: "Brad Pitt", info: "Acteur", emoji: "✨", votes: 63 },
-            { name: "Scarlett Johansson", info: "Actrice", emoji: "🖤", votes: 60 },
-            { name: "Denzel Washington", info: "Acteur", emoji: "🎯", votes: 67 },
-            { name: "Margot Robbie", info: "Actrice", emoji: "💫", votes: 58 },
-            { name: "Morgan Freeman", info: "Acteur", emoji: "🎙️", votes: 70 }
         ]
     },
     sport: {
@@ -302,16 +432,6 @@ const allGameData = {
             { title: "Michael Jordan", artist: "Basketball", value: 32292, emoji: "🐂" },
             { title: "Pele", artist: "Football", value: 767, emoji: "👑" },
             { title: "Roger Federer", artist: "Tennis", value: 103, emoji: "🎾" }
-        ],
-        clash: [
-            { name: "Lionel Messi", info: "Football", emoji: "🐐", votes: 75 },
-            { name: "Cristiano Ronaldo", info: "Football", emoji: "⚽", votes: 73 },
-            { name: "Michael Jordan", info: "Basketball", emoji: "🐂", votes: 80 },
-            { name: "LeBron James", info: "Basketball", emoji: "👑", votes: 72 },
-            { name: "Tom Brady", info: "Football US", emoji: "🏈", votes: 65 },
-            { name: "Roger Federer", info: "Tennis", emoji: "🎾", votes: 68 },
-            { name: "Usain Bolt", info: "Athletisme", emoji: "⚡", votes: 70 },
-            { name: "Serena Williams", info: "Tennis", emoji: "🏆", votes: 66 }
         ]
     },
     gaming: {
@@ -361,16 +481,6 @@ const allGameData = {
             { title: "The Witcher 3", artist: "CD Projekt", value: 50, emoji: "⚔️" },
             { title: "Elden Ring", artist: "FromSoftware", value: 25, emoji: "💍" },
             { title: "Fortnite", artist: "Epic Games", value: 500, emoji: "🎮" }
-        ],
-        clash: [
-            { name: "Minecraft", info: "Sandbox", emoji: "⛏️", votes: 85 },
-            { name: "GTA V", info: "Action", emoji: "🚗", votes: 80 },
-            { name: "The Witcher 3", info: "RPG", emoji: "⚔️", votes: 78 },
-            { name: "Red Dead Redemption 2", info: "Action", emoji: "🤠", votes: 75 },
-            { name: "God of War", info: "Action", emoji: "🪓", votes: 73 },
-            { name: "The Last of Us", info: "Adventure", emoji: "🍄", votes: 76 },
-            { name: "Zelda: Breath of the Wild", info: "Adventure", emoji: "🗡️", votes: 82 },
-            { name: "Elden Ring", info: "RPG", emoji: "💍", votes: 77 }
         ]
     },
     geo: {
@@ -438,15 +548,206 @@ const allGameData = {
             { title: "France", artist: "Europe", value: 68, emoji: "🇫🇷" },
             { title: "Allemagne", artist: "Europe", value: 84, emoji: "🇩🇪" }
         ],
-        clash: [
-            { name: "France", info: "Europe", emoji: "🇫🇷", votes: 70 },
-            { name: "Japon", info: "Asie", emoji: "🇯🇵", votes: 75 },
-            { name: "Italie", info: "Europe", emoji: "🇮🇹", votes: 68 },
-            { name: "Bresil", info: "Amerique", emoji: "🇧🇷", votes: 65 },
-            { name: "Australie", info: "Oceanie", emoji: "🇦🇺", votes: 60 },
-            { name: "Canada", info: "Amerique", emoji: "🇨🇦", votes: 62 },
-            { name: "Espagne", info: "Europe", emoji: "🇪🇸", votes: 67 },
-            { name: "Suisse", info: "Europe", emoji: "🇨🇭", votes: 58 }
+        cityguesser: [
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a8/Tour_Eiffel_Wikimedia_Commons.jpg/800px-Tour_Eiffel_Wikimedia_Commons.jpg", city: "Paris", country: "France", lat: 48.8566, lng: 2.3522 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Big_Ben_Londres.jpg/800px-Big_Ben_Londres.jpg", city: "Londres", country: "Royaume-Uni", lat: 51.5074, lng: -0.1278 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/New_york_times_square-terabyte.jpg/800px-New_york_times_square-terabyte.jpg", city: "New York", country: "États-Unis", lat: 40.7128, lng: -74.0060 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Skyscrapers_of_Shinjuku_2009_January.jpg/800px-Skyscrapers_of_Shinjuku_2009_January.jpg", city: "Tokyo", country: "Japon", lat: 35.6762, lng: 139.6503 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Colosseum_in_Rome%2C_Italy_-_April_2007.jpg/800px-Colosseum_in_Rome%2C_Italy_-_April_2007.jpg", city: "Rome", country: "Italie", lat: 41.9028, lng: 12.4964 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Sydney_Opera_House%2C_botanic_gardens_1.jpg/800px-Sydney_Opera_House%2C_botanic_gardens_1.jpg", city: "Sydney", country: "Australie", lat: -33.8688, lng: 151.2093 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Stadtbild_M%C3%BCnchen.jpg/800px-Stadtbild_M%C3%BCnchen.jpg", city: "Munich", country: "Allemagne", lat: 48.1351, lng: 11.5820 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Burj_Khalifa.jpg/800px-Burj_Khalifa.jpg", city: "Dubaï", country: "Émirats arabes unis", lat: 25.2048, lng: 55.2708 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Christ_on_Corcovado_mountain.JPG/800px-Christ_on_Corcovado_mountain.JPG", city: "Rio de Janeiro", country: "Brésil", lat: -22.9068, lng: -43.1729 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Barcelona_collage.JPG/800px-Barcelona_collage.JPG", city: "Barcelone", country: "Espagne", lat: 41.3851, lng: 2.1734 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/KessalGoldenGate.jpg/800px-KeisahGoldenGate.jpg", city: "San Francisco", country: "États-Unis", lat: 37.7749, lng: -122.4194 },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Moscow_July_2011-1.jpg/800px-Moscow_July_2011-1.jpg", city: "Moscou", country: "Russie", lat: 55.7558, lng: 37.6173 }
+        ]
+    },
+    blindtest: {
+        sounds: {
+            cod: [
+                { audio: "https://www.myinstants.com/media/sounds/cod-hitmarker.mp3", a: "Hitmarker", opts: ["Hitmarker", "Headshot", "Kill", "Double Kill"] },
+                { audio: "https://www.myinstants.com/media/sounds/intervention-sound.mp3", a: "Intervention", opts: ["Intervention", "Barrett .50cal", "M40A3", "L96A1"] },
+                { audio: "https://www.myinstants.com/media/sounds/mw2-nuke.mp3", a: "Tactical Nuke", opts: ["Tactical Nuke", "MOAB", "DNA Bomb", "V2 Rocket"] },
+                { audio: "https://www.myinstants.com/media/sounds/call-of-duty-headshot.mp3", a: "Headshot", opts: ["Headshot", "One Shot Kill", "Hitmarker", "Collateral"] },
+                { audio: "https://www.myinstants.com/media/sounds/ac-130.mp3", a: "AC-130", opts: ["AC-130", "Chopper Gunner", "Harrier", "Pave Low"] }
+            ],
+            minecraft: [
+                { audio: "https://www.myinstants.com/media/sounds/minecraft-oof.mp3", a: "Dégâts (Oof)", opts: ["Dégâts (Oof)", "Mort", "Chute", "Explosion"] },
+                { audio: "https://www.myinstants.com/media/sounds/minecraft-explosion.mp3", a: "Explosion", opts: ["Explosion", "TNT", "Creeper", "Ghast"] },
+                { audio: "https://www.myinstants.com/media/sounds/minecraft-cave-sound.mp3", a: "Son de cave", opts: ["Son de cave", "Enderman", "Warden", "Nether"] },
+                { audio: "https://www.myinstants.com/media/sounds/minecraft-xp.mp3", a: "XP Orb", opts: ["XP Orb", "Level Up", "Enchantement", "Item pickup"] },
+                { audio: "https://www.myinstants.com/media/sounds/minecraft-door.mp3", a: "Porte", opts: ["Porte", "Coffre", "Trappe", "Portail"] }
+            ],
+            gta: [
+                { audio: "https://www.myinstants.com/media/sounds/gta-wasted.mp3", a: "Wasted", opts: ["Wasted", "Busted", "Mission Failed", "Game Over"] },
+                { audio: "https://www.myinstants.com/media/sounds/gta-san-andreas-mission-passed.mp3", a: "Mission Passed", opts: ["Mission Passed", "Respect+", "Mission Complete", "Level Up"] },
+                { audio: "https://www.myinstants.com/media/sounds/gta-5-phone.mp3", a: "Téléphone", opts: ["Téléphone", "SMS", "Email", "Notification"] },
+                { audio: "https://www.myinstants.com/media/sounds/here-we-go-again.mp3", a: "Here we go again", opts: ["Here we go again", "Follow the train CJ", "Grove Street", "You picked the wrong house"] }
+            ],
+            nintendo: [
+                { audio: "https://www.myinstants.com/media/sounds/mario-coin.mp3", a: "Mario - Pièce", opts: ["Mario - Pièce", "Mario - 1UP", "Sonic - Ring", "Zelda - Rubis"] },
+                { audio: "https://www.myinstants.com/media/sounds/mario-1up.mp3", a: "Mario - 1UP", opts: ["Mario - 1UP", "Mario - Power Up", "Mario - Pièce", "Mario - Star"] },
+                { audio: "https://www.myinstants.com/media/sounds/zelda-secret.mp3", a: "Zelda - Secret", opts: ["Zelda - Secret", "Zelda - Coffre", "Mario - Tuyau", "Pokemon - Capture"] },
+                { audio: "https://www.myinstants.com/media/sounds/pokemon-battle.mp3", a: "Pokemon - Combat", opts: ["Pokemon - Combat", "Pokemon - Capture", "Pokemon - Evolution", "Pokemon - Center"] },
+                { audio: "https://www.myinstants.com/media/sounds/super-smash-bros-game.mp3", a: "Smash Bros - Game!", opts: ["Smash Bros - Game!", "Smash Bros - GO!", "Smash Bros - KO", "Smash Bros - Time!"] }
+            ]
+        },
+        ost: {
+            cod: [
+                { audio: "https://www.youtube.com/watch?v=_oMIJ3XPBDE", a: "MW2 - Main Theme", opts: ["MW2 - Main Theme", "MW3 - Main Theme", "BO2 - Main Theme", "WAW - Main Theme"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=nLMddj-Z_RI", a: "BO1 - Damned", opts: ["BO1 - Damned", "BO2 - Zombies", "MW2 - Zombies", "WAW - Zombies"], youtube: true }
+            ],
+            minecraft: [
+                { audio: "https://www.youtube.com/watch?v=aBkTkxKDduc", a: "Sweden - C418", opts: ["Sweden - C418", "Minecraft - C418", "Wet Hands - C418", "Aria Math - C418"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=Dg0IjOzopYU", a: "Wet Hands - C418", opts: ["Wet Hands - C418", "Sweden - C418", "Mice on Venus", "Living Mice"], youtube: true }
+            ],
+            gta: [
+                { audio: "https://www.youtube.com/watch?v=W4VTq0sa9yg", a: "GTA San Andreas Theme", opts: ["GTA San Andreas Theme", "GTA V Theme", "GTA IV Theme", "GTA Vice City Theme"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=QOI1FsNZpWg", a: "GTA IV Theme", opts: ["GTA IV Theme", "GTA V Theme", "GTA San Andreas", "GTA Vice City"], youtube: true }
+            ],
+            nintendo: [
+                { audio: "https://www.youtube.com/watch?v=wAPpVplHiDE", a: "Zelda - Main Theme", opts: ["Zelda - Main Theme", "Mario - Main Theme", "Metroid - Theme", "Kirby - Theme"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=NTa6Xbzfq1U", a: "Mario - Ground Theme", opts: ["Mario - Ground Theme", "Mario - Underground", "Mario - Castle", "Mario - Star"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=Y12_cVX8Ew0", a: "Pokemon - Route 1", opts: ["Pokemon - Route 1", "Pokemon - Lavender Town", "Pokemon - Battle", "Pokemon - Center"], youtube: true }
+            ],
+            mixed: [
+                { audio: "https://www.youtube.com/watch?v=Jxk2_vV_oqU", a: "Tetris Theme", opts: ["Tetris Theme", "Dr. Mario", "Puyo Puyo", "Columns"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=uyMKWJ5e1kg", a: "Halo Theme", opts: ["Halo Theme", "Gears of War", "Call of Duty", "Battlefield"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=MPkhhLC1tf8", a: "Skyrim - Dragonborn", opts: ["Skyrim - Dragonborn", "Oblivion - Theme", "Morrowind - Theme", "Fallout - Theme"], youtube: true },
+                { audio: "https://www.youtube.com/watch?v=VTsD2FjmLsw", a: "Undertale - Megalovania", opts: ["Undertale - Megalovania", "Toby Fox - Other", "Deltarune", "Earthbound"], youtube: true }
+            ]
+        }
+    },
+    screenshot: {
+        quiz: {
+            fps: [
+                { image: "https://upload.wikimedia.org/wikipedia/en/1/1f/Counter-Strike_2_screenshot.png", a: "Counter-Strike 2", opts: ["Counter-Strike 2", "Valorant", "Rainbow Six Siege", "Overwatch 2"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/c/c1/Halo_Infinite_cover_art.jpg", a: "Halo Infinite", opts: ["Halo Infinite", "Destiny 2", "Titanfall 2", "Doom Eternal"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/6/62/Valorant_Cover.jpg", a: "Valorant", opts: ["Valorant", "CS2", "Apex Legends", "Overwatch 2"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/d/d6/Apex_legends_cover.jpg", a: "Apex Legends", opts: ["Apex Legends", "Fortnite", "PUBG", "Warzone"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/1/1f/Call_of_Duty_Modern_Warfare_II_%282022%29_Cover_Art.png", a: "Call of Duty MW2 (2022)", opts: ["Call of Duty MW2 (2022)", "Battlefield 2042", "Call of Duty MW3", "Warzone 2"] }
+            ],
+            openworld: [
+                { image: "https://upload.wikimedia.org/wikipedia/en/4/4e/Elden_Ring_Box_art.jpg", a: "Elden Ring", opts: ["Elden Ring", "Dark Souls 3", "Sekiro", "Bloodborne"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/a/a7/Red_Dead_Redemption_2.jpg", a: "Red Dead Redemption 2", opts: ["Red Dead Redemption 2", "GTA V", "The Witcher 3", "Assassin's Creed"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/0/0c/GTA_V.png", a: "GTA V", opts: ["GTA V", "Watch Dogs 2", "Saints Row", "Sleeping Dogs"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/The_Legend_of_Zelda_Breath_of_the_Wild.jpg", a: "Zelda: Breath of the Wild", opts: ["Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx", "Zelda: Tears of the Kingdom"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/1/15/The_Witcher_3_cover_art.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dragon Age", "Elden Ring"] }
+            ],
+            retro: [
+                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/Super_Mario_Bros._box.png", a: "Super Mario Bros", opts: ["Super Mario Bros", "Donkey Kong", "Pac-Man", "Sonic"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/4/47/Original_Doom_cover.png", a: "DOOM (1993)", opts: ["DOOM (1993)", "Wolfenstein 3D", "Duke Nukem", "Quake"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/5/56/Tetris_NES_cover_art.jpg", a: "Tetris", opts: ["Tetris", "Dr. Mario", "Puyo Puyo", "Columns"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/8/80/Pac-man-original-arcade-game.jpg", a: "Pac-Man", opts: ["Pac-Man", "Space Invaders", "Galaga", "Frogger"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/b/b1/The_Legend_of_Zelda_Ocarina_of_Time.jpg", a: "Zelda: Ocarina of Time", opts: ["Zelda: Ocarina of Time", "Zelda: A Link to the Past", "Zelda: Majora's Mask", "Zelda: Wind Waker"] }
+            ],
+            recent: [
+                { image: "https://upload.wikimedia.org/wikipedia/en/1/14/Hogwarts_Legacy_cover_art.png", a: "Hogwarts Legacy", opts: ["Hogwarts Legacy", "Harry Potter Quidditch", "Fantastic Beasts", "LEGO Harry Potter"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/9/9c/God_of_War_Ragnar%C3%B6k_cover.jpg", a: "God of War Ragnarok", opts: ["God of War Ragnarok", "God of War (2018)", "Assassin's Creed Valhalla", "Horizon Forbidden West"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/c/c4/Baldur%27s_Gate_3_cover_art.jpg", a: "Baldur's Gate 3", opts: ["Baldur's Gate 3", "Divinity Original Sin 2", "Pillars of Eternity", "Pathfinder"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/2/28/Starfield_cover.jpg", a: "Starfield", opts: ["Starfield", "No Man's Sky", "Mass Effect", "Star Citizen"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Spider-Man_2_2023_cover_art.png", a: "Spider-Man 2", opts: ["Spider-Man 2", "Spider-Man Miles Morales", "Batman Arkham Knight", "Gotham Knights"] }
+            ]
+        }
+    },
+    logo: {
+        quiz: {
+            games: [
+                { image: "https://upload.wikimedia.org/wikipedia/commons/6/6a/Minecraft_logo.svg", a: "Minecraft", opts: ["Minecraft", "Roblox", "Terraria", "LEGO Worlds"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/2/21/Fortnite_logo.svg", a: "Fortnite", opts: ["Fortnite", "PUBG", "Apex Legends", "Call of Duty Warzone"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/d/d6/League_of_Legends_Logo.png", a: "League of Legends", opts: ["League of Legends", "Dota 2", "Heroes of the Storm", "Smite"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/5/51/Overwatch_cover_art.jpg", a: "Overwatch", opts: ["Overwatch", "Paladins", "Team Fortress 2", "Valorant"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/4/4b/Grand_Theft_Auto_V_Logo.svg", a: "GTA V", opts: ["GTA V", "Watch Dogs", "Saints Row", "Sleeping Dogs"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/1/15/Rocket_League_logo.svg", a: "Rocket League", opts: ["Rocket League", "FIFA", "PES", "Turbo League"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/e/e0/Among_Us_logo.svg", a: "Among Us", opts: ["Among Us", "Fall Guys", "Gang Beasts", "Human Fall Flat"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/0/03/Genshin_Impact_logo.svg", a: "Genshin Impact", opts: ["Genshin Impact", "Honkai Star Rail", "Tower of Fantasy", "Blue Protocol"] }
+            ],
+            studios: [
+                { image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Rockstar_Games_Logo.svg", a: "Rockstar Games", opts: ["Rockstar Games", "Take-Two", "2K Games", "Bethesda"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/5/59/Ubisoft_2017.svg", a: "Ubisoft", opts: ["Ubisoft", "EA", "Activision", "Bethesda"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/0/0e/EA_Sports_monochrome_logo.svg", a: "EA Sports", opts: ["EA Sports", "2K Sports", "Konami", "Take-Two"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/2/20/Activision.svg", a: "Activision", opts: ["Activision", "EA", "Ubisoft", "Take-Two"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Nintendo_logo.svg", a: "Nintendo", opts: ["Nintendo", "Sony", "Sega", "Microsoft"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/7/7d/Naughty_Dog_logo.png", a: "Naughty Dog", opts: ["Naughty Dog", "Insomniac Games", "Santa Monica Studio", "Sucker Punch"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/b/b9/Epic_Games_logo.png", a: "Epic Games", opts: ["Epic Games", "Valve", "Unity", "Unreal"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/b/b0/Valve_logo.svg", a: "Valve", opts: ["Valve", "Epic Games", "Blizzard", "Riot Games"] }
+            ],
+            tech: [
+                { image: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg", a: "Google", opts: ["Google", "Microsoft", "Apple", "Amazon"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/6/64/Discord_logo.svg", a: "Discord", opts: ["Discord", "Slack", "TeamSpeak", "Skype"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg", a: "Steam", opts: ["Steam", "Epic Games", "Origin", "GOG"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/9/91/Twitch_logo.svg", a: "Twitch", opts: ["Twitch", "YouTube Gaming", "Kick", "Facebook Gaming"] },
+                { image: "https://upload.wikimedia.org/wikipedia/en/a/a9/PlayStation_logo.svg", a: "PlayStation", opts: ["PlayStation", "Xbox", "Nintendo", "Sega"] },
+                { image: "https://upload.wikimedia.org/wikipedia/commons/f/f9/Xbox_one_logo.svg", a: "Xbox", opts: ["Xbox", "PlayStation", "Nintendo", "Steam"] }
+            ]
+        }
+    },
+    fakereal: {
+        images: [
+            { image: "https://this-person-does-not-exist.com/img/avatar-gen1.jpg", isReal: false, explanation: "Visage généré par IA" },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Gatto_europeo4.jpg/800px-Gatto_europeo4.jpg", isReal: true, explanation: "Photo réelle d'un chat" },
+            { image: "https://this-person-does-not-exist.com/img/avatar-gen2.jpg", isReal: false, explanation: "Visage généré par IA" },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/Eiffel_Tower_Paris.jpg/800px-Eiffel_Tower_Paris.jpg", isReal: true, explanation: "Photo réelle de la Tour Eiffel" }
+        ],
+        facts: [
+            { fact: "Les flamants roses naissent blancs et deviennent roses à cause de leur alimentation", isReal: true, explanation: "Vrai ! Les crevettes et algues qu'ils mangent contiennent des pigments" },
+            { fact: "La Grande Muraille de Chine est visible depuis la Lune", isReal: false, explanation: "Faux ! Elle est trop étroite pour être vue depuis l'espace" },
+            { fact: "Un groupe de corbeaux s'appelle un 'meurtre'", isReal: true, explanation: "Vrai ! En anglais, on dit 'a murder of crows'" },
+            { fact: "Les humains n'utilisent que 10% de leur cerveau", isReal: false, explanation: "Faux ! Nous utilisons toutes les parties de notre cerveau" },
+            { fact: "Le miel ne périme jamais", isReal: true, explanation: "Vrai ! On a retrouvé du miel comestible dans des tombes égyptiennes" },
+            { fact: "Les poissons rouges ont une mémoire de 3 secondes", isReal: false, explanation: "Faux ! Ils peuvent se souvenir de choses pendant des mois" },
+            { fact: "Cléopâtre vivait plus proche de l'invention de l'iPhone que de la construction des pyramides", isReal: true, explanation: "Vrai ! ~2500 ans séparent les pyramides de Cléopâtre, ~2000 ans séparent Cléopâtre de l'iPhone" },
+            { fact: "Les vaches ont des meilleurs amis", isReal: true, explanation: "Vrai ! Elles sont stressées quand séparées de leurs amies" }
+        ]
+    },
+    facemerge: {
+        actors: [
+            { image: "placeholder_merge1.jpg", persons: ["Brad Pitt", "Leonardo DiCaprio"], opts: [["Brad Pitt", "Leonardo DiCaprio"], ["Tom Cruise", "Johnny Depp"], ["George Clooney", "Matt Damon"], ["Chris Hemsworth", "Chris Evans"]] },
+            { image: "placeholder_merge2.jpg", persons: ["Scarlett Johansson", "Emma Watson"], opts: [["Scarlett Johansson", "Emma Watson"], ["Jennifer Lawrence", "Emma Stone"], ["Natalie Portman", "Anne Hathaway"], ["Margot Robbie", "Gal Gadot"]] }
+        ],
+        singers: [
+            { image: "placeholder_merge3.jpg", persons: ["Beyoncé", "Rihanna"], opts: [["Beyoncé", "Rihanna"], ["Taylor Swift", "Ariana Grande"], ["Lady Gaga", "Katy Perry"], ["Adele", "Sia"]] }
+        ]
+    },
+    zoomrace: {
+        games: [
+            { image: "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png", a: "Minecraft", opts: ["Minecraft", "Roblox", "Terraria", "LEGO Worlds"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/a/a5/Grand_Theft_Auto_V.png", a: "GTA V", opts: ["GTA V", "Watch Dogs", "Saints Row", "Red Dead Redemption"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/8/8d/Zelda_-_Tears_of_the_Kingdom_cover_art.jpg", a: "Zelda: Tears of the Kingdom", opts: ["Zelda: Tears of the Kingdom", "Zelda: Breath of the Wild", "Genshin Impact", "Immortals Fenyx Rising"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/0/0c/Witcher_3_cover_art.jpg", a: "The Witcher 3", opts: ["The Witcher 3", "Skyrim", "Dark Souls", "Elden Ring"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/c/ce/Amongus.png", a: "Among Us", opts: ["Among Us", "Fall Guys", "Gang Beasts", "Human Fall Flat"] }
+        ],
+        movies: [
+            { image: "https://upload.wikimedia.org/wikipedia/en/1/1e/Inception_ver3.jpg", a: "Inception", opts: ["Inception", "Interstellar", "The Matrix", "Tenet"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/0/0d/Avengers_Endgame_poster.jpg", a: "Avengers: Endgame", opts: ["Avengers: Endgame", "Infinity War", "Age of Ultron", "The Avengers"] },
+            { image: "https://upload.wikimedia.org/wikipedia/en/8/8a/The_Joker_%28poster%29.png", a: "Joker", opts: ["Joker", "The Dark Knight", "Batman Begins", "Suicide Squad"] }
+        ],
+        logos: [
+            { image: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Rockstar_Games_Logo.svg", a: "Rockstar Games", opts: ["Rockstar Games", "Take-Two", "2K Games", "Bethesda"] },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/0/05/Nintendo_logo.svg", a: "Nintendo", opts: ["Nintendo", "Sony", "Sega", "Microsoft"] },
+            { image: "https://upload.wikimedia.org/wikipedia/commons/8/83/Steam_icon_logo.svg", a: "Steam", opts: ["Steam", "Epic Games", "Origin", "GOG"] }
+        ]
+    },
+    memory: {
+        colors: ['red', 'blue', 'green', 'yellow'],
+        sounds: ['do', 're', 'mi', 'fa']
+    },
+    categorysprint: {
+        movies: [
+            { category: "Films avec Leonardo DiCaprio", answers: ["Titanic", "Inception", "The Revenant", "Django Unchained", "The Wolf of Wall Street", "Shutter Island", "Catch Me If You Can", "The Departed", "Once Upon a Time in Hollywood", "Don't Look Up"] },
+            { category: "Films Marvel", answers: ["Iron Man", "Avengers", "Spider-Man", "Thor", "Captain America", "Black Panther", "Guardians of the Galaxy", "Doctor Strange", "Ant-Man", "Black Widow", "Hulk", "Deadpool"] },
+            { category: "Films de Quentin Tarantino", answers: ["Pulp Fiction", "Kill Bill", "Django Unchained", "Inglourious Basterds", "Reservoir Dogs", "Once Upon a Time in Hollywood", "The Hateful Eight", "Jackie Brown"] }
+        ],
+        music: [
+            { category: "Chansons de Michael Jackson", answers: ["Thriller", "Billie Jean", "Beat It", "Bad", "Smooth Criminal", "Black or White", "Man in the Mirror", "The Way You Make Me Feel", "Dirty Diana", "Earth Song"] },
+            { category: "Chansons de Queen", answers: ["Bohemian Rhapsody", "We Will Rock You", "We Are the Champions", "Don't Stop Me Now", "Somebody to Love", "Radio Ga Ga", "Killer Queen", "Another One Bites the Dust", "Under Pressure", "I Want to Break Free"] },
+            { category: "Artistes français", answers: ["Stromae", "Indila", "Aya Nakamura", "Jul", "PNL", "Maitre Gims", "Soprano", "Nekfeu", "Orelsan", "Angèle", "Zaz", "Edith Piaf", "Charles Aznavour"] }
+        ],
+        geo: [
+            { category: "Capitales européennes", answers: ["Paris", "Londres", "Berlin", "Madrid", "Rome", "Lisbonne", "Amsterdam", "Bruxelles", "Vienne", "Prague", "Varsovie", "Budapest", "Athènes", "Stockholm", "Oslo", "Copenhague", "Dublin", "Berne"] },
+            { category: "Pays d'Afrique", answers: ["Maroc", "Algérie", "Tunisie", "Egypte", "Afrique du Sud", "Nigeria", "Kenya", "Sénégal", "Côte d'Ivoire", "Ghana", "Cameroun", "Ethiopie", "Tanzanie", "Mali", "Congo"] },
+            { category: "Pays d'Asie", answers: ["Japon", "Chine", "Corée du Sud", "Inde", "Vietnam", "Thaïlande", "Indonésie", "Philippines", "Malaisie", "Singapour", "Pakistan", "Bangladesh", "Népal", "Sri Lanka", "Cambodge"] }
         ]
     }
 };
@@ -488,6 +789,7 @@ let state = {
     clashBracket: [],
     clashWinners: [],
     clashRound: 0,
+    currentAudio: null,
     tempAvatar: null,
     adminPassword: localStorage.getItem('vkgames_admin_pwd') || 'admin123',
     theme: localStorage.getItem('vkgames_theme') || 'particles',
@@ -1808,6 +2110,18 @@ function startGame() {
         startHL();
     } else if (mode === 'clash') {
         startClash();
+    } else if (mode === 'cityguesser') {
+        startCityGuesser();
+    } else if (game === 'fakereal') {
+        startFakeReal();
+    } else if (game === 'facemerge') {
+        startFacemerge();
+    } else if (game === 'zoomrace') {
+        startZoomRace();
+    } else if (game === 'memory') {
+        startMemory();
+    } else if (game === 'categorysprint') {
+        startCategorySprint();
     } else {
         startQuiz();
     }
@@ -1821,15 +2135,43 @@ function startQuiz() {
 
     // Get the right data based on mode
     let sourceKey = state.mode;
-    if (state.mode === 'blind') sourceKey = 'quiz'; // Use quiz data for blind
     if (state.mode === 'quotes' && gameData.quotes) {
         data = [...gameData.quotes];
+    } else if (state.mode === 'blind' && gameData.blind) {
+        // Handle Blind Test for Quiz Musical with audio previews
+        const genres = state.genre === 'mixed' ? Object.keys(gameData.blind) : [state.genre];
+        genres.forEach(g => {
+            if (gameData.blind[g]) {
+                data = data.concat(gameData.blind[g]);
+            }
+        });
     } else if (state.mode === 'palmares' && gameData.palmares) {
         data = [...gameData.palmares];
     } else if (state.mode === 'retro' && gameData.retro) {
         data = [...gameData.retro];
     } else if (state.mode === 'flags' && gameData.flags) {
         data = [...gameData.flags];
+    } else if (game === 'blindtest') {
+        // Handle Blind Test Audio game
+        const sourceData = state.mode === 'ost' ? gameData.ost : gameData.sounds;
+        if (sourceData) {
+            const genres = state.genre === 'mixed' ? Object.keys(sourceData) : [state.genre];
+            genres.forEach(g => {
+                if (sourceData[g]) {
+                    data = data.concat(sourceData[g]);
+                }
+            });
+        }
+    } else if (game === 'screenshot' || game === 'logo') {
+        // Handle Screenshot and Logo Quiz games
+        if (gameData.quiz) {
+            const genres = state.genre === 'mixed' ? Object.keys(gameData.quiz) : [state.genre];
+            genres.forEach(g => {
+                if (gameData.quiz[g]) {
+                    data = data.concat(gameData.quiz[g]);
+                }
+            });
+        }
     } else if (gameData.quiz) {
         const genres = state.genre === 'mixed' ? Object.keys(gameData.quiz) : [state.genre];
         genres.forEach(g => {
@@ -1865,10 +2207,20 @@ function showQuestion() {
     let questionText = '';
     const game = state.currentGame;
 
-    // Remove previous flag display if any
+    // Remove previous media displays (flag, image, audio)
     const existingFlag = document.querySelector('.flag-display');
     if (existingFlag) existingFlag.remove();
-    document.getElementById('question-box').classList.remove('flag-question');
+    const existingMedia = document.querySelector('.media-display');
+    if (existingMedia) existingMedia.remove();
+    const existingAudio = document.querySelector('.audio-display');
+    if (existingAudio) existingAudio.remove();
+    document.getElementById('question-box').classList.remove('flag-question', 'media-question', 'audio-question');
+
+    // Stop any playing audio
+    if (state.currentAudio) {
+        state.currentAudio.pause();
+        state.currentAudio = null;
+    }
 
     if (q.q) {
         if (game === 'music') {
@@ -1887,6 +2239,84 @@ function showQuestion() {
         } else {
             questionText = q.q;
         }
+    } else if ((game === 'blindtest' || (game === 'music' && state.mode === 'blind')) && (q.audio || q.deezerId)) {
+        // Blind Test Audio game (both for gaming sounds and music blind test)
+        questionText = game === 'music' ? 'Qui chante cette chanson ?' : 'Quel est ce son ?';
+        document.getElementById('question-box').classList.add('audio-question');
+
+        const audioDisplay = document.createElement('div');
+        audioDisplay.className = 'audio-display';
+
+        if (q.deezerId) {
+            // Deezer track - fetch preview dynamically
+            audioDisplay.innerHTML = `
+                <div class="audio-player-container">
+                    <div class="audio-icon">🎵</div>
+                    <button class="play-audio-btn" onclick="playDeezerPreview(${q.deezerId})">
+                        <span class="play-icon">▶</span> Écouter
+                    </button>
+                    <div class="audio-hint">Clique pour écouter l'extrait</div>
+                </div>
+            `;
+        } else if (q.youtube) {
+            // YouTube video - extract video ID and use embed
+            const videoId = q.audio.includes('watch?v=') ? q.audio.split('watch?v=')[1].split('&')[0] : q.audio;
+            audioDisplay.innerHTML = `
+                <div class="audio-player-container">
+                    <div class="audio-icon">🎵</div>
+                    <iframe
+                        width="0"
+                        height="0"
+                        src="https://www.youtube.com/embed/${videoId}?autoplay=1&start=0&end=30"
+                        frameborder="0"
+                        allow="autoplay"
+                        style="display:none;">
+                    </iframe>
+                    <button class="play-audio-btn" onclick="playBlindTestAudio('${q.audio}', true)">
+                        <span class="play-icon">▶</span> Écouter
+                    </button>
+                    <div class="audio-hint">Écoute attentivement...</div>
+                </div>
+            `;
+        } else {
+            // Direct audio file
+            audioDisplay.innerHTML = `
+                <div class="audio-player-container">
+                    <div class="audio-icon">🔊</div>
+                    <button class="play-audio-btn" onclick="playBlindTestAudio('${q.audio}', false)">
+                        <span class="play-icon">▶</span> Écouter
+                    </button>
+                    <div class="audio-hint">Clique pour écouter le son</div>
+                </div>
+            `;
+        }
+
+        const questionBox = document.getElementById('question-box');
+        const questionTextEl = document.getElementById('question-text');
+        questionBox.insertBefore(audioDisplay, questionTextEl);
+
+        // Auto-play for Deezer tracks
+        if (q.deezerId) {
+            setTimeout(() => playDeezerPreview(q.deezerId), 500);
+        } else if (!q.youtube) {
+            setTimeout(() => playBlindTestAudio(q.audio, false), 500);
+        }
+    } else if ((game === 'screenshot' || game === 'logo') && q.image) {
+        // Screenshot or Logo Quiz game
+        questionText = game === 'screenshot' ? 'Quel est ce jeu ?' : 'Quel est ce logo ?';
+        document.getElementById('question-box').classList.add('media-question');
+
+        const mediaDisplay = document.createElement('div');
+        mediaDisplay.className = 'media-display';
+        mediaDisplay.innerHTML = `
+            <div class="image-container ${state.mode === 'zoom' ? 'zoom-mode' : ''}">
+                <img src="${q.image}" alt="Image" class="quiz-image" onerror="this.src='https://via.placeholder.com/400x300?text=Image+non+disponible'">
+            </div>
+        `;
+
+        const questionBox = document.getElementById('question-box');
+        const questionTextEl = document.getElementById('question-text');
+        questionBox.insertBefore(mediaDisplay, questionTextEl);
     }
 
     document.getElementById('question-hint').textContent = '';
@@ -1902,6 +2332,72 @@ function showQuestion() {
     });
 
     startTimer();
+}
+
+// Function to play blind test audio
+function playBlindTestAudio(audioUrl, isYoutube) {
+    if (state.currentAudio) {
+        state.currentAudio.pause();
+    }
+
+    if (isYoutube) {
+        // For YouTube, open in a small window or use iframe
+        window.open(audioUrl, '_blank', 'width=400,height=300');
+    } else {
+        state.currentAudio = new Audio(audioUrl);
+        state.currentAudio.volume = 0.7;
+        state.currentAudio.play().catch(e => {
+            console.log('Erreur lecture audio:', e);
+            showToast('Impossible de lire l\'audio', 'error');
+        });
+    }
+
+    // Update button state
+    const playBtn = document.querySelector('.play-audio-btn');
+    if (playBtn) {
+        playBtn.innerHTML = '<span class="play-icon">🔊</span> En cours...';
+        playBtn.classList.add('playing');
+    }
+}
+
+// Function to fetch Deezer preview and play it
+async function playDeezerPreview(trackId) {
+    const playBtn = document.querySelector('.play-audio-btn');
+    if (playBtn) {
+        playBtn.innerHTML = '<span class="play-icon">⏳</span> Chargement...';
+        playBtn.disabled = true;
+    }
+
+    try {
+        // Use a CORS proxy to fetch the Deezer API
+        const response = await fetch(`https://corsproxy.io/?https://api.deezer.com/track/${trackId}`);
+        const data = await response.json();
+
+        if (data.preview) {
+            if (state.currentAudio) {
+                state.currentAudio.pause();
+            }
+
+            state.currentAudio = new Audio(data.preview);
+            state.currentAudio.volume = 0.7;
+            await state.currentAudio.play();
+
+            if (playBtn) {
+                playBtn.innerHTML = '<span class="play-icon">🔊</span> En cours...';
+                playBtn.classList.add('playing');
+                playBtn.disabled = false;
+            }
+        } else {
+            throw new Error('No preview available');
+        }
+    } catch (e) {
+        console.log('Erreur Deezer:', e);
+        if (playBtn) {
+            playBtn.innerHTML = '<span class="play-icon">❌</span> Erreur';
+            playBtn.disabled = false;
+        }
+        showToast('Impossible de charger l\'audio', 'error');
+    }
 }
 
 function checkAnswer(btn, correct) {
@@ -2159,6 +2655,893 @@ function showClashWinner(winner) {
     showScreen('winner-screen');
 }
 
+// ===== City Guesser =====
+let cityMap = null;
+let cityMarker = null;
+let cityGuessLatLng = null;
+
+function startCityGuesser() {
+    const gameData = allGameData.geo;
+    if (!gameData?.cityguesser || gameData.cityguesser.length === 0) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    state.cgQuestions = shuffle([...gameData.cityguesser]).slice(0, 10);
+    state.cgCurrent = 0;
+    state.score = 0;
+    state.correct = 0;
+
+    showScreen('cityguesser-screen');
+
+    // Initialize map if not already done
+    setTimeout(() => {
+        if (!cityMap) {
+            cityMap = L.map('city-map').setView([20, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap'
+            }).addTo(cityMap);
+
+            cityMap.on('click', function(e) {
+                cityGuessLatLng = e.latlng;
+                if (cityMarker) {
+                    cityMarker.setLatLng(e.latlng);
+                } else {
+                    cityMarker = L.marker(e.latlng).addTo(cityMap);
+                }
+                document.getElementById('cg-confirm-btn').disabled = false;
+            });
+        } else {
+            cityMap.setView([20, 0], 2);
+            if (cityMarker) {
+                cityMap.removeLayer(cityMarker);
+                cityMarker = null;
+            }
+        }
+        cityGuessLatLng = null;
+        document.getElementById('cg-confirm-btn').disabled = true;
+
+        showCityQuestion();
+    }, 100);
+}
+
+function showCityQuestion() {
+    const q = state.cgQuestions[state.cgCurrent];
+    if (!q) return;
+
+    document.getElementById('cg-score').textContent = state.score;
+    document.getElementById('cg-progress').textContent = `${state.cgCurrent + 1}/10`;
+    document.getElementById('city-image').src = q.image;
+
+    // Reset map view and marker
+    if (cityMap) {
+        cityMap.setView([20, 0], 2);
+        if (cityMarker) {
+            cityMap.removeLayer(cityMarker);
+            cityMarker = null;
+        }
+    }
+    cityGuessLatLng = null;
+    document.getElementById('cg-confirm-btn').disabled = true;
+}
+
+function confirmCityGuess() {
+    if (!cityGuessLatLng) return;
+
+    const q = state.cgQuestions[state.cgCurrent];
+    const correctLatLng = L.latLng(q.lat, q.lng);
+    const distance = cityGuessLatLng.distanceTo(correctLatLng) / 1000; // en km
+
+    // Afficher la bonne position
+    const correctMarker = L.marker([q.lat, q.lng], {
+        icon: L.divIcon({
+            className: 'correct-city-marker',
+            html: '✓',
+            iconSize: [30, 30]
+        })
+    }).addTo(cityMap);
+
+    // Tracer une ligne entre la réponse et la bonne position
+    const line = L.polyline([cityGuessLatLng, correctLatLng], {color: 'red', dashArray: '5, 10'}).addTo(cityMap);
+
+    // Calculer le score basé sur la distance
+    let points = 0;
+    if (distance < 50) {
+        points = 1000;
+        playSuccessSound();
+        showToast(`Parfait ! ${q.city}, ${q.country} - ${Math.round(distance)} km`, 'success');
+        state.correct++;
+    } else if (distance < 200) {
+        points = 800;
+        playSuccessSound();
+        showToast(`Très proche ! ${q.city} - ${Math.round(distance)} km`, 'success');
+        state.correct++;
+    } else if (distance < 500) {
+        points = 500;
+        showToast(`Pas mal ! ${q.city} - ${Math.round(distance)} km`, 'success');
+    } else if (distance < 1000) {
+        points = 200;
+        showToast(`${q.city} - ${Math.round(distance)} km`, 'info');
+    } else {
+        points = 50;
+        playErrorSound();
+        showToast(`C'était ${q.city}, ${q.country} - ${Math.round(distance)} km`, 'error');
+    }
+
+    state.score += points;
+    document.getElementById('cg-score').textContent = state.score;
+
+    // Zoom sur la zone
+    const bounds = L.latLngBounds([cityGuessLatLng, correctLatLng]);
+    cityMap.fitBounds(bounds, { padding: [50, 50] });
+
+    setTimeout(() => {
+        // Nettoyer
+        cityMap.removeLayer(correctMarker);
+        cityMap.removeLayer(line);
+
+        state.cgCurrent++;
+        if (state.cgCurrent >= 10) {
+            endCityGuesser();
+        } else {
+            showCityQuestion();
+        }
+    }, 2500);
+}
+
+function endCityGuesser() {
+    resumeBgMusic();
+    saveScore(state.score);
+
+    // Adapter les résultats
+    state.questions = state.cgQuestions;
+    state.bestStreak = state.correct;
+    showResult();
+}
+
+// ===== Fake or Real =====
+function startFakeReal() {
+    const gameData = allGameData.fakereal;
+    if (!gameData) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    // Mélanger images et faits selon le mode
+    let data = [];
+    if (state.mode === 'images' && gameData.images) {
+        data = gameData.images.map(item => ({ ...item, type: 'image' }));
+    } else if (state.mode === 'facts' && gameData.facts) {
+        data = gameData.facts.map(item => ({ ...item, type: 'fact' }));
+    } else {
+        // Mode mixte
+        const images = (gameData.images || []).map(item => ({ ...item, type: 'image' }));
+        const facts = (gameData.facts || []).map(item => ({ ...item, type: 'fact' }));
+        data = [...images, ...facts];
+    }
+
+    state.frQuestions = shuffle(data).slice(0, 10);
+    state.frCurrent = 0;
+    state.score = 0;
+    state.correct = 0;
+    state.isAnswered = false;
+
+    showScreen('fakereal-screen');
+    showFakeRealQuestion();
+}
+
+function showFakeRealQuestion() {
+    const q = state.frQuestions[state.frCurrent];
+    if (!q) return;
+
+    state.isAnswered = false;
+
+    document.getElementById('fr-score').textContent = state.score;
+    document.getElementById('fr-progress').textContent = `${state.frCurrent + 1}/10`;
+
+    const imageEl = document.getElementById('fr-image');
+    const factEl = document.getElementById('fr-fact');
+    const resultEl = document.getElementById('fr-result');
+
+    resultEl.classList.add('hidden');
+
+    if (q.type === 'image') {
+        imageEl.src = q.image;
+        imageEl.classList.remove('hidden');
+        factEl.classList.add('hidden');
+    } else {
+        factEl.textContent = q.fact;
+        factEl.classList.remove('hidden');
+        imageEl.classList.add('hidden');
+    }
+
+    // Réactiver les boutons
+    document.querySelectorAll('.fr-btn').forEach(btn => {
+        btn.disabled = false;
+        btn.classList.remove('correct', 'wrong');
+    });
+}
+
+function answerFakeReal(isReal) {
+    if (state.isAnswered) return;
+    state.isAnswered = true;
+
+    playClickSound();
+
+    const q = state.frQuestions[state.frCurrent];
+    const isCorrect = isReal === q.isReal;
+
+    // Désactiver les boutons
+    document.querySelectorAll('.fr-btn').forEach(btn => btn.disabled = true);
+
+    // Highlight des boutons
+    const realBtn = document.querySelector('.fr-real');
+    const fakeBtn = document.querySelector('.fr-fake');
+
+    if (q.isReal) {
+        realBtn.classList.add('correct');
+        if (!isCorrect) fakeBtn.classList.add('wrong');
+    } else {
+        fakeBtn.classList.add('correct');
+        if (!isCorrect) realBtn.classList.add('wrong');
+    }
+
+    // Afficher l'explication
+    const resultEl = document.getElementById('fr-result');
+    resultEl.innerHTML = `
+        <div class="fr-verdict ${isCorrect ? 'correct' : 'wrong'}">
+            ${isCorrect ? '✓ Correct !' : '✗ Faux !'}
+        </div>
+        <p class="fr-explanation">${q.explanation}</p>
+    `;
+    resultEl.classList.remove('hidden');
+
+    if (isCorrect) {
+        state.score += 100;
+        state.correct++;
+        playSuccessSound();
+    } else {
+        playErrorSound();
+    }
+
+    document.getElementById('fr-score').textContent = state.score;
+
+    setTimeout(() => {
+        state.frCurrent++;
+        if (state.frCurrent >= 10) {
+            endFakeReal();
+        } else {
+            showFakeRealQuestion();
+        }
+    }, 2500);
+}
+
+function endFakeReal() {
+    resumeBgMusic();
+    saveScore(state.score);
+    state.questions = state.frQuestions;
+    state.bestStreak = state.correct;
+    showResult();
+}
+
+// ===== Face Merge =====
+function startFacemerge() {
+    const gameData = allGameData.facemerge;
+    if (!gameData) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    // Récupérer les données selon le mode
+    let data = [];
+    if (state.mode && gameData[state.mode]) {
+        data = [...gameData[state.mode]];
+    } else {
+        // Mode mixte
+        Object.values(gameData).forEach(arr => {
+            if (Array.isArray(arr)) data = data.concat(arr);
+        });
+    }
+
+    if (data.length === 0) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    state.fmQuestions = shuffle(data).slice(0, 10);
+    state.fmCurrent = 0;
+    state.score = 0;
+    state.correct = 0;
+    state.isAnswered = false;
+
+    showScreen('facemerge-screen');
+    showFacemergeQuestion();
+}
+
+function showFacemergeQuestion() {
+    const q = state.fmQuestions[state.fmCurrent];
+    if (!q) return;
+
+    state.isAnswered = false;
+
+    document.getElementById('fm-score').textContent = state.score;
+    document.getElementById('fm-progress').textContent = `${state.fmCurrent + 1}/10`;
+    document.getElementById('fm-image').src = q.image;
+
+    // Les réponses sont des paires de noms
+    const answersEl = document.getElementById('fm-answers');
+    answersEl.innerHTML = shuffle([...q.opts]).map((pair, idx) => {
+        const pairStr = pair.join(' + ');
+        return `<button class="answer-btn fm-answer" data-index="${idx}" data-pair="${pair.join(',')}">${pairStr}</button>`;
+    }).join('');
+
+    answersEl.querySelectorAll('.fm-answer').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const selectedPair = btn.dataset.pair.split(',');
+            fmAnswer(selectedPair, q.persons);
+        });
+    });
+}
+
+function fmAnswer(selected, correct) {
+    if (state.isAnswered) return;
+    state.isAnswered = true;
+
+    playClickSound();
+
+    // Vérifier si la paire est correcte (ordre indifférent)
+    const isCorrect = (selected[0] === correct[0] && selected[1] === correct[1]) ||
+                      (selected[0] === correct[1] && selected[1] === correct[0]);
+
+    const correctStr = correct.join(' + ');
+
+    document.querySelectorAll('.fm-answer').forEach(btn => {
+        btn.disabled = true;
+        const btnPair = btn.dataset.pair.split(',');
+        const isBtnCorrect = (btnPair[0] === correct[0] && btnPair[1] === correct[1]) ||
+                             (btnPair[0] === correct[1] && btnPair[1] === correct[0]);
+
+        if (isBtnCorrect) {
+            btn.classList.add('correct');
+        } else if (btn.dataset.pair === selected.join(',') && !isCorrect) {
+            btn.classList.add('wrong');
+        }
+    });
+
+    if (isCorrect) {
+        state.score += 100;
+        state.correct++;
+        playSuccessSound();
+        showToast('+100 points !', 'success');
+    } else {
+        playErrorSound();
+        showToast(`C'était ${correctStr}`, 'error');
+    }
+
+    document.getElementById('fm-score').textContent = state.score;
+
+    setTimeout(() => {
+        state.fmCurrent++;
+        if (state.fmCurrent >= 10 || state.fmCurrent >= state.fmQuestions.length) {
+            endFacemerge();
+        } else {
+            showFacemergeQuestion();
+        }
+    }, 2000);
+}
+
+function endFacemerge() {
+    resumeBgMusic();
+    saveScore(state.score);
+    state.questions = state.fmQuestions;
+    state.bestStreak = state.correct;
+    showResult();
+}
+
+// ===== Zoom Race =====
+let zrInterval = null;
+let zrZoomLevel = 500;
+
+function startZoomRace() {
+    const gameData = allGameData.zoomrace;
+    if (!gameData) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    // Récupérer les données selon le mode
+    let data = [];
+    if (state.mode && gameData[state.mode]) {
+        data = [...gameData[state.mode]];
+    } else {
+        // Mode mixte - combiner tout
+        Object.values(gameData).forEach(arr => {
+            if (Array.isArray(arr)) data = data.concat(arr);
+        });
+    }
+
+    if (data.length === 0) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    state.zrQuestions = shuffle(data).slice(0, 10);
+    state.zrCurrent = 0;
+    state.score = 0;
+    state.correct = 0;
+
+    showScreen('zoomrace-screen');
+    showZoomQuestion();
+}
+
+function showZoomQuestion() {
+    const q = state.zrQuestions[state.zrCurrent];
+    if (!q) return;
+
+    state.isAnswered = false;
+    zrZoomLevel = 500; // Très zoomé au départ
+
+    document.getElementById('zr-score').textContent = state.score;
+    document.getElementById('zr-progress').textContent = `${state.zrCurrent + 1}/10`;
+
+    const imageEl = document.getElementById('zr-image');
+    imageEl.src = q.image;
+    imageEl.style.transform = `scale(${zrZoomLevel / 100})`;
+
+    // Timer bar
+    const timerFill = document.getElementById('zr-timer-fill');
+    timerFill.style.width = '100%';
+
+    // Afficher les réponses
+    const answersEl = document.getElementById('zr-answers');
+    answersEl.innerHTML = shuffle([...q.opts]).map(opt =>
+        `<button class="answer-btn zr-answer" data-answer="${opt}">${opt}</button>`
+    ).join('');
+
+    answersEl.querySelectorAll('.zr-answer').forEach(btn => {
+        btn.addEventListener('click', () => zrAnswer(btn.dataset.answer, q.a));
+    });
+
+    // Démarrer le dézoom progressif
+    let elapsed = 0;
+    const duration = 10000; // 10 secondes
+
+    if (zrInterval) clearInterval(zrInterval);
+    zrInterval = setInterval(() => {
+        if (state.isAnswered) {
+            clearInterval(zrInterval);
+            return;
+        }
+
+        elapsed += 50;
+        const progress = elapsed / duration;
+
+        // Dézoom progressif de 500% à 100%
+        zrZoomLevel = 500 - (400 * progress);
+        if (zrZoomLevel < 100) zrZoomLevel = 100;
+        imageEl.style.transform = `scale(${zrZoomLevel / 100})`;
+
+        // Timer bar
+        timerFill.style.width = `${(1 - progress) * 100}%`;
+
+        if (elapsed >= duration) {
+            clearInterval(zrInterval);
+            if (!state.isAnswered) {
+                zrTimeUp(q.a);
+            }
+        }
+    }, 50);
+}
+
+function zrAnswer(answer, correct) {
+    if (state.isAnswered) return;
+    state.isAnswered = true;
+
+    if (zrInterval) clearInterval(zrInterval);
+    playClickSound();
+
+    const isCorrect = answer === correct;
+
+    // Highlight les réponses
+    document.querySelectorAll('.zr-answer').forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.answer === correct) {
+            btn.classList.add('correct');
+        } else if (btn.dataset.answer === answer && !isCorrect) {
+            btn.classList.add('wrong');
+        }
+    });
+
+    // Révéler l'image complète
+    document.getElementById('zr-image').style.transform = 'scale(1)';
+
+    if (isCorrect) {
+        // Plus de points si répondu tôt (quand très zoomé)
+        const bonus = Math.round((zrZoomLevel - 100) / 4);
+        const points = 100 + bonus;
+        state.score += points;
+        state.correct++;
+        playSuccessSound();
+        showToast(`+${points} points !`, 'success');
+    } else {
+        playErrorSound();
+        showToast('Mauvaise réponse !', 'error');
+    }
+
+    document.getElementById('zr-score').textContent = state.score;
+
+    setTimeout(() => {
+        state.zrCurrent++;
+        if (state.zrCurrent >= 10) {
+            endZoomRace();
+        } else {
+            showZoomQuestion();
+        }
+    }, 2000);
+}
+
+function zrTimeUp(correct) {
+    state.isAnswered = true;
+    playErrorSound();
+
+    document.querySelectorAll('.zr-answer').forEach(btn => {
+        btn.disabled = true;
+        if (btn.dataset.answer === correct) {
+            btn.classList.add('correct');
+        }
+    });
+
+    showToast('Temps écoulé !', 'error');
+
+    setTimeout(() => {
+        state.zrCurrent++;
+        if (state.zrCurrent >= 10) {
+            endZoomRace();
+        } else {
+            showZoomQuestion();
+        }
+    }, 2000);
+}
+
+function endZoomRace() {
+    if (zrInterval) clearInterval(zrInterval);
+    resumeBgMusic();
+    saveScore(state.score);
+    state.questions = state.zrQuestions;
+    state.bestStreak = state.correct;
+    showResult();
+}
+
+// ===== Memory Sequence =====
+let memSequence = [];
+let memPlayerSequence = [];
+let memLevel = 1;
+let memIsPlaying = false;
+let memIsPlayerTurn = false;
+
+function startMemory() {
+    memSequence = [];
+    memPlayerSequence = [];
+    memLevel = 1;
+    state.score = 0;
+    memIsPlaying = false;
+    memIsPlayerTurn = false;
+
+    showScreen('memory-screen');
+
+    document.getElementById('mem-level').textContent = memLevel;
+    document.getElementById('mem-score').textContent = state.score;
+    document.getElementById('mem-instruction').textContent = 'Appuie sur Commencer pour jouer';
+
+    const startBtn = document.getElementById('mem-start-btn');
+    startBtn.textContent = 'Commencer';
+    startBtn.classList.remove('hidden');
+    startBtn.onclick = startMemoryRound;
+
+    // Setup button clicks
+    document.querySelectorAll('.memory-btn').forEach(btn => {
+        btn.onclick = () => memoryBtnClick(btn.dataset.color);
+    });
+}
+
+function startMemoryRound() {
+    document.getElementById('mem-start-btn').classList.add('hidden');
+    document.getElementById('mem-instruction').textContent = 'Regarde la séquence...';
+
+    // Ajouter une couleur à la séquence
+    const colors = ['red', 'blue', 'green', 'yellow'];
+    memSequence.push(colors[Math.floor(Math.random() * colors.length)]);
+
+    memPlayerSequence = [];
+    memIsPlayerTurn = false;
+
+    // Jouer la séquence
+    playMemorySequence();
+}
+
+function playMemorySequence() {
+    memIsPlaying = true;
+    let i = 0;
+
+    const playNext = () => {
+        if (i >= memSequence.length) {
+            memIsPlaying = false;
+            memIsPlayerTurn = true;
+            document.getElementById('mem-instruction').textContent = 'À ton tour !';
+            return;
+        }
+
+        const color = memSequence[i];
+        highlightMemoryBtn(color);
+        i++;
+
+        setTimeout(playNext, 600);
+    };
+
+    setTimeout(playNext, 500);
+}
+
+function highlightMemoryBtn(color) {
+    const btn = document.querySelector(`.memory-btn[data-color="${color}"]`);
+    if (!btn) return;
+
+    btn.classList.add('active');
+    playMemorySound(color);
+
+    setTimeout(() => {
+        btn.classList.remove('active');
+    }, 400);
+}
+
+function playMemorySound(color) {
+    // Créer un son basé sur la couleur
+    const frequencies = { red: 261.63, blue: 329.63, green: 392.00, yellow: 523.25 };
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    const oscillator = audioCtx.createOscillator();
+    const gainNode = audioCtx.createGain();
+
+    oscillator.connect(gainNode);
+    gainNode.connect(audioCtx.destination);
+
+    oscillator.frequency.value = frequencies[color] || 440;
+    oscillator.type = 'sine';
+    gainNode.gain.value = 0.3;
+
+    oscillator.start();
+    setTimeout(() => oscillator.stop(), 200);
+}
+
+function memoryBtnClick(color) {
+    if (!memIsPlayerTurn || memIsPlaying) return;
+
+    highlightMemoryBtn(color);
+    memPlayerSequence.push(color);
+
+    // Vérifier si correct
+    const currentIndex = memPlayerSequence.length - 1;
+    if (memPlayerSequence[currentIndex] !== memSequence[currentIndex]) {
+        // Erreur !
+        memoryGameOver();
+        return;
+    }
+
+    // Séquence complète ?
+    if (memPlayerSequence.length === memSequence.length) {
+        memIsPlayerTurn = false;
+        state.score += memLevel * 100;
+        memLevel++;
+
+        document.getElementById('mem-level').textContent = memLevel;
+        document.getElementById('mem-score').textContent = state.score;
+
+        playSuccessSound();
+        showToast(`Niveau ${memLevel - 1} réussi ! +${(memLevel - 1) * 100} pts`, 'success');
+
+        document.getElementById('mem-instruction').textContent = 'Bien joué ! Prépare-toi...';
+
+        setTimeout(startMemoryRound, 1500);
+    }
+}
+
+function memoryGameOver() {
+    memIsPlayerTurn = false;
+    playErrorSound();
+
+    document.getElementById('mem-instruction').textContent = `Game Over ! Niveau atteint: ${memLevel}`;
+
+    const startBtn = document.getElementById('mem-start-btn');
+    startBtn.textContent = 'Rejouer';
+    startBtn.classList.remove('hidden');
+    startBtn.onclick = () => {
+        memSequence = [];
+        memLevel = 1;
+        state.score = 0;
+        document.getElementById('mem-level').textContent = memLevel;
+        document.getElementById('mem-score').textContent = state.score;
+        startMemoryRound();
+    };
+
+    // Sauvegarder le score
+    saveScore(state.score);
+}
+
+// ===== Category Sprint =====
+let sprintTimer = null;
+let sprintTimeLeft = 30;
+let sprintFoundAnswers = [];
+
+function startCategorySprint() {
+    const gameData = allGameData.categorysprint;
+    if (!gameData) {
+        showToast('Pas de données disponibles', 'error');
+        return;
+    }
+
+    // Récupérer les catégories selon le mode
+    let categories = [];
+    if (state.mode && gameData[state.mode]) {
+        categories = [...gameData[state.mode]];
+    } else {
+        // Mode mixte - toutes les catégories
+        Object.values(gameData).forEach(arr => {
+            if (Array.isArray(arr)) categories = categories.concat(arr);
+        });
+    }
+
+    if (categories.length === 0) {
+        showToast('Pas de catégories disponibles', 'error');
+        return;
+    }
+
+    // Choisir une catégorie aléatoire
+    state.sprintCategory = shuffle(categories)[0];
+    state.score = 0;
+    sprintFoundAnswers = [];
+    sprintTimeLeft = 30;
+
+    showScreen('sprint-screen');
+
+    document.getElementById('sprint-category').textContent = state.sprintCategory.category;
+    document.getElementById('sprint-score').textContent = '0';
+    document.getElementById('sprint-timer').textContent = '30';
+    document.getElementById('sprint-answers').innerHTML = '';
+    document.getElementById('sprint-input').value = '';
+    document.getElementById('sprint-input').focus();
+
+    // Setup input
+    const input = document.getElementById('sprint-input');
+    const submitBtn = document.getElementById('sprint-submit');
+
+    input.onkeypress = (e) => {
+        if (e.key === 'Enter') checkSprintAnswer();
+    };
+    submitBtn.onclick = checkSprintAnswer;
+
+    // Démarrer le timer
+    startSprintTimer();
+}
+
+function startSprintTimer() {
+    if (sprintTimer) clearInterval(sprintTimer);
+
+    sprintTimer = setInterval(() => {
+        sprintTimeLeft--;
+        document.getElementById('sprint-timer').textContent = sprintTimeLeft;
+
+        if (sprintTimeLeft <= 5) {
+            document.getElementById('sprint-timer').classList.add('danger');
+        }
+
+        if (sprintTimeLeft <= 0) {
+            endCategorySprint();
+        }
+    }, 1000);
+}
+
+function checkSprintAnswer() {
+    const input = document.getElementById('sprint-input');
+    const answer = input.value.trim().toLowerCase();
+
+    if (!answer) return;
+
+    input.value = '';
+    input.focus();
+
+    // Vérifier si déjà trouvé
+    if (sprintFoundAnswers.some(a => a.toLowerCase() === answer)) {
+        showToast('Déjà trouvé !', 'info');
+        return;
+    }
+
+    // Vérifier si correct (comparaison flexible)
+    const validAnswers = state.sprintCategory.answers.map(a => a.toLowerCase());
+    const isCorrect = validAnswers.some(valid => {
+        // Match exact ou si la réponse contient le mot clé
+        return valid === answer ||
+               valid.includes(answer) ||
+               answer.includes(valid) ||
+               levenshteinDistance(valid, answer) <= 2;
+    });
+
+    if (isCorrect) {
+        // Trouver la réponse exacte correspondante
+        const matchedAnswer = state.sprintCategory.answers.find(a =>
+            a.toLowerCase() === answer ||
+            a.toLowerCase().includes(answer) ||
+            answer.includes(a.toLowerCase()) ||
+            levenshteinDistance(a.toLowerCase(), answer) <= 2
+        );
+
+        if (matchedAnswer && !sprintFoundAnswers.includes(matchedAnswer)) {
+            sprintFoundAnswers.push(matchedAnswer);
+            state.score += 100;
+
+            playSuccessSound();
+            document.getElementById('sprint-score').textContent = state.score;
+
+            // Afficher la réponse
+            const answersEl = document.getElementById('sprint-answers');
+            answersEl.innerHTML = sprintFoundAnswers.map(a =>
+                `<span class="sprint-found">${a}</span>`
+            ).join('');
+
+            // Bonus de temps
+            sprintTimeLeft += 2;
+            document.getElementById('sprint-timer').textContent = sprintTimeLeft;
+        }
+    } else {
+        playErrorSound();
+        showToast('Pas dans la liste !', 'error');
+    }
+}
+
+// Fonction de distance de Levenshtein pour la tolérance aux fautes
+function levenshteinDistance(str1, str2) {
+    const m = str1.length;
+    const n = str2.length;
+    const dp = Array(m + 1).fill(null).map(() => Array(n + 1).fill(0));
+
+    for (let i = 0; i <= m; i++) dp[i][0] = i;
+    for (let j = 0; j <= n; j++) dp[0][j] = j;
+
+    for (let i = 1; i <= m; i++) {
+        for (let j = 1; j <= n; j++) {
+            if (str1[i - 1] === str2[j - 1]) {
+                dp[i][j] = dp[i - 1][j - 1];
+            } else {
+                dp[i][j] = 1 + Math.min(dp[i - 1][j], dp[i][j - 1], dp[i - 1][j - 1]);
+            }
+        }
+    }
+
+    return dp[m][n];
+}
+
+function endCategorySprint() {
+    if (sprintTimer) {
+        clearInterval(sprintTimer);
+        sprintTimer = null;
+    }
+
+    document.getElementById('sprint-timer').classList.remove('danger');
+
+    resumeBgMusic();
+    saveScore(state.score);
+
+    // Afficher les réponses non trouvées
+    const missed = state.sprintCategory.answers.filter(a => !sprintFoundAnswers.includes(a));
+
+    if (missed.length > 0) {
+        showToast(`Réponses manquées: ${missed.slice(0, 3).join(', ')}${missed.length > 3 ? '...' : ''}`, 'info');
+    }
+
+    // Adapter pour le résultat
+    state.questions = [{ answers: state.sprintCategory.answers }];
+    state.correct = sprintFoundAnswers.length;
+    state.bestStreak = sprintFoundAnswers.length;
+    showResult();
+}
+
 // ===== Timer =====
 function startTimer() {
     state.timer = state.difficulty === 'hard' ? 15 : state.difficulty === 'medium' ? 20 : 30;
@@ -2219,6 +3602,11 @@ function timeUp() {
 // ===== End Game =====
 function endGame() {
     clearInterval(state.timerInterval);
+    // Stop any playing audio from blind test
+    if (state.currentAudio) {
+        state.currentAudio.pause();
+        state.currentAudio = null;
+    }
     resumeBgMusic();
     saveScore(state.score);
     showResult();
@@ -2842,9 +4230,17 @@ function joinMpGame(code) {
                 return;
             }
 
+            // Check if player is already in the game (host or already joined)
+            const myId = state.user?.id || 'player_' + Date.now();
+            if (game.players && game.players[myId]) {
+                playErrorSound();
+                showToast('Tu es déjà dans cette partie !', 'error');
+                return;
+            }
+
             mpState.code = code;
             mpState.isHost = false;
-            mpState.myId = state.user?.id || 'player_' + Date.now();
+            mpState.myId = myId;
             mpState.maxPlayers = game.maxPlayers;
             mpState.game = game.game;
             mpState.category = game.category;

@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 
+    <!-- Leaflet.js for City Guesser -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
     <!-- Firebase SDK -->
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
@@ -447,7 +451,6 @@
                                     <span>🎯 Quiz</span>
                                     <span>🎧 Blind Test</span>
                                     <span>📊 Higher/Lower</span>
-                                    <span>⚔️ Clash</span>
                                 </div>
                             </div>
                         </div>
@@ -464,7 +467,6 @@
                                     <span>🎯 Quiz</span>
                                     <span>🎭 Répliques</span>
                                     <span>📊 Box Office</span>
-                                    <span>⚔️ Clash</span>
                                 </div>
                             </div>
                         </div>
@@ -481,7 +483,6 @@
                                     <span>🎯 Quiz</span>
                                     <span>🏆 Palmarès</span>
                                     <span>📊 Stats</span>
-                                    <span>⚔️ Clash</span>
                                 </div>
                             </div>
                         </div>
@@ -498,7 +499,6 @@
                                     <span>🎯 Quiz</span>
                                     <span>🕹️ Retro</span>
                                     <span>📊 Ventes</span>
-                                    <span>⚔️ Clash</span>
                                 </div>
                             </div>
                         </div>
@@ -515,7 +515,131 @@
                                     <span>🎯 Quiz</span>
                                     <span>🚩 Drapeaux</span>
                                     <span>📊 Population</span>
-                                    <span>⚔️ Clash</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Blind Test Audio -->
+                        <div class="game-card-large" data-game="blindtest">
+                            <div class="card-bg blindtest-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">🔊</div>
+                                <h3>Blind Test</h3>
+                                <p>Reconnais les sons et musiques de jeux</p>
+                                <div class="card-modes">
+                                    <span>🔫 Sons</span>
+                                    <span>🎵 OST</span>
+                                    <span>🎮 Mix</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Screenshot Quiz -->
+                        <div class="game-card-large" data-game="screenshot">
+                            <div class="card-bg screenshot-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">📸</div>
+                                <h3>Screenshot Quiz</h3>
+                                <p>Devine le jeu à partir d'une image</p>
+                                <div class="card-modes">
+                                    <span>🎯 Classic</span>
+                                    <span>🔍 Zoom</span>
+                                    <span>🎮 Mix</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Logo Quiz -->
+                        <div class="game-card-large" data-game="logo">
+                            <div class="card-bg logo-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">🏷️</div>
+                                <h3>Logo Quiz</h3>
+                                <p>Reconnais les logos de jeux et studios</p>
+                                <div class="card-modes">
+                                    <span>🎮 Jeux</span>
+                                    <span>🏢 Studios</span>
+                                    <span>🎲 Mix</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Fake or Real -->
+                        <div class="game-card-large" data-game="fakereal">
+                            <div class="card-bg fakereal-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">🤖</div>
+                                <h3>Fake or Real</h3>
+                                <p>IA ou réalité ? Sauras-tu faire la différence ?</p>
+                                <div class="card-modes">
+                                    <span>🖼️ Images</span>
+                                    <span>📰 Faits</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Face Merge -->
+                        <div class="game-card-large" data-game="facemerge">
+                            <div class="card-bg facemerge-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">👥</div>
+                                <h3>Face Merge</h3>
+                                <p>Devine les 2 célébrités mélangées</p>
+                                <div class="card-modes">
+                                    <span>🎬 Acteurs</span>
+                                    <span>🎤 Chanteurs</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zoom Race -->
+                        <div class="game-card-large" data-game="zoomrace">
+                            <div class="card-bg zoomrace-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">🔍</div>
+                                <h3>Zoom Race</h3>
+                                <p>Image zoomée qui se révèle, devine vite !</p>
+                                <div class="card-modes">
+                                    <span>🎮 Jeux</span>
+                                    <span>🎬 Films</span>
+                                    <span>🏷️ Logos</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Memory Sequence -->
+                        <div class="game-card-large" data-game="memory">
+                            <div class="card-bg memory-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">🧠</div>
+                                <h3>Memory</h3>
+                                <p>Mémorise et reproduis la séquence</p>
+                                <div class="card-modes">
+                                    <span>🎨 Couleurs</span>
+                                    <span>🔊 Sons</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Category Sprint -->
+                        <div class="game-card-large" data-game="categorysprint">
+                            <div class="card-bg sprint-bg"></div>
+                            <div class="card-content">
+                                <div class="card-badge new-badge">NOUVEAU</div>
+                                <div class="card-icon">⚡</div>
+                                <h3>Category Sprint</h3>
+                                <p>30 secondes pour donner un max de réponses</p>
+                                <div class="card-modes">
+                                    <span>🎬 Films</span>
+                                    <span>🎵 Musique</span>
+                                    <span>🌍 Géo</span>
                                 </div>
                             </div>
                         </div>
@@ -944,6 +1068,155 @@
                             Partager
                         </button>
                     </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- City Guesser Screen -->
+        <section id="cityguesser-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Score: <span id="cg-score">0</span></span>
+                        <span class="game-progress" id="cg-progress">1/10</span>
+                    </div>
+                </div>
+                <div class="cityguesser-content">
+                    <div class="city-image-container">
+                        <img id="city-image" src="" alt="Ville à deviner" class="city-image">
+                    </div>
+                    <p class="cg-instruction">Clique sur la carte pour placer ta réponse</p>
+                    <div id="city-map" class="city-map"></div>
+                    <button class="btn-primary cg-confirm" id="cg-confirm-btn" disabled onclick="confirmCityGuess()">Confirmer</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fake or Real Screen -->
+        <section id="fakereal-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Score: <span id="fr-score">0</span></span>
+                        <span class="game-progress" id="fr-progress">1/10</span>
+                    </div>
+                </div>
+                <div class="fakereal-content">
+                    <div class="fr-media-container">
+                        <img id="fr-image" src="" alt="" class="fr-image hidden">
+                        <p id="fr-fact" class="fr-fact hidden"></p>
+                    </div>
+                    <div class="fr-buttons">
+                        <button class="fr-btn fr-real" onclick="answerFakeReal(true)">
+                            <span class="fr-icon">✓</span>
+                            <span>RÉEL</span>
+                        </button>
+                        <button class="fr-btn fr-fake" onclick="answerFakeReal(false)">
+                            <span class="fr-icon">✗</span>
+                            <span>FAKE</span>
+                        </button>
+                    </div>
+                    <div id="fr-result" class="fr-result hidden"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Face Merge Screen -->
+        <section id="facemerge-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Score: <span id="fm-score">0</span></span>
+                        <span class="game-progress" id="fm-progress">1/10</span>
+                    </div>
+                </div>
+                <div class="facemerge-content">
+                    <p class="fm-question">Qui sont ces deux personnes fusionnées ?</p>
+                    <div class="fm-image-container">
+                        <img id="fm-image" src="" alt="Visage fusionné" class="fm-image">
+                    </div>
+                    <div id="fm-answers" class="fm-answers"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Zoom Race Screen -->
+        <section id="zoomrace-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Score: <span id="zr-score">0</span></span>
+                        <span class="game-progress" id="zr-progress">1/10</span>
+                    </div>
+                </div>
+                <div class="zoomrace-content">
+                    <div class="zr-timer-bar">
+                        <div class="zr-timer-fill" id="zr-timer-fill"></div>
+                    </div>
+                    <div class="zr-image-container">
+                        <img id="zr-image" src="" alt="" class="zr-image">
+                    </div>
+                    <div id="zr-answers" class="answers-grid"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memory Screen -->
+        <section id="memory-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Niveau: <span id="mem-level">1</span></span>
+                        <span class="game-score">Score: <span id="mem-score">0</span></span>
+                    </div>
+                </div>
+                <div class="memory-content">
+                    <p class="memory-instruction" id="mem-instruction">Regarde la séquence...</p>
+                    <div class="memory-grid" id="memory-grid">
+                        <button class="memory-btn" data-color="red" style="background: #ef4444;"></button>
+                        <button class="memory-btn" data-color="blue" style="background: #3b82f6;"></button>
+                        <button class="memory-btn" data-color="green" style="background: #22c55e;"></button>
+                        <button class="memory-btn" data-color="yellow" style="background: #eab308;"></button>
+                    </div>
+                    <button class="btn-primary" id="mem-start-btn">Commencer</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Sprint Screen -->
+        <section id="sprint-screen" class="screen">
+            <div class="game-container">
+                <div class="game-header">
+                    <button class="back-btn" onclick="quitGame()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                    </button>
+                    <div class="game-info">
+                        <span class="game-score">Score: <span id="sprint-score">0</span></span>
+                        <span class="sprint-timer" id="sprint-timer">30</span>
+                    </div>
+                </div>
+                <div class="sprint-content">
+                    <h2 class="sprint-category" id="sprint-category">Catégorie</h2>
+                    <div class="sprint-input-container">
+                        <input type="text" id="sprint-input" class="sprint-input" placeholder="Tape ta réponse..." autocomplete="off">
+                        <button class="btn-primary sprint-submit" id="sprint-submit">OK</button>
+                    </div>
+                    <div class="sprint-answers" id="sprint-answers"></div>
                 </div>
             </div>
         </section>
