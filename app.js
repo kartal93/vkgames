@@ -67,13 +67,19 @@ const gameConfigs = {
         genres: [
             { id: 'football', emoji: '⚽', name: 'Football' },
             { id: 'basketball', emoji: '🏀', name: 'Basketball' },
-            { id: 'tennis', emoji: '🎾', name: 'Tennis' },
-            { id: 'f1', emoji: '🏎️', name: 'F1' },
-            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+            { id: 'tennis', emoji: '🎾', name: 'Tennis' }
         ],
         genreTitle: 'Sport',
-        hlQuestion: 'Qui a marqué le plus ?',
-        hlLabel: 'buts/points en carrière'
+        hlQuestion: {
+            football: 'Qui a marqué le plus de buts ?',
+            basketball: 'Qui a marqué le plus de points ?',
+            tennis: 'Qui a gagné le plus de Grand Chelem ?'
+        },
+        hlLabel: {
+            football: 'buts en carrière',
+            basketball: 'points en carrière',
+            tennis: 'titres Grand Chelem'
+        }
     },
     gaming: {
         icon: '🎮',
@@ -165,22 +171,21 @@ const gameConfigs = {
         isImageGame: true
     },
     fakereal: {
-        icon: '🤖',
-        title: 'Fake or Real',
+        icon: '🤔',
+        title: 'Vrai ou Faux',
         modes: [
-            { id: 'images', emoji: '🖼️', name: 'Images', desc: 'Photo réelle ou IA ?' },
-            { id: 'facts', emoji: '📰', name: 'Faits', desc: 'Vrai ou inventé ?' }
+            { id: 'facts', emoji: '📰', name: 'Faits', desc: 'Ce fait est-il vrai ou faux ?' }
         ],
         genres: [
-            { id: 'images', emoji: '🖼️', name: 'Images' },
-            { id: 'facts', emoji: '📰', name: 'Faits' },
-            { id: 'mixed', emoji: '🎲', name: 'Mix' }
+            { id: 'facts', emoji: '📰', name: 'Faits' }
         ],
-        genreTitle: 'Type'
+        genreTitle: 'Mode',
+        skipModeSelect: true
     },
     facemerge: {
         icon: '👥',
         title: 'Face Merge',
+        disabled: true, // Désactivé - nécessite des images de visages fusionnés
         modes: [
             { id: 'actors', emoji: '🎬', name: 'Acteurs', desc: 'Acteurs mélangés' },
             { id: 'singers', emoji: '🎤', name: 'Chanteurs', desc: 'Chanteurs mélangés' }
@@ -423,16 +428,40 @@ const allGameData = {
             { q: "Quelle nation a le plus de Coupes du Monde de Rugby ?", a: "Nouvelle-Zelande / Afrique du Sud", opts: ["Nouvelle-Zelande / Afrique du Sud", "Australie", "Angleterre", "France"] },
             { q: "Combien de medailles d'or olympiques a Usain Bolt ?", a: "8", opts: ["8", "9", "7", "6"] }
         ],
-        higherLower: [
-            { title: "Cristiano Ronaldo", artist: "Football", value: 900, emoji: "⚽" },
-            { title: "Lionel Messi", artist: "Football", value: 850, emoji: "🐐" },
-            { title: "LeBron James", artist: "Basketball", value: 40474, emoji: "🏀" },
-            { title: "Tom Brady", artist: "Football US", value: 649, emoji: "🏈" },
-            { title: "Wayne Gretzky", artist: "Hockey", value: 894, emoji: "🏒" },
-            { title: "Michael Jordan", artist: "Basketball", value: 32292, emoji: "🐂" },
-            { title: "Pele", artist: "Football", value: 767, emoji: "👑" },
-            { title: "Roger Federer", artist: "Tennis", value: 103, emoji: "🎾" }
-        ]
+        higherLower: {
+            football: [
+                { title: "Cristiano Ronaldo", artist: "Portugal", value: 900, emoji: "⚽" },
+                { title: "Lionel Messi", artist: "Argentine", value: 850, emoji: "⚽" },
+                { title: "Pelé", artist: "Brésil", value: 767, emoji: "⚽" },
+                { title: "Romario", artist: "Brésil", value: 755, emoji: "⚽" },
+                { title: "Robert Lewandowski", artist: "Pologne", value: 660, emoji: "⚽" },
+                { title: "Neymar", artist: "Brésil", value: 450, emoji: "⚽" },
+                { title: "Zlatan Ibrahimović", artist: "Suède", value: 570, emoji: "⚽" },
+                { title: "Karim Benzema", artist: "France", value: 450, emoji: "⚽" },
+                { title: "Kylian Mbappé", artist: "France", value: 280, emoji: "⚽" },
+                { title: "Erling Haaland", artist: "Norvège", value: 250, emoji: "⚽" }
+            ],
+            basketball: [
+                { title: "LeBron James", artist: "Lakers", value: 40474, emoji: "🏀" },
+                { title: "Kareem Abdul-Jabbar", artist: "Lakers", value: 38387, emoji: "🏀" },
+                { title: "Karl Malone", artist: "Jazz", value: 36928, emoji: "🏀" },
+                { title: "Kobe Bryant", artist: "Lakers", value: 33643, emoji: "🏀" },
+                { title: "Michael Jordan", artist: "Bulls", value: 32292, emoji: "🏀" },
+                { title: "Kevin Durant", artist: "Nets", value: 28000, emoji: "🏀" },
+                { title: "Stephen Curry", artist: "Warriors", value: 22000, emoji: "🏀" },
+                { title: "Shaquille O'Neal", artist: "Lakers", value: 28596, emoji: "🏀" }
+            ],
+            tennis: [
+                { title: "Novak Djokovic", artist: "Serbie", value: 24, emoji: "🎾" },
+                { title: "Rafael Nadal", artist: "Espagne", value: 22, emoji: "🎾" },
+                { title: "Roger Federer", artist: "Suisse", value: 20, emoji: "🎾" },
+                { title: "Pete Sampras", artist: "États-Unis", value: 14, emoji: "🎾" },
+                { title: "Serena Williams", artist: "États-Unis", value: 23, emoji: "🎾" },
+                { title: "Steffi Graf", artist: "Allemagne", value: 22, emoji: "🎾" },
+                { title: "Margaret Court", artist: "Australie", value: 24, emoji: "🎾" },
+                { title: "Carlos Alcaraz", artist: "Espagne", value: 2, emoji: "🎾" }
+            ]
+        }
     },
     gaming: {
         quiz: {
@@ -537,16 +566,21 @@ const allGameData = {
             { q: "se", a: "Suède", opts: ["Suède", "Finlande", "Norvège", "Danemark"] }
         ],
         higherLower: [
-            { title: "Chine", artist: "Asie", value: 1412, emoji: "🇨🇳" },
-            { title: "Inde", artist: "Asie", value: 1408, emoji: "🇮🇳" },
-            { title: "Etats-Unis", artist: "Amerique", value: 332, emoji: "🇺🇸" },
-            { title: "Indonesie", artist: "Asie", value: 276, emoji: "🇮🇩" },
-            { title: "Bresil", artist: "Amerique", value: 215, emoji: "🇧🇷" },
-            { title: "Nigeria", artist: "Afrique", value: 218, emoji: "🇳🇬" },
-            { title: "Russie", artist: "Europe/Asie", value: 144, emoji: "🇷🇺" },
-            { title: "Japon", artist: "Asie", value: 125, emoji: "🇯🇵" },
-            { title: "France", artist: "Europe", value: 68, emoji: "🇫🇷" },
-            { title: "Allemagne", artist: "Europe", value: 84, emoji: "🇩🇪" }
+            { title: "Chine", artist: "Asie", value: 1412, flag: "cn" },
+            { title: "Inde", artist: "Asie", value: 1408, flag: "in" },
+            { title: "États-Unis", artist: "Amérique", value: 332, flag: "us" },
+            { title: "Indonésie", artist: "Asie", value: 276, flag: "id" },
+            { title: "Brésil", artist: "Amérique", value: 215, flag: "br" },
+            { title: "Nigeria", artist: "Afrique", value: 218, flag: "ng" },
+            { title: "Russie", artist: "Europe/Asie", value: 144, flag: "ru" },
+            { title: "Japon", artist: "Asie", value: 125, flag: "jp" },
+            { title: "France", artist: "Europe", value: 68, flag: "fr" },
+            { title: "Allemagne", artist: "Europe", value: 84, flag: "de" },
+            { title: "Royaume-Uni", artist: "Europe", value: 67, flag: "gb" },
+            { title: "Italie", artist: "Europe", value: 59, flag: "it" },
+            { title: "Mexique", artist: "Amérique", value: 128, flag: "mx" },
+            { title: "Espagne", artist: "Europe", value: 47, flag: "es" },
+            { title: "Canada", artist: "Amérique", value: 38, flag: "ca" }
         ],
         cityguesser: [
             { image: "https://images.unsplash.com/photo-1502602898657-3e91760cbb34?w=600", city: "Paris", country: "France", lat: 48.8566, lng: 2.3522 },
@@ -687,25 +721,27 @@ const allGameData = {
         }
     },
     fakereal: {
-        images: [
-            { image: "https://images.unsplash.com/photo-1529665253569-6d01c0eaf7b6?w=400", isReal: true, explanation: "Photo réelle d'une personne" },
-            { image: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400", isReal: true, explanation: "Photo réelle d'un chat" },
-            { image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe?w=400", isReal: true, explanation: "Photo réelle d'une femme" },
-            { image: "https://images.unsplash.com/photo-1511765224389-37f0e77cf0eb?w=400", isReal: true, explanation: "Photo réelle de la Tour Eiffel" },
-            { image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400", isReal: true, explanation: "Photo réelle d'un homme" },
-            { image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400", isReal: true, explanation: "Photo réelle d'une femme" },
-            { image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400", isReal: true, explanation: "Photo réelle d'un homme" },
-            { image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400", isReal: true, explanation: "Photo réelle d'une femme souriante" }
-        ],
         facts: [
-            { fact: "Les flamants roses naissent blancs et deviennent roses à cause de leur alimentation", isReal: true, explanation: "Vrai ! Les crevettes et algues qu'ils mangent contiennent des pigments" },
-            { fact: "La Grande Muraille de Chine est visible depuis la Lune", isReal: false, explanation: "Faux ! Elle est trop étroite pour être vue depuis l'espace" },
+            { fact: "Les flamants roses naissent blancs et deviennent roses à cause de leur alimentation", isReal: true, explanation: "Vrai ! Les crevettes et algues qu'ils mangent contiennent des pigments caroténoïdes" },
+            { fact: "La Grande Muraille de Chine est visible depuis la Lune", isReal: false, explanation: "Faux ! Elle est trop étroite pour être vue depuis l'espace, même depuis l'orbite terrestre" },
             { fact: "Un groupe de corbeaux s'appelle un 'meurtre'", isReal: true, explanation: "Vrai ! En anglais, on dit 'a murder of crows'" },
-            { fact: "Les humains n'utilisent que 10% de leur cerveau", isReal: false, explanation: "Faux ! Nous utilisons toutes les parties de notre cerveau" },
-            { fact: "Le miel ne périme jamais", isReal: true, explanation: "Vrai ! On a retrouvé du miel comestible dans des tombes égyptiennes" },
+            { fact: "Les humains n'utilisent que 10% de leur cerveau", isReal: false, explanation: "Faux ! Nous utilisons toutes les parties de notre cerveau, juste pas toutes en même temps" },
+            { fact: "Le miel ne périme jamais", isReal: true, explanation: "Vrai ! On a retrouvé du miel comestible dans des tombes égyptiennes vieilles de 3000 ans" },
             { fact: "Les poissons rouges ont une mémoire de 3 secondes", isReal: false, explanation: "Faux ! Ils peuvent se souvenir de choses pendant des mois" },
             { fact: "Cléopâtre vivait plus proche de l'invention de l'iPhone que de la construction des pyramides", isReal: true, explanation: "Vrai ! ~2500 ans séparent les pyramides de Cléopâtre, ~2000 ans séparent Cléopâtre de l'iPhone" },
-            { fact: "Les vaches ont des meilleurs amis", isReal: true, explanation: "Vrai ! Elles sont stressées quand séparées de leurs amies" }
+            { fact: "Les vaches ont des meilleurs amis", isReal: true, explanation: "Vrai ! Elles sont stressées quand elles sont séparées de leurs amies" },
+            { fact: "Les éclairs ne frappent jamais deux fois au même endroit", isReal: false, explanation: "Faux ! L'Empire State Building est frappé environ 25 fois par an" },
+            { fact: "Les autruches mettent leur tête dans le sable quand elles ont peur", isReal: false, explanation: "Faux ! C'est un mythe, elles se couchent au sol pour se camoufler" },
+            { fact: "Une journée sur Vénus est plus longue qu'une année sur Vénus", isReal: true, explanation: "Vrai ! Vénus tourne très lentement sur elle-même (243 jours) mais orbite vite autour du Soleil (225 jours)" },
+            { fact: "Les koalas ont des empreintes digitales presque identiques à celles des humains", isReal: true, explanation: "Vrai ! Même les experts légistes peuvent les confondre" },
+            { fact: "Napoléon était très petit", isReal: false, explanation: "Faux ! Il mesurait 1m69, soit la taille moyenne de l'époque" },
+            { fact: "Il y a plus d'étoiles dans l'univers que de grains de sable sur Terre", isReal: true, explanation: "Vrai ! On estime qu'il y a environ 10^24 étoiles contre 10^23 grains de sable" },
+            { fact: "Les chats retombent toujours sur leurs pattes grâce à leur queue", isReal: false, explanation: "Faux ! C'est grâce à leur réflexe de redressement et leur colonne vertébrale flexible" },
+            { fact: "Le cœur d'une crevette est situé dans sa tête", isReal: true, explanation: "Vrai ! Comme beaucoup de crustacés" },
+            { fact: "On peut voir la Muraille de Chine depuis l'espace", isReal: false, explanation: "Faux ! Elle n'est pas visible à l'œil nu depuis l'orbite" },
+            { fact: "Les bananes sont radioactives", isReal: true, explanation: "Vrai ! Elles contiennent du potassium-40, mais en quantité inoffensive" },
+            { fact: "Les vikings portaient des casques à cornes", isReal: false, explanation: "Faux ! C'est une invention du 19ème siècle pour l'opéra" },
+            { fact: "Un octopus a 3 cœurs", isReal: true, explanation: "Vrai ! 2 pour les branchies et 1 pour le corps" }
         ]
     },
     facemerge: {
@@ -2492,14 +2528,48 @@ function startHL() {
     }
 
     const config = gameConfigs[state.currentGame];
-    document.getElementById('hl-question').textContent = config.hlQuestion;
-    document.getElementById('hl-left-label').textContent = config.hlLabel;
-    document.getElementById('hl-right-label').textContent = config.hlLabel;
 
-    const items = shuffle([...gameData.higherLower]);
+    // Gérer les Higher/Lower avec sous-catégories (comme sport)
+    let hlData;
+    let hlQuestion = config.hlQuestion;
+    let hlLabel = config.hlLabel;
+
+    if (Array.isArray(gameData.higherLower)) {
+        // Format simple : tableau direct
+        hlData = gameData.higherLower;
+    } else if (typeof gameData.higherLower === 'object') {
+        // Format avec sous-catégories (sport par exemple)
+        const genre = state.genre || Object.keys(gameData.higherLower)[0];
+        hlData = gameData.higherLower[genre];
+
+        if (!hlData) {
+            showToast('Sélectionne un sport spécifique', 'error');
+            return;
+        }
+
+        // Questions et labels dynamiques selon le sport
+        if (typeof config.hlQuestion === 'object') {
+            hlQuestion = config.hlQuestion[genre] || 'Qui a le plus ?';
+        }
+        if (typeof config.hlLabel === 'object') {
+            hlLabel = config.hlLabel[genre] || 'valeur';
+        }
+    }
+
+    if (!hlData || hlData.length < 2) {
+        showToast('Pas assez de données disponibles', 'error');
+        return;
+    }
+
+    document.getElementById('hl-question').textContent = hlQuestion;
+    document.getElementById('hl-left-label').textContent = hlLabel;
+    document.getElementById('hl-right-label').textContent = hlLabel;
+
+    const items = shuffle([...hlData]);
     state.hlCurrent = items[0];
     state.hlNext = items[1];
     state.hlUsed.push(items[0].title, items[1].title);
+    state.hlPool = hlData; // Garder la référence pour hlGuess
 
     showScreen('hl-screen');
     updateHL();
@@ -2511,14 +2581,26 @@ function updateHL() {
     document.getElementById('hl-best').textContent = state.hlBest;
 
     const left = document.getElementById('hl-left');
-    document.getElementById('hl-left-emoji').textContent = state.hlCurrent.emoji || '🎵';
+    const leftEmoji = document.getElementById('hl-left-emoji');
+    const rightEmoji = document.getElementById('hl-right-emoji');
+
+    // Afficher drapeau ou emoji selon les données
+    if (state.hlCurrent.flag) {
+        leftEmoji.innerHTML = `<img src="https://flagcdn.com/w80/${state.hlCurrent.flag}.png" alt="${state.hlCurrent.title}" class="hl-flag">`;
+    } else {
+        leftEmoji.textContent = state.hlCurrent.emoji || '🎵';
+    }
     left.querySelector('.hl-title').textContent = state.hlCurrent.title;
     left.querySelector('.hl-artist').textContent = state.hlCurrent.artist || '';
     left.querySelector('.streams-num').textContent = state.hlCurrent.value;
     left.classList.remove('correct', 'wrong');
 
     const right = document.getElementById('hl-right');
-    document.getElementById('hl-right-emoji').textContent = state.hlNext.emoji || '🎵';
+    if (state.hlNext.flag) {
+        rightEmoji.innerHTML = `<img src="https://flagcdn.com/w80/${state.hlNext.flag}.png" alt="${state.hlNext.title}" class="hl-flag">`;
+    } else {
+        rightEmoji.textContent = state.hlNext.emoji || '🎵';
+    }
     right.querySelector('.hl-title').textContent = state.hlNext.title;
     right.querySelector('.hl-artist').textContent = state.hlNext.artist || '';
     right.classList.remove('correct', 'wrong');
@@ -2560,9 +2642,8 @@ function hlGuess(guess) {
 
         setTimeout(() => {
             state.hlCurrent = state.hlNext;
-            const gameData = allGameData[state.currentGame];
-            const pool = gameData.higherLower.filter(s => !state.hlUsed.includes(s.title));
-            state.hlNext = shuffle(pool.length ? pool : gameData.higherLower)[0];
+            const pool = state.hlPool.filter(s => !state.hlUsed.includes(s.title));
+            state.hlNext = shuffle(pool.length ? pool : state.hlPool)[0];
             state.hlUsed.push(state.hlNext.title);
             updateHL();
         }, 1500);
@@ -2708,8 +2789,10 @@ function startCityGuesser() {
     setTimeout(() => {
         if (!cityMap) {
             cityMap = L.map('city-map').setView([20, 0], 2);
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                attribution: '© OpenStreetMap'
+            // Utiliser OpenStreetMap France pour les labels en français
+            L.tileLayer('https://{s}.tile.openstreetmap.fr/osmfr/{z}/{x}/{y}.png', {
+                attribution: '© OpenStreetMap France',
+                maxZoom: 19
             }).addTo(cityMap);
 
             cityMap.on('click', function(e) {
@@ -2737,10 +2820,14 @@ function startCityGuesser() {
 
 function showCityQuestion() {
     const q = state.cgQuestions[state.cgCurrent];
-    if (!q) return;
+    if (!q) {
+        endCityGuesser();
+        return;
+    }
 
+    const totalQuestions = Math.min(state.cgQuestions.length, 10);
     document.getElementById('cg-score').textContent = state.score;
-    document.getElementById('cg-progress').textContent = `${state.cgCurrent + 1}/10`;
+    document.getElementById('cg-progress').textContent = `${state.cgCurrent + 1}/${totalQuestions}`;
     document.getElementById('city-image').src = q.image;
 
     // Reset map view and marker
@@ -2811,7 +2898,7 @@ function confirmCityGuess() {
         cityMap.removeLayer(line);
 
         state.cgCurrent++;
-        if (state.cgCurrent >= 10) {
+        if (state.cgCurrent >= state.cgQuestions.length || state.cgCurrent >= 10) {
             endCityGuesser();
         } else {
             showCityQuestion();
@@ -2832,23 +2919,13 @@ function endCityGuesser() {
 // ===== Fake or Real =====
 function startFakeReal() {
     const gameData = allGameData.fakereal;
-    if (!gameData) {
+    if (!gameData || !gameData.facts) {
         showToast('Pas de données disponibles', 'error');
         return;
     }
 
-    // Mélanger images et faits selon le mode
-    let data = [];
-    if (state.mode === 'images' && gameData.images) {
-        data = gameData.images.map(item => ({ ...item, type: 'image' }));
-    } else if (state.mode === 'facts' && gameData.facts) {
-        data = gameData.facts.map(item => ({ ...item, type: 'fact' }));
-    } else {
-        // Mode mixte
-        const images = (gameData.images || []).map(item => ({ ...item, type: 'image' }));
-        const facts = (gameData.facts || []).map(item => ({ ...item, type: 'fact' }));
-        data = [...images, ...facts];
-    }
+    // Utiliser uniquement les faits
+    const data = gameData.facts.map(item => ({ ...item, type: 'fact' }));
 
     state.frQuestions = shuffle(data).slice(0, 10);
     state.frCurrent = 0;
@@ -2862,12 +2939,16 @@ function startFakeReal() {
 
 function showFakeRealQuestion() {
     const q = state.frQuestions[state.frCurrent];
-    if (!q) return;
+    if (!q) {
+        endFakeReal();
+        return;
+    }
 
     state.isAnswered = false;
 
+    const totalQuestions = Math.min(state.frQuestions.length, 10);
     document.getElementById('fr-score').textContent = state.score;
-    document.getElementById('fr-progress').textContent = `${state.frCurrent + 1}/10`;
+    document.getElementById('fr-progress').textContent = `${state.frCurrent + 1}/${totalQuestions}`;
 
     const imageEl = document.getElementById('fr-image');
     const factEl = document.getElementById('fr-fact');
@@ -2875,11 +2956,9 @@ function showFakeRealQuestion() {
 
     resultEl.classList.add('hidden');
 
-    if (q.type === 'image') {
-        imageEl.src = q.image;
-        imageEl.classList.remove('hidden');
-        factEl.classList.add('hidden');
-    } else {
+    // Toujours afficher comme un fait (mode images désactivé)
+    imageEl.classList.add('hidden');
+    if (q.fact) {
         factEl.textContent = q.fact;
         factEl.classList.remove('hidden');
         imageEl.classList.add('hidden');
@@ -2938,7 +3017,7 @@ function answerFakeReal(isReal) {
 
     setTimeout(() => {
         state.frCurrent++;
-        if (state.frCurrent >= 10) {
+        if (state.frCurrent >= state.frQuestions.length || state.frCurrent >= 10) {
             endFakeReal();
         } else {
             showFakeRealQuestion();
@@ -3106,13 +3185,18 @@ function startZoomRace() {
 
 function showZoomQuestion() {
     const q = state.zrQuestions[state.zrCurrent];
-    if (!q) return;
+    if (!q) {
+        // Plus de questions disponibles
+        endZoomRace();
+        return;
+    }
 
     state.isAnswered = false;
     zrZoomLevel = 500; // Très zoomé au départ
 
+    const totalQuestions = Math.min(state.zrQuestions.length, 10);
     document.getElementById('zr-score').textContent = state.score;
-    document.getElementById('zr-progress').textContent = `${state.zrCurrent + 1}/10`;
+    document.getElementById('zr-progress').textContent = `${state.zrCurrent + 1}/${totalQuestions}`;
 
     const imageEl = document.getElementById('zr-image');
     imageEl.src = q.image;
@@ -3202,7 +3286,7 @@ function zrAnswer(answer, correct) {
 
     setTimeout(() => {
         state.zrCurrent++;
-        if (state.zrCurrent >= 10) {
+        if (state.zrCurrent >= state.zrQuestions.length || state.zrCurrent >= 10) {
             endZoomRace();
         } else {
             showZoomQuestion();
@@ -3225,7 +3309,7 @@ function zrTimeUp(correct) {
 
     setTimeout(() => {
         state.zrCurrent++;
-        if (state.zrCurrent >= 10) {
+        if (state.zrCurrent >= state.zrQuestions.length || state.zrCurrent >= 10) {
             endZoomRace();
         } else {
             showZoomQuestion();
@@ -3261,7 +3345,16 @@ function startMemory() {
 
     document.getElementById('mem-level').textContent = memLevel;
     document.getElementById('mem-score').textContent = state.score;
-    document.getElementById('mem-instruction').textContent = 'Appuie sur Commencer pour jouer';
+
+    // Message différent selon le mode
+    const isSoundMode = state.mode === 'sounds';
+    if (isSoundMode) {
+        document.getElementById('mem-instruction').textContent = '🔊 Mode Son - Écoute attentivement !';
+        document.getElementById('memory-grid').classList.add('sound-mode');
+    } else {
+        document.getElementById('mem-instruction').textContent = '🎨 Mode Couleurs - Regarde bien !';
+        document.getElementById('memory-grid').classList.remove('sound-mode');
+    }
 
     const startBtn = document.getElementById('mem-start-btn');
     startBtn.textContent = 'Commencer';
@@ -3311,16 +3404,21 @@ function playMemorySequence() {
     setTimeout(playNext, 500);
 }
 
-function highlightMemoryBtn(color) {
+function highlightMemoryBtn(color, isPlayerAction = false) {
     const btn = document.querySelector(`.memory-btn[data-color="${color}"]`);
     if (!btn) return;
 
-    btn.classList.add('active');
-    playMemorySound(color);
+    const isSoundMode = state.mode === 'sounds';
 
-    setTimeout(() => {
-        btn.classList.remove('active');
-    }, 400);
+    // En mode son, ne montrer le highlight que si c'est l'action du joueur
+    if (!isSoundMode || isPlayerAction) {
+        btn.classList.add('active');
+        setTimeout(() => {
+            btn.classList.remove('active');
+        }, 400);
+    }
+
+    playMemorySound(color);
 }
 
 function playMemorySound(color) {
@@ -3344,7 +3442,7 @@ function playMemorySound(color) {
 function memoryBtnClick(color) {
     if (!memIsPlayerTurn || memIsPlaying) return;
 
-    highlightMemoryBtn(color);
+    highlightMemoryBtn(color, true); // true = action du joueur, toujours montrer
     memPlayerSequence.push(color);
 
     // Vérifier si correct
@@ -3383,6 +3481,7 @@ function memoryGameOver() {
     startBtn.textContent = 'Rejouer';
     startBtn.classList.remove('hidden');
     startBtn.onclick = () => {
+        document.getElementById('mem-quit-btn').classList.add('hidden');
         memSequence = [];
         memLevel = 1;
         state.score = 0;
@@ -3391,8 +3490,22 @@ function memoryGameOver() {
         startMemoryRound();
     };
 
+    // Afficher le bouton quitter
+    document.getElementById('mem-quit-btn').classList.remove('hidden');
+
     // Sauvegarder le score
     saveScore(state.score);
+}
+
+function quitMemory() {
+    memIsPlayerTurn = false;
+    memIsPlaying = false;
+    memSequence = [];
+    memLevel = 1;
+    document.getElementById('mem-quit-btn').classList.add('hidden');
+    document.getElementById('mem-start-btn').textContent = 'Commencer';
+    resumeBgMusic();
+    showScreen('home-screen');
 }
 
 // ===== Category Sprint =====
@@ -3468,9 +3581,18 @@ function startSprintTimer() {
     }, 1000);
 }
 
+// Fonction pour normaliser les chaînes (enlever accents, espaces, etc.)
+function normalizeString(str) {
+    return str.toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Enlever les accents
+        .replace(/[^a-z0-9]/g, ''); // Garder que lettres et chiffres
+}
+
 function checkSprintAnswer() {
     const input = document.getElementById('sprint-input');
     const answer = input.value.trim().toLowerCase();
+    const normalizedAnswer = normalizeString(answer);
 
     if (!answer) return;
 
@@ -3478,29 +3600,29 @@ function checkSprintAnswer() {
     input.focus();
 
     // Vérifier si déjà trouvé
-    if (sprintFoundAnswers.some(a => a.toLowerCase() === answer)) {
+    if (sprintFoundAnswers.some(a => normalizeString(a) === normalizedAnswer)) {
         showToast('Déjà trouvé !', 'info');
         return;
     }
 
-    // Vérifier si correct (comparaison flexible)
-    const validAnswers = state.sprintCategory.answers.map(a => a.toLowerCase());
-    const isCorrect = validAnswers.some(valid => {
-        // Match exact ou si la réponse contient le mot clé
-        return valid === answer ||
-               valid.includes(answer) ||
-               answer.includes(valid) ||
-               levenshteinDistance(valid, answer) <= 2;
+    // Vérifier si correct (comparaison flexible avec normalisation)
+    const isCorrect = state.sprintCategory.answers.some(valid => {
+        const normalizedValid = normalizeString(valid);
+        return normalizedValid === normalizedAnswer ||
+               normalizedValid.includes(normalizedAnswer) ||
+               normalizedAnswer.includes(normalizedValid) ||
+               levenshteinDistance(normalizedValid, normalizedAnswer) <= 2;
     });
 
     if (isCorrect) {
         // Trouver la réponse exacte correspondante
-        const matchedAnswer = state.sprintCategory.answers.find(a =>
-            a.toLowerCase() === answer ||
-            a.toLowerCase().includes(answer) ||
-            answer.includes(a.toLowerCase()) ||
-            levenshteinDistance(a.toLowerCase(), answer) <= 2
-        );
+        const matchedAnswer = state.sprintCategory.answers.find(a => {
+            const normalizedA = normalizeString(a);
+            return normalizedA === normalizedAnswer ||
+                normalizedA.includes(normalizedAnswer) ||
+                normalizedAnswer.includes(normalizedA) ||
+                levenshteinDistance(normalizedA, normalizedAnswer) <= 2;
+        });
 
         if (matchedAnswer && !sprintFoundAnswers.includes(matchedAnswer)) {
             sprintFoundAnswers.push(matchedAnswer);

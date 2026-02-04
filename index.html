@@ -582,8 +582,8 @@
                             </div>
                         </div>
 
-                        <!-- Face Merge -->
-                        <div class="game-card-large" data-game="facemerge">
+                        <!-- Face Merge - Désactivé (nécessite des images de visages fusionnés) -->
+                        <!-- <div class="game-card-large" data-game="facemerge">
                             <div class="card-bg facemerge-bg"></div>
                             <div class="card-content">
                                 <div class="card-badge new-badge">NOUVEAU</div>
@@ -595,7 +595,7 @@
                                     <span>🎤 Chanteurs</span>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
 
                         <!-- Zoom Race -->
                         <div class="game-card-large" data-game="zoomrace">
@@ -1115,11 +1115,11 @@
                     <div class="fr-buttons">
                         <button class="fr-btn fr-real" onclick="answerFakeReal(true)">
                             <span class="fr-icon">✓</span>
-                            <span>RÉEL</span>
+                            <span>VRAI</span>
                         </button>
                         <button class="fr-btn fr-fake" onclick="answerFakeReal(false)">
                             <span class="fr-icon">✗</span>
-                            <span>FAKE</span>
+                            <span>FAUX</span>
                         </button>
                     </div>
                     <div id="fr-result" class="fr-result hidden"></div>
@@ -1193,7 +1193,10 @@
                         <button class="memory-btn" data-color="green" style="background: #22c55e;"></button>
                         <button class="memory-btn" data-color="yellow" style="background: #eab308;"></button>
                     </div>
-                    <button class="btn-primary" id="mem-start-btn">Commencer</button>
+                    <div class="memory-buttons">
+                        <button class="btn-primary" id="mem-start-btn">Commencer</button>
+                        <button class="btn-secondary hidden" id="mem-quit-btn" onclick="quitMemory()">Quitter</button>
+                    </div>
                 </div>
             </div>
         </section>

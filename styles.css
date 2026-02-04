@@ -1803,6 +1803,7 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
 .hl-card.wrong, .clash-card.loser { border-color: var(--danger); opacity: 0.5; }
 
 .hl-emoji, .clash-emoji { font-size: 3.5rem; margin-bottom: 1rem; }
+.hl-flag { width: 80px; height: auto; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
 .hl-title, .clash-name { font-size: 1.25rem; font-weight: 700; margin-bottom: 0.25rem; }
 .hl-artist, .clash-genre { font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1.5rem; }
 .hl-streams { margin-top: 1rem; }
@@ -5164,6 +5165,26 @@ body[data-theme="waves"] .bg-gradient { opacity: 0.4; }
     opacity: 1;
     transform: scale(1.1);
     box-shadow: 0 0 30px currentColor;
+}
+
+/* Mode son - cacher les couleurs pendant la séquence */
+.memory-grid.sound-mode .memory-btn {
+    background: var(--bg-tertiary) !important;
+    border-color: var(--border-color);
+}
+.memory-grid.sound-mode .memory-btn::after {
+    content: '🔊';
+    font-size: 2rem;
+}
+.memory-grid.sound-mode .memory-btn.active {
+    background: var(--accent) !important;
+    box-shadow: 0 0 30px var(--accent);
+}
+
+.memory-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .memory-btn:disabled {
